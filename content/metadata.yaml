@@ -1,30 +1,27 @@
 ---
 title: "Manuscript Title"
-date: null  # Defaults to date generated, but can specify like '2022-10-31'.
+date: null
 keywords:
   - markdown
   - publishing
   - manubot
 lang: en-US
 authors:
-  - github: johndoe
-    name: John Doe
-    initials: JD
-    orcid: XXXX-XXXX-XXXX-XXXX
-    twitter: johndoe
-    mastodon: johndoe
-    mastodon-server: mastodon.social
-    email: john.doe@something.com
+  - github: jjc2718
+    name: Jake Crawford
+    initials: JC
+    orcid: 0000-0001-6207-0782
+    twitter: jjc2718
+    email: jcra@pennmedicine.upenn.edu
     affiliations:
-      - Department of Something, University of Whatever
-    funders:
-      - Grant XXXXXXXX
-  - github: janeroe
-    name: Jane Roe
-    initials: JR
-    orcid: XXXX-XXXX-XXXX-XXXX
-    email: jane.roe@whatever.edu
+      - Genomics and Computational Biology Graduate Group, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA
+  - github: cgreene
+    name: Casey S. Greene
+    initials: CSG
+    orcid: 0000-0001-8713-9213
+    twitter: GreeneScientist
+    email: casey.s.greene@cuanschutz.edu
     affiliations:
-      - Department of Something, University of Whatever
-      - Department of Whatever, University of Something
+      - Department of Biochemistry and Molecular Genetics, University of Colorado School of Medicine, Aurora, CO, USA
+      - Center for Health AI, University of Colorado School of Medicine, Aurora, CO, USA
     corresponding: true
