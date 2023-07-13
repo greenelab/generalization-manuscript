@@ -8,6 +8,9 @@ webpage/v
 # directory is not removed.
 /images
 
+content/images/figure_3_data*
+content/images/smallest_best_schematic.png
+
 # Manubot cache directory
 ci/cache
 
