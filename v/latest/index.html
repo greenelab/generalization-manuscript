@@ -54,8 +54,8 @@
   <meta name="dc.date" content="2023-07-13" />
   <meta name="citation_publication_date" content="2023-07-13" />
   <meta property="article:published_time" content="2023-07-13" />
-  <meta name="dc.modified" content="2023-07-13T13:45:40+00:00" />
-  <meta property="article:modified_time" content="2023-07-13T13:45:40+00:00" />
+  <meta name="dc.modified" content="2023-07-13T14:32:22+00:00" />
+  <meta property="article:modified_time" content="2023-07-13T14:32:22+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -76,9 +76,9 @@
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/584094eb5607e19c50afa40872dc0473639b910c/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/584094eb5607e19c50afa40872dc0473639b910c/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/584094eb5607e19c50afa40872dc0473639b910c/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/9543ff1933ca087bab74cfe7dd8083a71698475e/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/9543ff1933ca087bab74cfe7dd8083a71698475e/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/9543ff1933ca087bab74cfe7dd8083a71698475e/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -95,9 +95,9 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://greenelab.github.io/generalization-manuscript/v/584094eb5607e19c50afa40872dc0473639b910c/">permalink</a>)
+(<a href="https://greenelab.github.io/generalization-manuscript/v/9543ff1933ca087bab74cfe7dd8083a71698475e/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/greenelab/generalization-manuscript/tree/584094eb5607e19c50afa40872dc0473639b910c">greenelab/generalization-manuscript@584094e</a>
+from <a href="https://github.com/greenelab/generalization-manuscript/tree/9543ff1933ca087bab74cfe7dd8083a71698475e">greenelab/generalization-manuscript@9543ff1</a>
 on July 13, 2023.
 </em></small></p>
 <h2 id="authors">Authors</h2>
@@ -171,26 +171,56 @@ Neural network details? (if necessary)</p>
 Statistical testing?</p>
 <h3 id="open-sciencereproducibility-stuff">Open science/reproducibility stuff</h3>
 <h2 class="page_break_before" id="results">Results</h2>
+<h3 id="evaluating-model-generalization-using-public-cancer-data">Evaluating model generalization using public cancer data</h3>
+<p>We collected data from the TCGA Pan-Cancer Atlas and the Cancer Cell Line Encyclopedia to predict the presence or absence of mutations in cancer genes, as a benchmark of cancer-related information content across cancer types and contexts.
+We trained mutation status classifiers across approximately 70 genes involved in cancer development and progression from Vogelstein et al. 2013 <span class="citation" data-cites="809OyWlC">[<a href="#ref-809OyWlC" role="doc-biblioref">4</a>]</span>, using LASSO logistic regression with gene expression (RNA-seq) values as predictive features.
+We designed experiments to evaluate the generalization of mutation status classifiers across datasets (TCGA to CCLE and CCLE to TCGA) and across biological contexts (cancer types) within TCGA, relative to a within-dataset baseline (Figure <a href="#fig:overview">1</a>).</p>
+<div id="fig:overview" class="fignos">
+<figure>
+<img src="images/figure_1.png" style="width:90.0%" alt="Figure 1: Schematic of experimental design. The colors of the “dots” in the training/model selection/model evaluation panels on the left correspond to train/CV/test curves in the following results figures." />
+<figcaption aria-hidden="true"><span>Figure 1:</span> Schematic of experimental design. The colors of the “dots” in the training/model selection/model evaluation panels on the left correspond to train/CV/test curves in the following results figures.</figcaption>
+</figure>
+</div>
+<h3 id="generalization-from-human-tumor-samples-to-cell-lines-is-more-effective-than-the-reverse">Generalization from human tumor samples to cell lines is more effective than the reverse</h3>
+<p>To evaluate “cross-dataset” generalization, we trained mutation status classifiers on human tumor data from TCGA and evaluated them on cell line data from CCLE, as well as the reverse from CCLE to TCGA.
+As an example, we examined <em>EGFR</em>, an oncogenic tyrosine kinase that is commonly mutated in diverse cancer types and cancer cell lines, including lung cancer, colorectal cancer, and glioblastoma <span class="citation" data-cites="qtYNZ2Q2 rzy1RWeA">[<a href="#ref-qtYNZ2Q2" role="doc-biblioref">5</a>,<a href="#ref-rzy1RWeA" role="doc-biblioref">6</a>]</span>.
+For EGFR mutation status classifiers trained on TCGA and evaluated on CCLE, we saw that AUPR on cell lines was slightly worse than on held-out tumor samples, but comparable across regularization levels/LASSO parameters (Figure <a href="#fig:tcga_ccle_overall">2</a>A).
+On the other hand, EGFR classifiers trained on CCLE and evaluated on TCGA performed considerably worse on human tumor samples as compared to held-out cell lines (Figure <a href="#fig:tcga_ccle_overall">2</a>B).</p>
+<p>To explore these tendencies more generally, we compared performance across all genes in the Vogelstein et al. dataset, for both TCGA to CCLE and CCLE to TCGA generalization.
+We measured the difference between performance on the holdout data within the training dataset and performance across datasets, with a positive difference indicating poor generalization (better holdout performance than test performance) and a 0 or negative difference indicating good generalization (comparable test performance to holdout performance).
+For generalization from TCGA to CCLE, we observed that median AUPR differences were mostly centered around 0 for most genes, with some exceptions at the extremes (Figure <a href="#fig:tcga_ccle_overall">2</a>C; performance differences on the y-axis).
+An example of a gene exhibiting poor generalization was <em>IDH1</em>, the leftmost gene in Figure <a href="#fig:tcga_ccle_overall">2</a>C, with good performance on held-out TCGA data and poor performance on CCLE data.
+IDH-mutant glioma cell lines are poorly represented compared to IDH-mutant patient tumors, which may explain the difficulty of generalization to cell lines for <em>IDH1</em> mutation classifiers <span class="citation" data-cites="HQx0QuE4">[<a href="#ref-HQx0QuE4" role="doc-biblioref">7</a>]</span>.
+For generalization from CCLE to TCGA, we observed a more pronounced upward shift toward better performance on CCLE and worse on TCGA, with most genes performing better on the CCLE holdout data and very few genes generalizing comparably to the TCGA samples (Figure <a href="#fig:tcga_ccle_overall">2</a>D).</p>
+<div id="fig:tcga_ccle_overall" class="fignos">
+<figure>
+<img src="images/figure_2.png" style="width:80.0%" alt="Figure 2: A. EGFR mutation status prediction performance on training samples from TCGA (blue), held-out TCGA samples (orange), and CCLE samples (green), across varying LASSO parameters. B. EGFR mutation status prediction performance on training samples from CCLE (blue), held-out CCLE samples (orange), and TCGA samples (green). C. Difference in mutation status prediction performance for models trained on TCGA (holdout data) and evaluated on CCLE (test data), across 71 genes from Vogelstein et al. For each gene, the best model (LASSO parameter) was selected using holdout AUPR performance. Genes on x-axis are ordered by median AUPR difference across cross-validation splits, from highest to lowest. D. Difference in mutation status prediction performance for models trained on CCLE (holdout data) and evaluated on TCGA (test data), across 70 genes from Vogelstein et al." />
+<figcaption aria-hidden="true"><span>Figure 2:</span> <strong>A.</strong> <em>EGFR</em> mutation status prediction performance on training samples from TCGA (blue), held-out TCGA samples (orange), and CCLE samples (green), across varying LASSO parameters.
+<strong>B.</strong> <em>EGFR</em> mutation status prediction performance on training samples from CCLE (blue), held-out CCLE samples (orange), and TCGA samples (green).
+<strong>C.</strong> Difference in mutation status prediction performance for models trained on TCGA (holdout data) and evaluated on CCLE (test data), across 71 genes from Vogelstein et al. For each gene, the best model (LASSO parameter) was selected using holdout AUPR performance. Genes on x-axis are ordered by median AUPR difference across cross-validation splits, from highest to lowest.
+<strong>D.</strong> Difference in mutation status prediction performance for models trained on CCLE (holdout data) and evaluated on TCGA (test data), across 70 genes from Vogelstein et al.</figcaption>
+</figure>
+</div>
 <h3 id="best-and-smallest-good-model-selection-strategies-perform-comparably">“Best” and “smallest good” model selection strategies perform comparably</h3>
-<p>To address the question of whether more parsimonious models tend to generalize better or not, we designed two model selection schemes and compared them for the TCGA to CCLE and CCLE to TCGA mutation prediction problems (Figure <a href="#fig:tcga_ccle_smallest_best">1</a>A).
+<p>To address the question of whether more parsimonious models tend to generalize better or not, we designed two model selection schemes and compared them for the TCGA to CCLE and CCLE to TCGA mutation prediction problems (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>A).
 The “best” model selection scheme chooses the top-performing model/LASSO parameter on the holdout dataset from the same source as the training data and applies it to the test data from the other data source.
 The intention of the “smallest good” model selection scheme is to balance parsimony with reasonable performance on the holdout data, since simply selecting the smallest possible model (generally, the dummy regressor/mean predictor) is not likely to generalize well.
 To accomplish this, we first identify the top 25% of well-performing models on the holdout dataset; then, from this subset of models, we choose the smallest (i.e., highest LASSO parameter) to apply to the test data.
 In both cases, we exclusively use the holdout data to select a model and only apply the model to out-of-dataset samples to evaluate generalization performance <em>after</em> model selection.</p>
 <p>For TCGA to CCLE generalization, 27/71 genes (38.0%) had better performance for the “best” model, and 17/71 genes (23.9%) had better generalization performance with the “smallest good” model.
-The other 27 genes had the same “best” and “smallest good” model (in other words, the “smallest good” model was also the best-performing overall, and the difference was 0) (Figure <a href="#fig:tcga_ccle_smallest_best">1</a>B).
-For CCLE to TCGA generalization, 23/70 genes (32.9%) had better performance for the “best” model and 18/70 (25.7%) for the “smallest good,” with the other 29 having the same model fulfill both criteria (Figure <a href="#fig:tcga_ccle_smallest_best">1</a>C).
+The other 27 genes had the same “best” and “smallest good” model (in other words, the “smallest good” model was also the best-performing overall, and the difference was 0) (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>B).
+For CCLE to TCGA generalization, 23/70 genes (32.9%) had better performance for the “best” model and 18/70 (25.7%) for the “smallest good,” with the other 29 having the same model fulfill both criteria (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>C).
 Overall, these results do not support the hypothesis that the most parsimonious model generalizes the best: for both generalization problems there are slightly more genes where the best-performing model on the holdout dataset is also the best-performing on the test set, although there are some genes where the “smallest good” approach works well.</p>
-<p>We examined genes that fell into either category for TCGA to CCLE generalization (dotted lines on Figure <a href="#fig:tcga_ccle_smallest_best">1</a>B).
-For <em>NF1</em>, the “best” model outperforms the “smallest good” model (Figure <a href="#fig:tcga_ccle_smallest_best">1</a>D).
+<p>We examined genes that fell into either category for TCGA to CCLE generalization (dotted lines on Figure <a href="#fig:tcga_ccle_smallest_best">3</a>B).
+For <em>NF1</em>, the “best” model outperforms the “smallest good” model (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>D).
 Comparing holdout (orange) and cross-dataset (green) performance, both generally follow a similar trend, with the cross-dataset performance peaking when the holdout performance peaks at a regularization parameter of <span class="math inline">\(\alpha = 0.00316\)</span>.
-<em>PIK3CA</em> is an example of the opposite, a gene where the “smallest good” model tends to outperform the “best” model (Figure <a href="#fig:tcga_ccle_smallest_best">1</a>E).
+<em>PIK3CA</em> is an example of the opposite, a gene where the “smallest good” model tends to outperform the “best” model (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>E).
 In this case, the peak for the cross-dataset performance occurs at a higher level of regularization (further left on the x-axis), at <span class="math inline">\(\alpha = 0.01\)</span>, than the peak for the holdout performance, at <span class="math inline">\(\alpha = 0.0316\)</span>.
 This suggests that a <em>PIK3CA</em> mutation status classifier that is more parsimonious, but that has slightly worse performance, does tend to generalize better across datasets to CCLE.</p>
 <div id="fig:tcga_ccle_smallest_best" class="fignos">
 <figure>
-<img src="images/figure_3.png" style="width:90.0%" alt="Figure 1: A. Schematic of “best” vs. “smallest good” model comparison experiments. B. Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for TCGA -&gt; CCLE generalization. Positive x-axis values indicate better performance for the “best” model, negative values indicate better performance for the “smallest good” model. C. Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for CCLE -&gt; TCGA generalization. D. NF1 mutation status prediction performance generalizing from TCGA (holdout, orange), to CCLE (green), with “best” and “smallest good” models labeled. E. PIK3CA mutation status prediction performance generalizing from TCGA (holdout, orange), to CCLE (green), with “best” and “smallest good” models labeled." />
-<figcaption aria-hidden="true"><span>Figure 1:</span> <strong>A.</strong> Schematic of “best” vs. “smallest good” model comparison experiments.
+<img src="images/figure_3.png" style="width:90.0%" alt="Figure 3: A. Schematic of “best” vs. “smallest good” model comparison experiments. B. Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for TCGA -&gt; CCLE generalization. Positive x-axis values indicate better performance for the “best” model, negative values indicate better performance for the “smallest good” model. C. Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for CCLE -&gt; TCGA generalization. D. NF1 mutation status prediction performance generalizing from TCGA (holdout, orange), to CCLE (green), with “best” and “smallest good” models labeled. E. PIK3CA mutation status prediction performance generalizing from TCGA (holdout, orange), to CCLE (green), with “best” and “smallest good” models labeled." />
+<figcaption aria-hidden="true"><span>Figure 3:</span> <strong>A.</strong> Schematic of “best” vs. “smallest good” model comparison experiments.
 <strong>B.</strong> Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for TCGA -&gt; CCLE generalization. Positive x-axis values indicate better performance for the “best” model, negative values indicate better performance for the “smallest good” model.
 <strong>C.</strong> Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for CCLE -&gt; TCGA generalization.
 <strong>D.</strong> <em>NF1</em> mutation status prediction performance generalizing from TCGA (holdout, orange), to CCLE (green), with “best” and “smallest good” models labeled.
@@ -208,6 +238,18 @@ This suggests that a <em>PIK3CA</em> mutation status classifier that is more par
 </div>
 <div id="ref-MnWpJEWE" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">3. </div><div class="csl-right-inline"><strong>Evaluating the evaluation of cancer driver genes</strong> <div class="csl-block">Collin J Tokheim, Nickolas Papadopoulos, Kenneth W Kinzler, Bert Vogelstein, Rachel Karchin</div> <em>Proceedings of the National Academy of Sciences</em> (2016-11-22) <a href="https://doi.org/f9d77w">https://doi.org/f9d77w</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1073/pnas.1616440113">10.1073/pnas.1616440113</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/27911828">27911828</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5167163">PMC5167163</a></div></div>
+</div>
+<div id="ref-809OyWlC" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline"><strong>Cancer Genome Landscapes</strong> <div class="csl-block">B Vogelstein, N Papadopoulos, VE Velculescu, S Zhou, LA Diaz, KW Kinzler</div> <em>Science</em> (2013-03-28) <a href="https://doi.org/6rg">https://doi.org/6rg</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1126/science.1235122">10.1126/science.1235122</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/23539594">23539594</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3749880">PMC3749880</a></div></div>
+</div>
+<div id="ref-qtYNZ2Q2" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline"><strong>EGFR Mutations and Lung Cancer</strong> <div class="csl-block">Gilda da Cunha Santos, Frances A Shepherd, Ming Sound Tsao</div> <em>Annual Review of Pathology: Mechanisms of Disease</em> (2011-02-28) <a href="https://doi.org/dd359s">https://doi.org/dd359s</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1146/annurev-pathol-011110-130206">10.1146/annurev-pathol-011110-130206</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/20887192">20887192</a></div></div>
+</div>
+<div id="ref-rzy1RWeA" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline"><strong>Spectrum of EGFR aberrations and potential clinical implications: insights from integrative pan‐cancer analysis</strong> <div class="csl-block">Haijing Liu, Bo Zhang, Zhifu Sun</div> <em>Cancer Communications</em> (2020-01) <a href="https://doi.org/ghsz4b">https://doi.org/ghsz4b</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1002/cac2.12005">10.1002/cac2.12005</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/32067422">32067422</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7163653">PMC7163653</a></div></div>
+</div>
+<div id="ref-HQx0QuE4" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline"><strong>Patient-derived cells from recurrent tumors that model the evolution of IDH-mutant glioma</strong> <div class="csl-block">Lindsey E Jones, Stephanie Hilz, Matthew R Grimmer, Tali Mazor, Chloé Najac, Joydeep Mukherjee, Andrew McKinney, Tracy Chow, Russell O Pieper, Sabrina M Ronen, … Joseph F Costello</div> <em>Neuro-Oncology Advances</em> (2020-01-01) <a href="https://doi.org/gsfw2p">https://doi.org/gsfw2p</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1093/noajnl/vdaa088">10.1093/noajnl/vdaa088</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/32904945">32904945</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7462278">PMC7462278</a></div></div>
 </div>
 </div>
 <!-- default theme -->
