@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2023-07-13'
+date-meta: '2023-07-20'
 author-meta:
 - John Doe
 - Jane Roe
@@ -20,11 +20,11 @@ header-includes: |
   <meta name="citation_title" content="Manuscript Title" />
   <meta property="og:title" content="Manuscript Title" />
   <meta property="twitter:title" content="Manuscript Title" />
-  <meta name="dc.date" content="2023-07-13" />
-  <meta name="citation_publication_date" content="2023-07-13" />
-  <meta property="article:published_time" content="2023-07-13" />
-  <meta name="dc.modified" content="2023-07-13T15:22:06+00:00" />
-  <meta property="article:modified_time" content="2023-07-13T15:22:06+00:00" />
+  <meta name="dc.date" content="2023-07-20" />
+  <meta name="citation_publication_date" content="2023-07-20" />
+  <meta property="article:published_time" content="2023-07-20" />
+  <meta name="dc.modified" content="2023-07-20T13:10:13+00:00" />
+  <meta property="article:modified_time" content="2023-07-20T13:10:13+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -45,9 +45,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/5a0c172922d9f42e936db6c03b453c6a66be5003/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/5a0c172922d9f42e936db6c03b453c6a66be5003/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/5a0c172922d9f42e936db6c03b453c6a66be5003/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -69,10 +69,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/5a0c172922d9f42e936db6c03b453c6a66be5003/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/))
 was automatically generated
-from [greenelab/generalization-manuscript@5a0c172](https://github.com/greenelab/generalization-manuscript/tree/5a0c172922d9f42e936db6c03b453c6a66be5003)
-on July 13, 2023.
+from [greenelab/generalization-manuscript@b82f5e9](https://github.com/greenelab/generalization-manuscript/tree/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0)
+on July 20, 2023.
 </em></small>
 
 
@@ -190,13 +190,25 @@ We selected this implementation rather than the `SGDClassifier` stochastic gradi
 To assess model selection across contexts (datasets and cancer types), we trained models using a variety of LASSO parameters on 75% of the training dataset, holding out 25% of the training dataset as the "cross-validation" set and also evaluating across contexts as the "test" set.
 We trained models using $C$ values evenly spaced on a logarithmic scale between (10^-3^, 10^7^); i.e. the output of `numpy.logspace(-3, 7, 21)`.
 This range was intended to give evenly distributed coverage across genes and cancer types that included "underfit" models (predicting only the mean or using very few features, poor performance on all datasets), "overfit" models (performing perfectly on training data but comparatively poorly on cross-validation and test data), and a wide variety of models in between that typically included the best fits to the cross-validation and test data.
-
-### Neural network setup and parameter selection
+To assess variability between train/CV splits, we used all 4 splits (25% holdout sets) x 2 random seeds for a total of 8 different training sets for each gene, using the same test set (i.e. all of the held-out context, either one cancer type or one dataset) in each case.
 
 ### "Best model" vs. "smallest good model" analysis details
 
 Description of "smallest good" heuristic
 Statistical testing?
+
+### Neural network setup and parameter selection
+
+Inspired by the intermediate-complexity model in [@doi:10.1371/journal.pcbi.1010984], as a tradeoff between computational cost and ability to represent non-linear decision boundaries, we trained a three-layer fully connected neural network with ReLU nonlinearities [@https://dl.acm.org/doi/10.5555/3104322.3104425] to predict mutation status.
+For the experiments described in the main paper, we varied the size of the first hidden layer in the range {1, 2, 3, 4, 5, 10, 50, 100, 500, 1000}.
+We fixed the size of the second hidden layer to be half of the size of the first hidden layer, rounded up to the nearest integer, and the size of the third hidden layer was the number of classes, 2 in our case.
+Our models were trained for 100 epochs of mini-batch stochastic gradient descent in PyTorch [@arxiv:1912.01703], using the Adam optimizer [@arxiv:1412.6980] and a fixed batch size of 50.
+To select the remaining hyperparameters for each hidden layer size, we performed a random search over 10 combinations, with a single train/test split stratified by cancer type, using the following hyperparameter ranges: learning rate {0.1, 0.01, 0.001, 5e-4, 1e-4}, dropout proportion {0.1, 0.5, 0.75}, weight decay (L2 penalty) {0, 0.1, 1, 10, 100}.
+We used the same train/cross-validation split strategy described above, generating 8 different performance measurements for each gene and hidden layer size, for the neural network experiments as well.
+
+For the _EGFR_ gene, we also ran experiments where we varied the dropout proportion and the weight decay hyperparameter as the regularization axis, and selected the remaining hyperparameters (including the hidden layer size) using a random search.
+In these cases, we used a fixed range for dropout of {0.0, 0.05, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 0.95}, and a fixed range for weight decay of {0.0, 0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 10.0}.
+All neural network analyses were performed on a Ubuntu 18.04 machine with a NVIDIA RTX 2060 GPU.
 
 ### Open science/reproducibility stuff
 
