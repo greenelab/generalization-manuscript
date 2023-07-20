@@ -1,5 +1,7 @@
 AUPR
+BRAF
 CCLE
+CDKN
 CNV
 colorectal
 covariates
@@ -20,7 +22,10 @@ IDH
 inforamtion
 janeroe
 johndoe
+KIRP
+LGG
 nonlinearities
+NRAS
 oncogenic
 overfit
 PIK
@@ -30,8 +35,12 @@ regressor
 ReLU
 reproducibility
 RTX
+SARC
+SETD
 TCGA
-Thresholded
+TGCT
+THCA
+thresholded
 tradeoff
 tunable
 tyrosine

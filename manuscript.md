@@ -23,8 +23,8 @@ header-includes: |
   <meta name="dc.date" content="2023-07-20" />
   <meta name="citation_publication_date" content="2023-07-20" />
   <meta property="article:published_time" content="2023-07-20" />
-  <meta name="dc.modified" content="2023-07-20T13:10:13+00:00" />
-  <meta property="article:modified_time" content="2023-07-20T13:10:13+00:00" />
+  <meta name="dc.modified" content="2023-07-20T13:20:08+00:00" />
+  <meta property="article:modified_time" content="2023-07-20T13:20:08+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -45,9 +45,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/4303549f550b36e5f8ac43b098449f5c72b201c8/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/4303549f550b36e5f8ac43b098449f5c72b201c8/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/4303549f550b36e5f8ac43b098449f5c72b201c8/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -69,9 +69,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/4303549f550b36e5f8ac43b098449f5c72b201c8/))
 was automatically generated
-from [greenelab/generalization-manuscript@b82f5e9](https://github.com/greenelab/generalization-manuscript/tree/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0)
+from [greenelab/generalization-manuscript@4303549](https://github.com/greenelab/generalization-manuscript/tree/4303549f550b36e5f8ac43b098449f5c72b201c8)
 on July 20, 2023.
 </em></small>
 
@@ -273,6 +273,30 @@ This suggests that a _PIK3CA_ mutation status classifier that is more parsimonio
 **D.** _NF1_ mutation status prediction performance generalizing from TCGA (holdout, orange), to CCLE (green), with "best" and "smallest good" models labeled.
 **E.** _PIK3CA_ mutation status prediction performance generalizing from TCGA (holdout, orange), to CCLE (green), with "best" and "smallest good" models labeled.
 ](images/figure_3.png){#fig:tcga_ccle_smallest_best width="90%"}
+
+### Generalization across cancer types yields similar results to generalization across datasets
+
+To evaluate generalization across biological contexts within a dataset, we trained mutation prediction classifiers on all but one cancer type in TCGA, performed model selection on a holdout set stratified by cancer type, and held out the remaining cancer type as a test set.
+We performed the same "best" vs. "smallest good" analysis that was previously described, across 294 gene/holdout cancer type combinations (Figure {@fig:cancer_type_holdout}A).
+We observed 127/294 gene/cancer type combinations (43.1%) that had better generalization performance with the "best" model, compared to 78/294 (26.5%) for the "smallest good" model.
+The other 89 gene/cancer type combinations had the same "best" and "smallest good" model and thus no difference in performance.
+This is consistent with our cross-dataset experiments, with slightly more instances where the "best" model on the stratified holdout data also generalizes the best, but no pronounced distributional shift in either direction.
+
+We looked in more detail at two examples of gene/cancer type combinations, one on either side of the 0 point for cross-cancer type generalization.
+For prediction of _SETD2_ mutation status in papillary renal cell carcinoma, we observed the best cross-cancer type performance for relatively low levels of regularization/high x-axis values (Figure {@fig:cancer_type_holdout}B).
+For prediction of _CDKN2A_ mutation status in low grade glioma, on the other hand, we observed the best cross-cancer generalization for a high level of regularization ($\alpha = 0.01$), and generalization capability for the best parameter on the stratified holdout set ($\alpha = 0.0316$) was lower (Figure {@fig:cancer_type_holdout}C).
+
+We also aggregated results across genes for each cancer type, looking at performance in the held-out cancer type compared to performance on the stratified holdout set (Figure {@fig:cancer_type_holdout}D).
+Cancer types that were particularly difficult to generalize to (better performance on stratified data than cancer type holdout, or positive y-axis values) include testicular cancer (TGCT) and soft tissue sarcoma (SARC), which are notable because they are not carcinomas like the majority of cancer types included in TCGA, potentially making generalization harder.
+Thyroid carcinoma (THCA) also had poor performance when held out, however.
+In our experiments, the only genes in which THCA is included as a held-out cancer type are _BRAF_ and _NRAS_; previous work suggests that _BRAF_ mutation tends to have a different functional signature in THCA than other cancer types, and withholding THCA from the training set improved classifier performance [@doi:10.1016/j.celrep.2018.03.046].
+
+![
+**A.** Distribution of performance comparisons between "best" and "smallest good" model selection strategies, for generalization across TCGA cancer types. Each point is a gene/cancer type combination; positive x-axis values indicate better performance for the "best" model and negative values indicate better performance for the "smallest good" model.
+**B.** _SETD2_ mutation status prediction performance generalizing from other cancer types in TCGA (stratified holdout, orange) to papillary renal cell carcinoma (KIRP, green), with "best" and "smallest good" models labeled.
+**C.** _CDKN2A_ mutation status prediction performance generalizing from other cancer types in TCGA (stratified holdout, orange) to low grade glioma (LGG, green), with "best" and "smallest good" models labeled.
+**D.** Distributions of performance difference between CV data (same cancer types as train data) and holdout data (cancer types not represented in train data), by held-out cancer type. Each point is a gene whose mutation status classifier was used to make predictions on out-of-dataset samples in the relevant cancer type.
+](images/figure_4.png){#fig:cancer_type_holdout width="90%"}
 
 
 
