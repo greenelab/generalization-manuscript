@@ -54,8 +54,8 @@
   <meta name="dc.date" content="2023-07-20" />
   <meta name="citation_publication_date" content="2023-07-20" />
   <meta property="article:published_time" content="2023-07-20" />
-  <meta name="dc.modified" content="2023-07-20T13:20:08+00:00" />
-  <meta property="article:modified_time" content="2023-07-20T13:20:08+00:00" />
+  <meta name="dc.modified" content="2023-07-20T13:38:20+00:00" />
+  <meta property="article:modified_time" content="2023-07-20T13:38:20+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -76,9 +76,9 @@
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/4303549f550b36e5f8ac43b098449f5c72b201c8/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/4303549f550b36e5f8ac43b098449f5c72b201c8/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/4303549f550b36e5f8ac43b098449f5c72b201c8/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/c17aedcf77bddca59b063821536cd99dcea3a014/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/c17aedcf77bddca59b063821536cd99dcea3a014/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/c17aedcf77bddca59b063821536cd99dcea3a014/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -95,9 +95,9 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://greenelab.github.io/generalization-manuscript/v/4303549f550b36e5f8ac43b098449f5c72b201c8/">permalink</a>)
+(<a href="https://greenelab.github.io/generalization-manuscript/v/c17aedcf77bddca59b063821536cd99dcea3a014/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/greenelab/generalization-manuscript/tree/4303549f550b36e5f8ac43b098449f5c72b201c8">greenelab/generalization-manuscript@4303549</a>
+from <a href="https://github.com/greenelab/generalization-manuscript/tree/c17aedcf77bddca59b063821536cd99dcea3a014">greenelab/generalization-manuscript@c17aedc</a>
 on July 20, 2023.
 </em></small></p>
 <h2 id="authors">Authors</h2>
@@ -274,6 +274,27 @@ In our experiments, the only genes in which THCA is included as a held-out cance
 <strong>B.</strong> <em>SETD2</em> mutation status prediction performance generalizing from other cancer types in TCGA (stratified holdout, orange) to papillary renal cell carcinoma (KIRP, green), with “best” and “smallest good” models labeled.
 <strong>C.</strong> <em>CDKN2A</em> mutation status prediction performance generalizing from other cancer types in TCGA (stratified holdout, orange) to low grade glioma (LGG, green), with “best” and “smallest good” models labeled.
 <strong>D.</strong> Distributions of performance difference between CV data (same cancer types as train data) and holdout data (cancer types not represented in train data), by held-out cancer type. Each point is a gene whose mutation status classifier was used to make predictions on out-of-dataset samples in the relevant cancer type.</figcaption>
+</figure>
+</div>
+<h3 id="small-neural-network-hidden-layer-sizes-tend-to-generalize-poorly">Small neural network hidden layer sizes tend to generalize poorly</h3>
+<p>To test whether or not findings generalize to non-linear models, we trained a 3-layer neural network to predict mutation status from gene expression for generalization from TCGA to CCLE, and we varied the size of the first hidden layer to control regularization/model complexity.
+We fixed the size of the second hidden layer to be half the size of the first layer, rounded up to the nearest integer; further details in Methods.
+For <em>EGFR</em> mutation status prediction, we saw that performance for small hidden layer sizes was noisy, but generally lower than for higher hidden layer sizes (Figure <a href="#fig:tcga_ccle_nn">5</a>A).
+We also tried varying additional regularization parameters such as dropout and weight decay while holding the hidden layer size constant, and results followed a similar trend (Supplementary Figure TODO).
+On average, over all 71 genes from Vogelstein et al., performance on both held-out TCGA data and CCLE data tends to increase until a hidden layer size of 10-50, then flatten (Figure <a href="#fig:tcga_ccle_nn">5</a>B).</p>
+<p>In order to measure which hidden layer sizes tended to perform relatively well or poorly, across different mutated cancer genes with different effect sizes, we ranked the range of hidden layer sizes by their generalization performance on CCLE (with low ranks representing good performance, and high ranks representing poor performance; Figure <a href="#fig:tcga_ccle_nn">5</a>C).
+For each hidden layer size, we then visualized the distribution of ranks above and below the median rank of 5.5/10; a high proportion of ranks above the median (True, or blue bar) signifies poor overall performance for that hidden layer size, and a high proportion of ranks below the median (False, or orange bar) signifies good performance.
+We saw that small hidden layer sizes tended to generalize poorly (&lt;5, but most pronounced for 1 and 2), and intermediate hidden layer sizes tended to generalize well (10-100, and sometimes 500/1000).
+This suggests that some degree of parsimony/simplicity could be useful, but very simple models do not tend to generalize well.
+We also performed the same “best”/“smallest good” analysis as with the linear models, using hidden layer size as the regularization axis instead of LASSO regularization strength.
+We observed a distribution centered around 0, suggesting that the “best” and “smallest good” models tend to generalize similarly (Figure <a href="#fig:tcga_ccle_nn">5</a>D).</p>
+<div id="fig:tcga_ccle_nn" class="fignos">
+<figure>
+<img src="images/figure_5.png" style="width:90.0%" alt="Figure 5: A. EGFR mutation status prediction performance on training samples from TCGA (blue), held-out TCGA samples (orange), and CCLE samples (green), across varying neural network hidden layer sizes. B. Mutation status prediction performance summarized across all genes from Vogelstein et al. on training samples from TCGA (blue), held-out TCGA samples (orange), and CCLE samples (green), across varying neural network hidden layer sizes. C. Distribution of ranked performance values above/below the median rank for each gene, for each of the hidden layer sizes evaluated. Lower ranks indicate better performance and higher ranks indicate worse performance, relative to other hidden layer sizes. D. Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for TCGA -&gt; CCLE generalization with neural network hidden layer size as the regularization axis. Positive x-axis values indicate better performance for the “best” model, negative values indicate better performance for the “smallest good” model." />
+<figcaption aria-hidden="true"><span>Figure 5:</span> <strong>A.</strong> <em>EGFR</em> mutation status prediction performance on training samples from TCGA (blue), held-out TCGA samples (orange), and CCLE samples (green), across varying neural network hidden layer sizes.
+<strong>B.</strong> Mutation status prediction performance summarized across all genes from Vogelstein et al. on training samples from TCGA (blue), held-out TCGA samples (orange), and CCLE samples (green), across varying neural network hidden layer sizes.
+<strong>C.</strong> Distribution of ranked performance values above/below the median rank for each gene, for each of the hidden layer sizes evaluated. Lower ranks indicate better performance and higher ranks indicate worse performance, relative to other hidden layer sizes.
+<strong>D.</strong> Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for TCGA -&gt; CCLE generalization with neural network hidden layer size as the regularization axis. Positive x-axis values indicate better performance for the “best” model, negative values indicate better performance for the “smallest good” model.</figcaption>
 </figure>
 </div>
 <h2 class="page_break_before" id="references">References</h2>
