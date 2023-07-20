@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2023-07-13" />
+  <meta name="dcterms.date" content="2023-07-20" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -51,11 +51,11 @@
   <meta name="citation_title" content="Manuscript Title" />
   <meta property="og:title" content="Manuscript Title" />
   <meta property="twitter:title" content="Manuscript Title" />
-  <meta name="dc.date" content="2023-07-13" />
-  <meta name="citation_publication_date" content="2023-07-13" />
-  <meta property="article:published_time" content="2023-07-13" />
-  <meta name="dc.modified" content="2023-07-13T15:22:06+00:00" />
-  <meta property="article:modified_time" content="2023-07-13T15:22:06+00:00" />
+  <meta name="dc.date" content="2023-07-20" />
+  <meta name="citation_publication_date" content="2023-07-20" />
+  <meta property="article:published_time" content="2023-07-20" />
+  <meta name="dc.modified" content="2023-07-20T13:10:13+00:00" />
+  <meta property="article:modified_time" content="2023-07-20T13:10:13+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -76,9 +76,9 @@
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/5a0c172922d9f42e936db6c03b453c6a66be5003/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/5a0c172922d9f42e936db6c03b453c6a66be5003/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/5a0c172922d9f42e936db6c03b453c6a66be5003/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -95,10 +95,10 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://greenelab.github.io/generalization-manuscript/v/5a0c172922d9f42e936db6c03b453c6a66be5003/">permalink</a>)
+(<a href="https://greenelab.github.io/generalization-manuscript/v/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/greenelab/generalization-manuscript/tree/5a0c172922d9f42e936db6c03b453c6a66be5003">greenelab/generalization-manuscript@5a0c172</a>
-on July 13, 2023.
+from <a href="https://github.com/greenelab/generalization-manuscript/tree/b82f5e9f3751cf3c81c302b795c5ed44da4a02e0">greenelab/generalization-manuscript@b82f5e9</a>
+on July 20, 2023.
 </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
@@ -181,16 +181,26 @@ For fixed values of <span class="math inline">\(C\)</span>, we solved for <span 
 We selected this implementation rather than the <code>SGDClassifier</code> stochastic gradient descent implementation because coordinate descent/<code>liblinear</code> tends to generate sparser models and does not depend on a learning rate parameter, although after hyperparameter tuning performance is generally comparable between the implementations <span class="citation" data-cites="gOHkic9g">[<a href="#ref-gOHkic9g" role="doc-biblioref">7</a>]</span>.</p>
 <p>To assess model selection across contexts (datasets and cancer types), we trained models using a variety of LASSO parameters on 75% of the training dataset, holding out 25% of the training dataset as the “cross-validation” set and also evaluating across contexts as the “test” set.
 We trained models using <span class="math inline">\(C\)</span> values evenly spaced on a logarithmic scale between (10<sup>-3</sup>, 10<sup>7</sup>); i.e. the output of <code>numpy.logspace(-3, 7, 21)</code>.
-This range was intended to give evenly distributed coverage across genes and cancer types that included “underfit” models (predicting only the mean or using very few features, poor performance on all datasets), “overfit” models (performing perfectly on training data but comparatively poorly on cross-validation and test data), and a wide variety of models in between that typically included the best fits to the cross-validation and test data.</p>
-<h3 id="neural-network-setup-and-parameter-selection">Neural network setup and parameter selection</h3>
+This range was intended to give evenly distributed coverage across genes and cancer types that included “underfit” models (predicting only the mean or using very few features, poor performance on all datasets), “overfit” models (performing perfectly on training data but comparatively poorly on cross-validation and test data), and a wide variety of models in between that typically included the best fits to the cross-validation and test data.
+To assess variability between train/CV splits, we used all 4 splits (25% holdout sets) x 2 random seeds for a total of 8 different training sets for each gene, using the same test set (i.e. all of the held-out context, either one cancer type or one dataset) in each case.</p>
 <h3 id="best-model-vs.-smallest-good-model-analysis-details">“Best model” vs. “smallest good model” analysis details</h3>
 <p>Description of “smallest good” heuristic
 Statistical testing?</p>
+<h3 id="neural-network-setup-and-parameter-selection">Neural network setup and parameter selection</h3>
+<p>Inspired by the intermediate-complexity model in <span class="citation" data-cites="b7RUXQvu">[<a href="#ref-b7RUXQvu" role="doc-biblioref">8</a>]</span>, as a tradeoff between computational cost and ability to represent non-linear decision boundaries, we trained a three-layer fully connected neural network with ReLU nonlinearities <span class="citation" data-cites="Xk9rmxAA">[<a href="#ref-Xk9rmxAA" role="doc-biblioref">9</a>]</span> to predict mutation status.
+For the experiments described in the main paper, we varied the size of the first hidden layer in the range {1, 2, 3, 4, 5, 10, 50, 100, 500, 1000}.
+We fixed the size of the second hidden layer to be half of the size of the first hidden layer, rounded up to the nearest integer, and the size of the third hidden layer was the number of classes, 2 in our case.
+Our models were trained for 100 epochs of mini-batch stochastic gradient descent in PyTorch <span class="citation" data-cites="iTP4h1rX">[<a href="#ref-iTP4h1rX" role="doc-biblioref">10</a>]</span>, using the Adam optimizer <span class="citation" data-cites="c6d3lKFX">[<a href="#ref-c6d3lKFX" role="doc-biblioref">11</a>]</span> and a fixed batch size of 50.
+To select the remaining hyperparameters for each hidden layer size, we performed a random search over 10 combinations, with a single train/test split stratified by cancer type, using the following hyperparameter ranges: learning rate {0.1, 0.01, 0.001, 5e-4, 1e-4}, dropout proportion {0.1, 0.5, 0.75}, weight decay (L2 penalty) {0, 0.1, 1, 10, 100}.
+We used the same train/cross-validation split strategy described above, generating 8 different performance measurements for each gene and hidden layer size, for the neural network experiments as well.</p>
+<p>For the <em>EGFR</em> gene, we also ran experiments where we varied the dropout proportion and the weight decay hyperparameter as the regularization axis, and selected the remaining hyperparameters (including the hidden layer size) using a random search.
+In these cases, we used a fixed range for dropout of {0.0, 0.05, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 0.95}, and a fixed range for weight decay of {0.0, 0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 10.0}.
+All neural network analyses were performed on a Ubuntu 18.04 machine with a NVIDIA RTX 2060 GPU.</p>
 <h3 id="open-sciencereproducibility-stuff">Open science/reproducibility stuff</h3>
 <h2 class="page_break_before" id="results">Results</h2>
 <h3 id="evaluating-model-generalization-using-public-cancer-data">Evaluating model generalization using public cancer data</h3>
 <p>We collected data from the TCGA Pan-Cancer Atlas and the Cancer Cell Line Encyclopedia to predict the presence or absence of mutations in cancer genes, as a benchmark of cancer-related information content across cancer types and contexts.
-We trained mutation status classifiers across approximately 70 genes involved in cancer development and progression from Vogelstein et al. 2013 <span class="citation" data-cites="809OyWlC">[<a href="#ref-809OyWlC" role="doc-biblioref">8</a>]</span>, using LASSO logistic regression with gene expression (RNA-seq) values as predictive features.
+We trained mutation status classifiers across approximately 70 genes involved in cancer development and progression from Vogelstein et al. 2013 <span class="citation" data-cites="809OyWlC">[<a href="#ref-809OyWlC" role="doc-biblioref">12</a>]</span>, using LASSO logistic regression with gene expression (RNA-seq) values as predictive features.
 We designed experiments to evaluate the generalization of mutation status classifiers across datasets (TCGA to CCLE and CCLE to TCGA) and across biological contexts (cancer types) within TCGA, relative to a within-dataset baseline (Figure <a href="#fig:overview">1</a>).</p>
 <div id="fig:overview" class="fignos">
 <figure>
@@ -200,14 +210,14 @@ We designed experiments to evaluate the generalization of mutation status classi
 </div>
 <h3 id="generalization-from-human-tumor-samples-to-cell-lines-is-more-effective-than-the-reverse">Generalization from human tumor samples to cell lines is more effective than the reverse</h3>
 <p>To evaluate “cross-dataset” generalization, we trained mutation status classifiers on human tumor data from TCGA and evaluated them on cell line data from CCLE, as well as the reverse from CCLE to TCGA.
-As an example, we examined <em>EGFR</em>, an oncogenic tyrosine kinase that is commonly mutated in diverse cancer types and cancer cell lines, including lung cancer, colorectal cancer, and glioblastoma <span class="citation" data-cites="qtYNZ2Q2 rzy1RWeA">[<a href="#ref-qtYNZ2Q2" role="doc-biblioref">9</a>,<a href="#ref-rzy1RWeA" role="doc-biblioref">10</a>]</span>.
+As an example, we examined <em>EGFR</em>, an oncogenic tyrosine kinase that is commonly mutated in diverse cancer types and cancer cell lines, including lung cancer, colorectal cancer, and glioblastoma <span class="citation" data-cites="qtYNZ2Q2 rzy1RWeA">[<a href="#ref-qtYNZ2Q2" role="doc-biblioref">13</a>,<a href="#ref-rzy1RWeA" role="doc-biblioref">14</a>]</span>.
 For EGFR mutation status classifiers trained on TCGA and evaluated on CCLE, we saw that AUPR on cell lines was slightly worse than on held-out tumor samples, but comparable across regularization levels/LASSO parameters (Figure <a href="#fig:tcga_ccle_overall">2</a>A).
 On the other hand, EGFR classifiers trained on CCLE and evaluated on TCGA performed considerably worse on human tumor samples as compared to held-out cell lines (Figure <a href="#fig:tcga_ccle_overall">2</a>B).</p>
 <p>To explore these tendencies more generally, we compared performance across all genes in the Vogelstein et al. dataset, for both TCGA to CCLE and CCLE to TCGA generalization.
 We measured the difference between performance on the holdout data within the training dataset and performance across datasets, with a positive difference indicating poor generalization (better holdout performance than test performance) and a 0 or negative difference indicating good generalization (comparable test performance to holdout performance).
 For generalization from TCGA to CCLE, we observed that median AUPR differences were mostly centered around 0 for most genes, with some exceptions at the extremes (Figure <a href="#fig:tcga_ccle_overall">2</a>C; performance differences on the y-axis).
 An example of a gene exhibiting poor generalization was <em>IDH1</em>, the leftmost gene in Figure <a href="#fig:tcga_ccle_overall">2</a>C, with good performance on held-out TCGA data and poor performance on CCLE data.
-IDH-mutant glioma cell lines are poorly represented compared to IDH-mutant patient tumors, which may explain the difficulty of generalization to cell lines for <em>IDH1</em> mutation classifiers <span class="citation" data-cites="HQx0QuE4">[<a href="#ref-HQx0QuE4" role="doc-biblioref">11</a>]</span>.
+IDH-mutant glioma cell lines are poorly represented compared to IDH-mutant patient tumors, which may explain the difficulty of generalization to cell lines for <em>IDH1</em> mutation classifiers <span class="citation" data-cites="HQx0QuE4">[<a href="#ref-HQx0QuE4" role="doc-biblioref">15</a>]</span>.
 For generalization from CCLE to TCGA, we observed a more pronounced upward shift toward better performance on CCLE and worse on TCGA, with most genes performing better on the CCLE holdout data and very few genes generalizing comparably to the TCGA samples (Figure <a href="#fig:tcga_ccle_overall">2</a>D).</p>
 <div id="fig:tcga_ccle_overall" class="fignos">
 <figure>
@@ -268,17 +278,29 @@ This suggests that a <em>PIK3CA</em> mutation status classifier that is more par
 <div id="ref-gOHkic9g" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">7. </div><div class="csl-right-inline"><strong>Optimizer’s dilemma: optimization strongly influences model selection in transcriptomic prediction</strong> <div class="csl-block">Jake Crawford, Maria Chikina, Casey S Greene</div> <em>Cold Spring Harbor Laboratory</em> (2023-06-26) <a href="https://doi.org/gsdsvs">https://doi.org/gsdsvs</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1101/2023.06.26.546586">10.1101/2023.06.26.546586</a></div></div>
 </div>
+<div id="ref-b7RUXQvu" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline"><strong>The effect of non-linear signal in classification problems using gene expression</strong> <div class="csl-block">Benjamin J Heil, Jake Crawford, Casey S Greene</div> <em>PLOS Computational Biology</em> (2023-03-27) <a href="https://doi.org/gr2q6q">https://doi.org/gr2q6q</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1371/journal.pcbi.1010984">10.1371/journal.pcbi.1010984</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/36972227">36972227</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10079219">PMC10079219</a></div></div>
+</div>
+<div id="ref-Xk9rmxAA" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline"><strong>Rectified linear units improve restricted boltzmann machines</strong> <div class="csl-block">Vinod Nair, Geoffrey E Hinton</div> <em>Proceedings of the 27th International Conference on International Conference on Machine Learning</em> (2010-06-21) <a href="https://dl.acm.org/doi/10.5555/3104322.3104425">https://dl.acm.org/doi/10.5555/3104322.3104425</a> <div class="csl-block">ISBN: 9781605589077</div></div>
+</div>
+<div id="ref-iTP4h1rX" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline"><strong>PyTorch: An Imperative Style, High-Performance Deep Learning Library</strong> <div class="csl-block">Adam Paszke, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Chanan, Trevor Killeen, Zeming Lin, Natalia Gimelshein, Luca Antiga, … Soumith Chintala</div> <em>arXiv</em> (2019-12-05) <a href="https://arxiv.org/abs/1912.01703">https://arxiv.org/abs/1912.01703</a></div>
+</div>
+<div id="ref-c6d3lKFX" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline"><strong>Adam: A Method for Stochastic Optimization</strong> <div class="csl-block">Diederik P Kingma, Jimmy Ba</div> <em>arXiv</em> (2017-01-31) <a href="https://arxiv.org/abs/1412.6980">https://arxiv.org/abs/1412.6980</a></div>
+</div>
 <div id="ref-809OyWlC" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline"><strong>Cancer Genome Landscapes</strong> <div class="csl-block">B Vogelstein, N Papadopoulos, VE Velculescu, S Zhou, LA Diaz, KW Kinzler</div> <em>Science</em> (2013-03-28) <a href="https://doi.org/6rg">https://doi.org/6rg</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1126/science.1235122">10.1126/science.1235122</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/23539594">23539594</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3749880">PMC3749880</a></div></div>
+<div class="csl-left-margin">12. </div><div class="csl-right-inline"><strong>Cancer Genome Landscapes</strong> <div class="csl-block">B Vogelstein, N Papadopoulos, VE Velculescu, S Zhou, LA Diaz, KW Kinzler</div> <em>Science</em> (2013-03-28) <a href="https://doi.org/6rg">https://doi.org/6rg</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1126/science.1235122">10.1126/science.1235122</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/23539594">23539594</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3749880">PMC3749880</a></div></div>
 </div>
 <div id="ref-qtYNZ2Q2" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">9. </div><div class="csl-right-inline"><strong>EGFR Mutations and Lung Cancer</strong> <div class="csl-block">Gilda da Cunha Santos, Frances A Shepherd, Ming Sound Tsao</div> <em>Annual Review of Pathology: Mechanisms of Disease</em> (2011-02-28) <a href="https://doi.org/dd359s">https://doi.org/dd359s</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1146/annurev-pathol-011110-130206">10.1146/annurev-pathol-011110-130206</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/20887192">20887192</a></div></div>
+<div class="csl-left-margin">13. </div><div class="csl-right-inline"><strong>EGFR Mutations and Lung Cancer</strong> <div class="csl-block">Gilda da Cunha Santos, Frances A Shepherd, Ming Sound Tsao</div> <em>Annual Review of Pathology: Mechanisms of Disease</em> (2011-02-28) <a href="https://doi.org/dd359s">https://doi.org/dd359s</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1146/annurev-pathol-011110-130206">10.1146/annurev-pathol-011110-130206</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/20887192">20887192</a></div></div>
 </div>
 <div id="ref-rzy1RWeA" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline"><strong>Spectrum of EGFR aberrations and potential clinical implications: insights from integrative pan‐cancer analysis</strong> <div class="csl-block">Haijing Liu, Bo Zhang, Zhifu Sun</div> <em>Cancer Communications</em> (2020-01) <a href="https://doi.org/ghsz4b">https://doi.org/ghsz4b</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1002/cac2.12005">10.1002/cac2.12005</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/32067422">32067422</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7163653">PMC7163653</a></div></div>
+<div class="csl-left-margin">14. </div><div class="csl-right-inline"><strong>Spectrum of EGFR aberrations and potential clinical implications: insights from integrative pan‐cancer analysis</strong> <div class="csl-block">Haijing Liu, Bo Zhang, Zhifu Sun</div> <em>Cancer Communications</em> (2020-01) <a href="https://doi.org/ghsz4b">https://doi.org/ghsz4b</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1002/cac2.12005">10.1002/cac2.12005</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/32067422">32067422</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7163653">PMC7163653</a></div></div>
 </div>
 <div id="ref-HQx0QuE4" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">11. </div><div class="csl-right-inline"><strong>Patient-derived cells from recurrent tumors that model the evolution of IDH-mutant glioma</strong> <div class="csl-block">Lindsey E Jones, Stephanie Hilz, Matthew R Grimmer, Tali Mazor, Chloé Najac, Joydeep Mukherjee, Andrew McKinney, Tracy Chow, Russell O Pieper, Sabrina M Ronen, … Joseph F Costello</div> <em>Neuro-Oncology Advances</em> (2020-01-01) <a href="https://doi.org/gsfw2p">https://doi.org/gsfw2p</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1093/noajnl/vdaa088">10.1093/noajnl/vdaa088</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/32904945">32904945</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7462278">PMC7462278</a></div></div>
+<div class="csl-left-margin">15. </div><div class="csl-right-inline"><strong>Patient-derived cells from recurrent tumors that model the evolution of IDH-mutant glioma</strong> <div class="csl-block">Lindsey E Jones, Stephanie Hilz, Matthew R Grimmer, Tali Mazor, Chloé Najac, Joydeep Mukherjee, Andrew McKinney, Tracy Chow, Russell O Pieper, Sabrina M Ronen, … Joseph F Costello</div> <em>Neuro-Oncology Advances</em> (2020-01-01) <a href="https://doi.org/gsfw2p">https://doi.org/gsfw2p</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1093/noajnl/vdaa088">10.1093/noajnl/vdaa088</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/32904945">32904945</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7462278">PMC7462278</a></div></div>
 </div>
 </div>
 <!-- default theme -->
