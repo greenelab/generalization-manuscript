@@ -1,6 +1,6 @@
 AUPR
 BRAF
-ccle
+CCLE
 CDKN
 CNV
 colorectal
@@ -8,6 +8,7 @@ covariates
 dataset
 datasets
 DepMap
+detangle
 EGFR
 GDC
 Genomic
@@ -24,10 +25,12 @@ janeroe
 johndoe
 KIRP
 LGG
+necesssary
 nn
 nonlinearities
 NRAS
 oncogenic
+ontologies
 overfit
 PIK
 preprocesing
@@ -38,12 +41,15 @@ reproducibility
 RTX
 SARC
 SETD
+SKCM
 TCGA
+TCGA’s
 TGCT
 THCA
-Thresholded
+thresholded
 TODO
 tradeoff
+transcriptomics
 tunable
 tyrosine
 underfit
