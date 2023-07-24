@@ -1,5 +1,5 @@
 ---
-title: Manuscript Title
+title: Smaller models do not exhibit superior generalization performance.
 keywords:
 - markdown
 - publishing
@@ -7,8 +7,8 @@ keywords:
 lang: en-US
 date-meta: '2023-07-24'
 author-meta:
-- John Doe
-- Jane Roe
+- Jake Crawford
+- Casey S. Greene
 header-includes: |
   <!--
   Manubot generated metadata rendered from header-includes-template.html.
@@ -16,38 +16,39 @@ header-includes: |
   -->
   <meta name="dc.format" content="text/html" />
   <meta property="og:type" content="article" />
-  <meta name="dc.title" content="Manuscript Title" />
-  <meta name="citation_title" content="Manuscript Title" />
-  <meta property="og:title" content="Manuscript Title" />
-  <meta property="twitter:title" content="Manuscript Title" />
+  <meta name="dc.title" content="Smaller models do not exhibit superior generalization performance." />
+  <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance." />
+  <meta property="og:title" content="Smaller models do not exhibit superior generalization performance." />
+  <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance." />
   <meta name="dc.date" content="2023-07-24" />
   <meta name="citation_publication_date" content="2023-07-24" />
   <meta property="article:published_time" content="2023-07-24" />
-  <meta name="dc.modified" content="2023-07-24T14:07:55+00:00" />
-  <meta property="article:modified_time" content="2023-07-24T14:07:55+00:00" />
+  <meta name="dc.modified" content="2023-07-24T15:12:23+00:00" />
+  <meta property="article:modified_time" content="2023-07-24T15:12:23+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
   <meta name="dc.publisher" content="Manubot" />
   <meta name="citation_journal_title" content="Manubot" />
   <meta name="citation_technical_report_institution" content="Manubot" />
-  <meta name="citation_author" content="John Doe" />
-  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
-  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
-  <meta name="twitter:creator" content="@johndoe" />
-  <meta name="citation_author" content="Jane Roe" />
-  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
-  <meta name="citation_author_institution" content="Department of Whatever, University of Something" />
-  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
+  <meta name="citation_author" content="Jake Crawford" />
+  <meta name="citation_author_institution" content="Genomics and Computational Biology Graduate Group, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA" />
+  <meta name="citation_author_orcid" content="0000-0001-6207-0782" />
+  <meta name="twitter:creator" content="@jjc2718" />
+  <meta name="citation_author" content="Casey S. Greene" />
+  <meta name="citation_author_institution" content="Department of Biomedical Informatics, University of Colorado School of Medicine, Aurora, CO, USA" />
+  <meta name="citation_author_institution" content="Center for Health AI, University of Colorado School of Medicine, Aurora, CO, USA" />
+  <meta name="citation_author_orcid" content="0000-0001-8713-9213" />
+  <meta name="twitter:creator" content="@GreeneScientist" />
   <link rel="canonical" href="https://greenelab.github.io/generalization-manuscript/" />
   <meta property="og:url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta property="twitter:url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/e6abdd345417bd64c6d2bf591ed3e92c352ef564/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/e6abdd345417bd64c6d2bf591ed3e92c352ef564/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/e6abdd345417bd64c6d2bf591ed3e92c352ef564/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -69,9 +70,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/e6abdd345417bd64c6d2bf591ed3e92c352ef564/))
 was automatically generated
-from [greenelab/generalization-manuscript@056f683](https://github.com/greenelab/generalization-manuscript/tree/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b)
+from [greenelab/generalization-manuscript@e6abdd3](https://github.com/greenelab/generalization-manuscript/tree/e6abdd345417bd64c6d2bf591ed3e92c352ef564)
 on July 24, 2023.
 </em></small>
 
@@ -81,38 +82,37 @@ on July 24, 2023.
 
 
 
-+ **John Doe**
++ **Jake Crawford**
   <br>
     ![ORCID icon](images/orcid.svg){.inline_icon width=16 height=16}
-    [XXXX-XXXX-XXXX-XXXX](https://orcid.org/XXXX-XXXX-XXXX-XXXX)
+    [0000-0001-6207-0782](https://orcid.org/0000-0001-6207-0782)
     · ![GitHub icon](images/github.svg){.inline_icon width=16 height=16}
-    [johndoe](https://github.com/johndoe)
+    [jjc2718](https://github.com/jjc2718)
     · ![Twitter icon](images/twitter.svg){.inline_icon width=16 height=16}
-    [johndoe](https://twitter.com/johndoe)
-    · ![Mastodon icon](images/mastodon.svg){.inline_icon width=16 height=16}
-    [\@johndoe@mastodon.social](https://mastodon.social/@johndoe)
+    [jjc2718](https://twitter.com/jjc2718)
     <br>
   <small>
-     Department of Something, University of Whatever
-     · Funded by Grant XXXXXXXX
+     Genomics and Computational Biology Graduate Group, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA
   </small>
 
-+ **Jane Roe**
++ **Casey S. Greene**
   ^[✉](#correspondence)^<br>
     ![ORCID icon](images/orcid.svg){.inline_icon width=16 height=16}
-    [XXXX-XXXX-XXXX-XXXX](https://orcid.org/XXXX-XXXX-XXXX-XXXX)
+    [0000-0001-8713-9213](https://orcid.org/0000-0001-8713-9213)
     · ![GitHub icon](images/github.svg){.inline_icon width=16 height=16}
-    [janeroe](https://github.com/janeroe)
+    [cgreene](https://github.com/cgreene)
+    · ![Twitter icon](images/twitter.svg){.inline_icon width=16 height=16}
+    [GreeneScientist](https://twitter.com/GreeneScientist)
     <br>
   <small>
-     Department of Something, University of Whatever; Department of Whatever, University of Something
+     Department of Biomedical Informatics, University of Colorado School of Medicine, Aurora, CO, USA; Center for Health AI, University of Colorado School of Medicine, Aurora, CO, USA
   </small>
 
 
 ::: {#correspondence}
 ✉ — Correspondence possible via [GitHub Issues](https://github.com/greenelab/generalization-manuscript/issues)
 or email to
-Jane Roe \<jane.roe@whatever.edu\>.
+Casey S. Greene \<casey.s.greene@cuanschutz.edu\>.
 
 
 :::
@@ -121,6 +121,33 @@ Jane Roe \<jane.roe@whatever.edu\>.
 ## Abstract {.page_break_before}
 
 
+
+
+## Introduction {.page_break_before}
+
+Gene expression datasets are typically "wide", with many gene features and relatively few samples.
+These feature-rich datasets present obstacles in many aspects of machine learning, including overfitting and multicollinearity, and challenges in interpretation.
+To facilitate the use of feature-rich gene expression data in machine learning models, feature selection and/or dimension reduction are commonly used to distill a more condensed data representation from the input space of all genes [@doi:10.1093/bioinformatics/btg062; @doi:10.1186/s13059-019-1861-6].
+The intuition is that many gene expression features are likely irrelevant to the prediction problem, redundant, or contain no meaningful variation across samples, so transforming them or selecting a subset can generate a more reliable predictor.
+
+In cancer transcriptomics, this preference for small, parsimonious sets of genes can be seen in the popularity of "gene signatures".
+These are groups of genes whose expression levels are used to define cancer subtypes or to predict prognosis or therapeutic response [@doi:10.1038/nrg.2017.96; @doi:10.1016/j.ejca.2013.02.021].
+Many studies specify the size of the signature in the paper's title or abstract, suggesting that the fewer genes in a gene signature, the better, e.g. [@doi:10.1056/NEJMoa060096; @doi:10.1158/0008-5472.CAN-08-0436; @doi:10.1056/NEJMoa1602253].
+Clinically, there are many reasons why a smaller gene signature may be preferable, including cost (fewer genes may be less expensive to profile or validate, whereas a large signature likely requires a targeted array or NGS analysis [@doi:10.1586/erm.09.32]) and interpretability (it is easier to reason about the function and biological role of a smaller gene set than a large one since even disjoint gene signatures tend to converge on common biological pathways [@doi:10.1056/NEJMe068292; @doi:10.1038/nrclinonc.2011.125]).
+There is also an underlying assumption that smaller gene signatures tend to be more robust: that for a new patient or in a new biological context, a smaller gene set or more parsimonious model will be more likely to maintain its predictive performance than a larger one.
+This assumption has rarely been explicitly tested in genomics applications, but is often included in guidelines or rules of thumb for statistical modeling or machine learning in biology, e.g. [@doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961].
+
+In this study, we sought to test the robustness assumption directly by evaluating model generalization across biological contexts, inspired by previous work on domain adaptation and transfer learning in cancer transcriptomics [@doi:10.1038/s43018-020-00169-2; @doi:10.1038/s42256-021-00408-w; @doi:10.1073/pnas.2106682118].
+We used two large, heterogeneous public cancer datasets: The Cancer Genome Atlas (TCGA) for human tumor sample data [@doi:10.1038/ng.2764], and the Cancer Cell Line Encyclopedia (CCLE) for human cell line data [@doi:10.1038/s41586-019-1186-3].
+These datasets contain overlapping -omics data types derived from distinct data sources, allowing us to quantify model generalization across data sources.
+In addition, each dataset contains samples from a wide range of different cancer types/tissues of origin, allowing us to quantify model generalization across cancer types.
+We trained both linear and non-linear models to predict mutation status (presence or absence) from RNA-seq gene expression for approximately 70 cancer driver genes, across varying levels of model simplicity and degrees of regularization, resulting in a variety of gene signature sizes.
+We compared two simple procedures for model selection, one that combines cross-validation performance with model parsimony and one that only relies on cross-validation performance, for each classifier in each context.
+
+Our results suggest that, in general, mutation status classification models that perform well in cross-validation within a biological context also generalize well across biological contexts.
+There are some individual genes and some individual cancer types where more regularized well-performing models outperform the best-performing model.
+However, we do not observe a systematic generalization advantage for smaller/more regularized models across all genes and cancer types.
+These results provide evidence that good cross-validation performance within a biological context (data source or cancer type) is a sufficient proxy for robust performance across contexts.
 
 
 ## Methods {.page_break_before}
@@ -192,11 +219,6 @@ We trained models using $C$ values evenly spaced on a logarithmic scale between 
 This range was intended to give evenly distributed coverage across genes and cancer types that included "underfit" models (predicting only the mean or using very few features, poor performance on all datasets), "overfit" models (performing perfectly on training data but comparatively poorly on cross-validation and test data), and a wide variety of models in between that typically included the best fits to the cross-validation and test data.
 To assess variability between train/CV splits, we used all 4 splits (25% holdout sets) x 2 random seeds for a total of 8 different training sets for each gene, using the same test set (i.e. all of the held-out context, either one cancer type or one dataset) in each case.
 
-### "Best model" vs. "smallest good model" analysis details
-
-Description of "smallest good" heuristic
-Statistical testing?
-
 ### Neural network setup and parameter selection
 
 Inspired by the intermediate-complexity model in [@doi:10.1371/journal.pcbi.1010984], as a tradeoff between computational cost and ability to represent non-linear decision boundaries, we trained a three-layer fully connected neural network with ReLU nonlinearities [@https://dl.acm.org/doi/10.5555/3104322.3104425] to predict mutation status.
@@ -219,7 +241,7 @@ All neural network analyses were performed on a Ubuntu 18.04 machine with a NVID
 
 We collected data from the TCGA Pan-Cancer Atlas and the Cancer Cell Line Encyclopedia to predict the presence or absence of mutations in cancer genes, as a benchmark of cancer-related information content across cancer types and contexts.
 We trained mutation status classifiers across approximately 70 genes involved in cancer development and progression from Vogelstein et al. 2013 [@doi:10.1126/science.1235122], using LASSO logistic regression with gene expression (RNA-seq) values as predictive features.
-We designed experiments to evaluate the generalization of mutation status classifiers across datasets (TCGA to CCLE and CCLE to TCGA) and across biological contexts (cancer types) within TCGA, relative to a within-dataset baseline (Figure {@fig:overview}).
+Inspired by the generalization experiments across tissues and model systems in [@doi:10.1038/s43018-020-00169-2], we designed experiments to evaluate the generalization of mutation status classifiers across datasets (TCGA to CCLE and CCLE to TCGA) and across biological contexts (cancer types) within TCGA, relative to a within-dataset baseline (Figure {@fig:overview}).
 
 ![
 Schematic of experimental design. The colors of the "dots" in the training/model selection/model evaluation panels on the left correspond to train/CV/test curves in the following results figures.
