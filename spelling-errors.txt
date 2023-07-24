@@ -1,6 +1,6 @@
 AUPR
 BRAF
-ccle
+CCLE
 CDKN
 cgreene
 CNV
@@ -17,6 +17,7 @@ GISTIC
 glioblastoma
 glioma
 GreeneScientist
+HTC
 hypermutated
 hypermutation
 hyperparameter
@@ -28,6 +29,7 @@ jjc
 KIRP
 LGG
 multicollinearity
+NCI
 necesssary
 NGS
 nn
@@ -40,20 +42,20 @@ overfit
 overfitting
 PIK
 preprocesing
+preprocess
 preprocessing
 regressor
 ReLU
-reproducibility
 RTX
 SARC
 SETD
 SKCM
 subtypes
-tcga
+TCGA
 TCGA’s
 TGCT
 THCA
-Thresholded
+thresholded
 TODO
 tradeoff
 transcriptomics
