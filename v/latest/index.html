@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2023-07-20" />
+  <meta name="dcterms.date" content="2023-07-24" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -51,11 +51,11 @@
   <meta name="citation_title" content="Manuscript Title" />
   <meta property="og:title" content="Manuscript Title" />
   <meta property="twitter:title" content="Manuscript Title" />
-  <meta name="dc.date" content="2023-07-20" />
-  <meta name="citation_publication_date" content="2023-07-20" />
-  <meta property="article:published_time" content="2023-07-20" />
-  <meta name="dc.modified" content="2023-07-20T13:38:20+00:00" />
-  <meta property="article:modified_time" content="2023-07-20T13:38:20+00:00" />
+  <meta name="dc.date" content="2023-07-24" />
+  <meta name="citation_publication_date" content="2023-07-24" />
+  <meta property="article:published_time" content="2023-07-24" />
+  <meta name="dc.modified" content="2023-07-24T14:07:55+00:00" />
+  <meta property="article:modified_time" content="2023-07-24T14:07:55+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -76,9 +76,9 @@
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/c17aedcf77bddca59b063821536cd99dcea3a014/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/c17aedcf77bddca59b063821536cd99dcea3a014/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/c17aedcf77bddca59b063821536cd99dcea3a014/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -95,10 +95,10 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://greenelab.github.io/generalization-manuscript/v/c17aedcf77bddca59b063821536cd99dcea3a014/">permalink</a>)
+(<a href="https://greenelab.github.io/generalization-manuscript/v/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/greenelab/generalization-manuscript/tree/c17aedcf77bddca59b063821536cd99dcea3a014">greenelab/generalization-manuscript@c17aedc</a>
-on July 20, 2023.
+from <a href="https://github.com/greenelab/generalization-manuscript/tree/056f683d4f1c0d561635a4e1ce8eaa9fb1e0683b">greenelab/generalization-manuscript@056f683</a>
+on July 24, 2023.
 </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
@@ -297,6 +297,25 @@ We observed a distribution centered around 0, suggesting that the “best” and
 <strong>D.</strong> Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for TCGA -&gt; CCLE generalization with neural network hidden layer size as the regularization axis. Positive x-axis values indicate better performance for the “best” model, negative values indicate better performance for the “smallest good” model.</figcaption>
 </figure>
 </div>
+<h2 id="discussion">Discussion</h2>
+<p>Using public cancer genomics and transcriptomics data from TCGA and CCLE, we studied generalization of mutation status classifiers for a wide variety of cancer driver genes.
+We designed experiments to evaluate generalization across biological contexts by holding out cancer types in TCGA, and to evaluate generalization across datasets by training models on TCGA and evaluating them on CCLE, and vice-versa.
+We found that, in general, smaller or more parsimonious models do not tend to generalize more effectively across cancer types or across datasets, and in the absence of prior knowledge about a prediction problem, simply choosing the model that performs the best on a holdout dataset is at least as effective for selecting models that generalize.</p>
+<p>Our results were similar in both linear models (LASSO logistic regression) and non-linear deep neural networks when using hidden layer size as the regularization parameter of interest.
+In our non-linear model experiments, we did not observe better generalization across datasets for fully connected neural networks with fewer hidden layer nodes, and our preliminary results indicated a similar trend for dropout and weight decay.
+Compared to linear models, it is less clear how to define a “small” or “parsimonious” neural network model since there are many regularization techniques that one may use to control complexity.
+Rather than simply removing nodes and keeping the network fully connected, another approach to parsimony could be to select an inductive bias to guide the size reduction of the network.
+Existing examples include network structures guided by protein-protein interaction networks or function/pathway ontologies <span class="citation" data-cites="1HfJnooMx TIQTmEOG YOm0bqVR Mflfx7GP">[<a href="#ref-1HfJnooMx" role="doc-biblioref">17</a>,<a href="#ref-TIQTmEOG" role="doc-biblioref">18</a>,<a href="#ref-YOm0bqVR" role="doc-biblioref">19</a>,<a href="#ref-Mflfx7GP" role="doc-biblioref">20</a>]</span>.
+It is possible that a smaller neural network with a structure that corresponds more appropriately to the prediction problem would achieve better generalization results, although choosing an apt network structure or data source can be a challenging aspect of such efforts.</p>
+<p>For generalization from CCLE to TCGA, we observed that performance was generally worse on human tumor samples from TCGA than for held-out cell lines.
+This could, at least in part, be a function of sample size: the number of cell lines in CCLE is approximately an order of magnitude smaller than the number of tumor samples in TCGA (~10,000 samples in TCGA vs. ~1,500 cell lines in CCLE, although the exact number of samples used to train and evaluate our classifiers varies by gene, see Methods for further detail).
+There are also plausible biological and technical explanations for the difficulty of generalizing to human tumor samples.
+This result could reflect the imperfect and limited nature of cancer cell lines as a model system for human tumors, which previous studies have pointed out <span class="citation" data-cites="1HnyQJPcl vYqd0FZY 18vM3pLD6">[<a href="#ref-1HnyQJPcl" role="doc-biblioref">21</a>,<a href="#ref-vYqd0FZY" role="doc-biblioref">22</a>,<a href="#ref-18vM3pLD6" role="doc-biblioref">23</a>]</span>.
+In addition, the CCLE data is collected and processed uniformly, as described in <span class="citation" data-cites="kcdvZmNN">[<a href="#ref-kcdvZmNN" role="doc-biblioref">24</a>]</span>, while the TCGA data is processed by a uniform pipeline but collected from a wide variety of different cancer centers around the US <span class="citation" data-cites="AK17eOgD">[<a href="#ref-AK17eOgD" role="doc-biblioref">25</a>]</span>.</p>
+<p>When we ranked cancer types in order of their generalization difficulty aggregated across genes, we noticed a slight tendency toward non-carcinoma cancer types (TGCT, SARC, SKCM) being difficult to generalize to.
+It has been pointed out in other biological data types that holding out entire contexts or domains is necesssary for a full picture of performance <span class="citation" data-cites="Inb9g7Za 13prIHiSM">[<a href="#ref-Inb9g7Za" role="doc-biblioref">26</a>,<a href="#ref-13prIHiSM" role="doc-biblioref">27</a>]</span>, which our results corroborate.
+This highlights a potential weakness of using TCGA’s carcinoma-dominant pan-cancer data as a training set for a broad range of tasks, for instance in foundation models which are becoming feasible for some genomics applications <span class="citation" data-cites="NMsylj71 r5y0HbhJ Uetau8wh">[<a href="#ref-NMsylj71" role="doc-biblioref">28</a>,<a href="#ref-r5y0HbhJ" role="doc-biblioref">29</a>,<a href="#ref-Uetau8wh" role="doc-biblioref">30</a>]</span>.
+One caveat of our analysis is that each cancer type is included in the training data or held out for a different subset of genes, so it is difficult to detangle gene-specific effects (some mutations have less distinguishable functional effects on gene expression than others) from cancer type-specific effects (some cancer types are less similar to each other than others) on prediction performance using our experimental design.</p>
 <h2 class="page_break_before" id="references">References</h2>
 <!-- Explicitly insert bibliography here -->
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
@@ -347,6 +366,48 @@ We observed a distribution centered around 0, suggesting that the “best” and
 </div>
 <div id="ref-17XHtmqPY" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">16. </div><div class="csl-right-inline"><strong>Machine Learning Detects Pan-cancer Ras Pathway Activation in The Cancer Genome Atlas</strong> <div class="csl-block">Gregory P Way, Francisco Sanchez-Vega, Konnor La, Joshua Armenia, Walid K Chatila, Augustin Luna, Chris Sander, Andrew D Cherniack, Marco Mina, Giovanni Ciriello, … Armaz Mariamidze</div> <em>Cell Reports</em> (2018-04) <a href="https://doi.org/gfspsb">https://doi.org/gfspsb</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1016/j.celrep.2018.03.046">10.1016/j.celrep.2018.03.046</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29617658">29617658</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5918694">PMC5918694</a></div></div>
+</div>
+<div id="ref-1HfJnooMx" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">17. </div><div class="csl-right-inline"><strong>Predicting Drug Response and Synergy Using a Deep Learning Model of Human Cancer Cells</strong> <div class="csl-block">Brent M Kuenzi, Jisoo Park, Samson H Fong, Kyle S Sanchez, John Lee, Jason F Kreisberg, Jianzhu Ma, Trey Ideker</div> <em>Cancer Cell</em> (2020-11) <a href="https://doi.org/gh7z2n">https://doi.org/gh7z2n</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1016/j.ccell.2020.09.014">10.1016/j.ccell.2020.09.014</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/33096023">33096023</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7737474">PMC7737474</a></div></div>
+</div>
+<div id="ref-TIQTmEOG" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">18. </div><div class="csl-right-inline"><strong>DeepGO: predicting protein functions from sequence and interactions using a deep ontology-aware classifier</strong> <div class="csl-block">Maxat Kulmanov, Mohammed Asif Khan, Robert Hoehndorf</div> <em>Bioinformatics</em> (2017-10-03) <a href="https://doi.org/gc3nb8">https://doi.org/gc3nb8</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1093/bioinformatics/btx624">10.1093/bioinformatics/btx624</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29028931">29028931</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5860606">PMC5860606</a></div></div>
+</div>
+<div id="ref-YOm0bqVR" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">19. </div><div class="csl-right-inline"><strong>Knowledge-primed neural networks enable biologically interpretable deep learning on single-cell sequencing data</strong> <div class="csl-block">Nikolaus Fortelny, Christoph Bock</div> <em>Genome Biology</em> (2020-08-03) <a href="https://doi.org/gg8ws9">https://doi.org/gg8ws9</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1186/s13059-020-02100-5">10.1186/s13059-020-02100-5</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/32746932">32746932</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7397672">PMC7397672</a></div></div>
+</div>
+<div id="ref-Mflfx7GP" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">20. </div><div class="csl-right-inline"><strong>Knowledge-guided deep learning models of drug toxicity improve interpretation</strong> <div class="csl-block">Yun Hao, Joseph D Romano, Jason H Moore</div> <em>Patterns</em> (2022-09) <a href="https://doi.org/gshk7s">https://doi.org/gshk7s</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1016/j.patter.2022.100565">10.1016/j.patter.2022.100565</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/36124309">36124309</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9481960">PMC9481960</a></div></div>
+</div>
+<div id="ref-1HnyQJPcl" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">21. </div><div class="csl-right-inline"><strong>The Clinical Relevance of Cancer Cell Lines</strong> <div class="csl-block">J-P Gillet, S Varma, MM Gottesman</div> <em>JNCI Journal of the National Cancer Institute</em> (2013-02-21) <a href="https://doi.org/f4tstr">https://doi.org/f4tstr</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1093/jnci/djt007">10.1093/jnci/djt007</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/23434901">23434901</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3691946">PMC3691946</a></div></div>
+</div>
+<div id="ref-vYqd0FZY" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">22. </div><div class="csl-right-inline"><strong>Cancer Cell Lines for Drug Discovery and Development</strong> <div class="csl-block">Jennifer L Wilding, Walter F Bodmer</div> <em>Cancer Research</em> (2014-04-30) <a href="https://doi.org/f56fwg">https://doi.org/f56fwg</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1158/0008-5472.can-13-2971">10.1158/0008-5472.can-13-2971</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/24717177">24717177</a></div></div>
+</div>
+<div id="ref-18vM3pLD6" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">23. </div><div class="csl-right-inline"><strong>A Landscape of Pharmacogenomic Interactions in Cancer</strong> <div class="csl-block">Francesco Iorio, Theo A Knijnenburg, Daniel J Vis, Graham R Bignell, Michael P Menden, Michael Schubert, Nanne Aben, Emanuel Gonçalves, Syd Barthorpe, Howard Lightfoot, … Mathew J Garnett</div> <em>Cell</em> (2016-07) <a href="https://doi.org/f8wq4s">https://doi.org/f8wq4s</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1016/j.cell.2016.06.017">10.1016/j.cell.2016.06.017</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/27397505">27397505</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4967469">PMC4967469</a></div></div>
+</div>
+<div id="ref-kcdvZmNN" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">24. </div><div class="csl-right-inline"><strong>Next-generation characterization of the Cancer Cell Line Encyclopedia</strong> <div class="csl-block">Mahmoud Ghandi, Franklin W Huang, Judit Jané-Valbuena, Gregory V Kryukov, Christopher C Lo, ERobert McDonald III, Jordi Barretina, Ellen T Gelfand, Craig M Bielski, Haoxin Li, … William R Sellers</div> <em>Nature</em> (2019-05) <a href="https://doi.org/gf2m3h">https://doi.org/gf2m3h</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1038/s41586-019-1186-3">10.1038/s41586-019-1186-3</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31068700">31068700</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6697103">PMC6697103</a></div></div>
+</div>
+<div id="ref-AK17eOgD" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">25. </div><div class="csl-right-inline"><strong>The Cancer Genome Atlas Pan-Cancer analysis project</strong> <div class="csl-block">John N Weinstein, Eric A Collisson, Gordon B Mills, Kenna RMills Shaw, Brad A Ozenberger, Kyle Ellrott, Ilya Shmulevich, Chris Sander, Joshua M Stuart</div> <em>Nature Genetics</em> (2013-09-26) <a href="https://doi.org/f3nt5c">https://doi.org/f3nt5c</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1038/ng.2764">10.1038/ng.2764</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/24071849">24071849</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3919969">PMC3919969</a></div></div>
+</div>
+<div id="ref-Inb9g7Za" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">26. </div><div class="csl-right-inline"><strong>A pitfall for machine learning methods aiming to predict across cell types</strong> <div class="csl-block">Jacob Schreiber, Ritambhara Singh, Jeffrey Bilmes, William Stafford Noble</div> <em>Genome Biology</em> (2020-11-19) <a href="https://doi.org/gshk6j">https://doi.org/gshk6j</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1186/s13059-020-02177-y">10.1186/s13059-020-02177-y</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/33213499">33213499</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7678316">PMC7678316</a></div></div>
+</div>
+<div id="ref-13prIHiSM" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">27. </div><div class="csl-right-inline"><strong>Navigating the pitfalls of applying machine learning in genomics</strong> <div class="csl-block">Sean Whalen, Jacob Schreiber, William S Noble, Katherine S Pollard</div> <em>Nature Reviews Genetics</em> (2021-11-26) <a href="https://doi.org/gnm4r9">https://doi.org/gnm4r9</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1038/s41576-021-00434-9">10.1038/s41576-021-00434-9</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/34837041">34837041</a></div></div>
+</div>
+<div id="ref-NMsylj71" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">28. </div><div class="csl-right-inline"><strong>HyenaDNA: Long-Range Genomic Sequence Modeling at Single Nucleotide Resolution</strong> <div class="csl-block">Eric Nguyen, Michael Poli, Marjan Faizi, Armin Thomas, Callum Birch-Sykes, Michael Wornow, Aman Patel, Clayton Rabideau, Stefano Massaroli, Yoshua Bengio, … Chris Ré</div> <em>arXiv</em> (2023-06-29) <a href="https://arxiv.org/abs/2306.15794">https://arxiv.org/abs/2306.15794</a></div>
+</div>
+<div id="ref-r5y0HbhJ" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">29. </div><div class="csl-right-inline"><strong>scGPT: Towards Building a Foundation Model for Single-Cell Multi-omics Using Generative AI</strong> <div class="csl-block">Haotian Cui, Chloe Wang, Hassaan Maan, Kuan Pang, Fengning Luo, Bo Wang</div> <em>Cold Spring Harbor Laboratory</em> (2023-05-01) <a href="https://doi.org/gshk6p">https://doi.org/gshk6p</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1101/2023.04.30.538439">10.1101/2023.04.30.538439</a></div></div>
+</div>
+<div id="ref-Uetau8wh" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">30. </div><div class="csl-right-inline"><strong>Large Scale Foundation Model on Single-cell Transcriptomics</strong> <div class="csl-block">Minsheng Hao, Jing Gong, Xin Zeng, Chiming Liu, Yucheng Guo, Xingyi Cheng, Taifeng Wang, Jianzhu Ma, Le Song, Xuegong Zhang</div> <em>Cold Spring Harbor Laboratory</em> (2023-05-31) <a href="https://doi.org/gshk6q">https://doi.org/gshk6q</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1101/2023.05.29.542705">10.1101/2023.05.29.542705</a></div></div>
 </div>
 </div>
 <!-- default theme -->
