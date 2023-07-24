@@ -54,8 +54,8 @@
   <meta name="dc.date" content="2023-07-24" />
   <meta name="citation_publication_date" content="2023-07-24" />
   <meta property="article:published_time" content="2023-07-24" />
-  <meta name="dc.modified" content="2023-07-24T15:12:23+00:00" />
-  <meta property="article:modified_time" content="2023-07-24T15:12:23+00:00" />
+  <meta name="dc.modified" content="2023-07-24T15:28:50+00:00" />
+  <meta property="article:modified_time" content="2023-07-24T15:28:50+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -77,9 +77,9 @@
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/e6abdd345417bd64c6d2bf591ed3e92c352ef564/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/e6abdd345417bd64c6d2bf591ed3e92c352ef564/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/e6abdd345417bd64c6d2bf591ed3e92c352ef564/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/2b637cda98624f901483c4a813bf526b66457396/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/2b637cda98624f901483c4a813bf526b66457396/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/2b637cda98624f901483c4a813bf526b66457396/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -96,9 +96,9 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://greenelab.github.io/generalization-manuscript/v/e6abdd345417bd64c6d2bf591ed3e92c352ef564/">permalink</a>)
+(<a href="https://greenelab.github.io/generalization-manuscript/v/2b637cda98624f901483c4a813bf526b66457396/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/greenelab/generalization-manuscript/tree/e6abdd345417bd64c6d2bf591ed3e92c352ef564">greenelab/generalization-manuscript@e6abdd3</a>
+from <a href="https://github.com/greenelab/generalization-manuscript/tree/2b637cda98624f901483c4a813bf526b66457396">greenelab/generalization-manuscript@2b637cd</a>
 on July 24, 2023.
 </em></small></p>
 <h2 id="authors">Authors</h2>
@@ -189,7 +189,7 @@ Our model was trained on gene expression data (X) to predict somatic mutation pr
 To control for varying mutation burden per sample and to adjust for potential cancer type-specific expression patterns, we included one-hot encoded cancer type and log<sub>10</sub>(sample mutation count) in the model as covariates.
 Since gene expression datasets tend to have many dimensions and comparatively few samples, we used a LASSO penalty to perform feature selection <span class="citation" data-cites="kX2zf6UE">[<a href="#ref-kX2zf6UE" role="doc-biblioref">22</a>]</span>.
 LASSO logistic regression has the advantage of generating sparse models (some or most coefficients are 0), as well as having a single tunable hyperparameter which can be easily interpreted as an indicator of regularization strength/model simplicity.</p>
-<p>LASSO (<span class="math inline">\(\ell_1\)</span>-penalized) logistic regression finds the feature weights <span class="math inline">\(\hat{w} \in \mathbb{R}^{p}\)</span> solving the following optimization problem:</p>
+<p>LASSO (<span class="math inline">\(\l_1\)</span>-penalized) logistic regression finds the feature weights <span class="math inline">\(\hat{w} \in \mathbb{R}^{p}\)</span> solving the following optimization problem:</p>
 <p><span class="math display">\[\hat{w} = \text{argmin}_{w} \ (C \cdot l(X, y; w)) + ||w||_1\]</span></p>
 <p>where <span class="math inline">\(i \in \{1, \dots, n\}\)</span> denotes a sample in the dataset, <span class="math inline">\(X_i \in \mathbb{R}^{p}\)</span> denotes features (gene expression measurements) from the given sample, <span class="math inline">\(y_i \in \{0, 1\}\)</span> denotes the label (mutation presence/absence) for the given sample, and <span class="math inline">\(l(\cdot)\)</span> denotes the negative log-likelihood of the observed data given a particular choice of feature weights, i.e.</p>
 <p><span class="math display">\[l(X, y; w) = -\sum_{i=1}^{n} y_i \log\left(\frac{1}{1 + e^{-w^{\top}X_i}}\right) + (1 - y_i) \log\left(1 - \frac{1}{1 + e^{-w^{\top}X_i}}\right)\]</span></p>
@@ -204,6 +204,11 @@ We selected this implementation rather than the <code>SGDClassifier</code> stoch
 We trained models using <span class="math inline">\(C\)</span> values evenly spaced on a logarithmic scale between (10<sup>-3</sup>, 10<sup>7</sup>); i.e. the output of <code>numpy.logspace(-3, 7, 21)</code>.
 This range was intended to give evenly distributed coverage across genes and cancer types that included “underfit” models (predicting only the mean or using very few features, poor performance on all datasets), “overfit” models (performing perfectly on training data but comparatively poorly on cross-validation and test data), and a wide variety of models in between that typically included the best fits to the cross-validation and test data.
 To assess variability between train/CV splits, we used all 4 splits (25% holdout sets) x 2 random seeds for a total of 8 different training sets for each gene, using the same test set (i.e. all of the held-out context, either one cancer type or one dataset) in each case.</p>
+<h3 id="best-model-vs.-smallest-good-model-analysis">“Best model” vs. “smallest good model” analysis</h3>
+<p>For the “best” vs. “smallest good” model selection comparison, we started with 8 performance measurements (4 cross-validation folds x 2 random seeds) for each of 21 LASSO parameters.
+We took the mean over these 8 measurements to get a single performance measurement for each model (LASSO parameter) on the holdout dataset, which has the same composition as the training set.
+We used these per-parameter mean performance measurements to select the “best” model (LASSO parameter with the best performance on the holdout dataset), and the “smallest good” model (smallest LASSO parameter with performance in the top 25% of mean values on the holdout dataset, rounded up to the nearest integer).
+For the distributions of differences shown in the Results, we took the difference in mean performance for the “best” and “smallest good” models for each gene, with positive differences indicating better performance for the “best” model and negative differences better performance for the “smallest good” model, for each gene.</p>
 <h3 id="neural-network-setup-and-parameter-selection">Neural network setup and parameter selection</h3>
 <p>Inspired by the intermediate-complexity model in <span class="citation" data-cites="b7RUXQvu">[<a href="#ref-b7RUXQvu" role="doc-biblioref">26</a>]</span>, as a tradeoff between computational cost and ability to represent non-linear decision boundaries, we trained a three-layer fully connected neural network with ReLU nonlinearities <span class="citation" data-cites="Xk9rmxAA">[<a href="#ref-Xk9rmxAA" role="doc-biblioref">27</a>]</span> to predict mutation status.
 For the experiments described in the main paper, we varied the size of the first hidden layer in the range {1, 2, 3, 4, 5, 10, 50, 100, 500, 1000}.
@@ -214,7 +219,6 @@ We used the same train/cross-validation split strategy described above, generati
 <p>For the <em>EGFR</em> gene, we also ran experiments where we varied the dropout proportion and the weight decay hyperparameter as the regularization axis, and selected the remaining hyperparameters (including the hidden layer size) using a random search.
 In these cases, we used a fixed range for dropout of {0.0, 0.05, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 0.95}, and a fixed range for weight decay of {0.0, 0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 10.0}.
 All neural network analyses were performed on a Ubuntu 18.04 machine with a NVIDIA RTX 2060 GPU.</p>
-<h3 id="open-sciencereproducibility-stuff">Open science/reproducibility stuff</h3>
 <h2 class="page_break_before" id="results">Results</h2>
 <h3 id="evaluating-model-generalization-using-public-cancer-data">Evaluating model generalization using public cancer data</h3>
 <p>We collected data from the TCGA Pan-Cancer Atlas and the Cancer Cell Line Encyclopedia to predict the presence or absence of mutations in cancer genes, as a benchmark of cancer-related information content across cancer types and contexts.
@@ -252,9 +256,9 @@ The “best” model selection scheme chooses the top-performing model/LASSO par
 The intention of the “smallest good” model selection scheme is to balance parsimony with reasonable performance on the holdout data, since simply selecting the smallest possible model (generally, the dummy regressor/mean predictor) is not likely to generalize well.
 To accomplish this, we first identify the top 25% of well-performing models on the holdout dataset; then, from this subset of models, we choose the smallest (i.e., highest LASSO parameter) to apply to the test data.
 In both cases, we exclusively use the holdout data to select a model and only apply the model to out-of-dataset samples to evaluate generalization performance <em>after</em> model selection.</p>
-<p>For TCGA to CCLE generalization, 27/71 genes (38.0%) had better performance for the “best” model, and 17/71 genes (23.9%) had better generalization performance with the “smallest good” model.
-The other 27 genes had the same “best” and “smallest good” model (in other words, the “smallest good” model was also the best-performing overall, and the difference was 0) (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>B).
-For CCLE to TCGA generalization, 23/70 genes (32.9%) had better performance for the “best” model and 18/70 (25.7%) for the “smallest good,” with the other 29 having the same model fulfill both criteria (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>C).
+<p>For TCGA to CCLE generalization, 31/71 genes (43.7%) had better performance for the “best” model, and 15/71 genes (21.1%) had better generalization performance with the “smallest good” model.
+The other 25 genes had the same “best” and “smallest good” model (in other words, the “smallest good” model was also the best-performing overall, and the difference was 0) (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>B).
+For CCLE to TCGA generalization, 24/70 genes (34.3%) had better performance for the “best” model and 19/70 (27.1%) for the “smallest good,” with the other 27 having the same model fulfill both criteria (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>C).
 Overall, these results do not support the hypothesis that the most parsimonious model generalizes the best: for both generalization problems there are slightly more genes where the best-performing model on the holdout dataset is also the best-performing on the test set, although there are some genes where the “smallest good” approach works well.</p>
 <p>We examined genes that fell into either category for TCGA to CCLE generalization (dotted lines on Figure <a href="#fig:tcga_ccle_smallest_best">3</a>B).
 For <em>NF1</em>, the “best” model outperforms the “smallest good” model (Figure <a href="#fig:tcga_ccle_smallest_best">3</a>D).
@@ -275,8 +279,8 @@ This suggests that a <em>PIK3CA</em> mutation status classifier that is more par
 <h3 id="generalization-across-cancer-types-yields-similar-results-to-generalization-across-datasets">Generalization across cancer types yields similar results to generalization across datasets</h3>
 <p>To evaluate generalization across biological contexts within a dataset, we trained mutation prediction classifiers on all but one cancer type in TCGA, performed model selection on a holdout set stratified by cancer type, and held out the remaining cancer type as a test set.
 We performed the same “best” vs. “smallest good” analysis that was previously described, across 294 gene/holdout cancer type combinations (Figure <a href="#fig:cancer_type_holdout">4</a>A).
-We observed 127/294 gene/cancer type combinations (43.1%) that had better generalization performance with the “best” model, compared to 78/294 (26.5%) for the “smallest good” model.
-The other 89 gene/cancer type combinations had the same “best” and “smallest good” model and thus no difference in performance.
+We observed 133/294 gene/cancer type combinations (45.2%) that had better generalization performance with the “best” model, compared to 84/294 (28.6%) for the “smallest good” model.
+The other 77 gene/cancer type combinations had the same “best” and “smallest good” model and thus no difference in performance.
 This is consistent with our cross-dataset experiments, with slightly more instances where the “best” model on the stratified holdout data also generalizes the best, but no pronounced distributional shift in either direction.</p>
 <p>We looked in more detail at two examples of gene/cancer type combinations, one on either side of the 0 point for cross-cancer type generalization.
 For prediction of <em>SETD2</em> mutation status in papillary renal cell carcinoma, we observed the best cross-cancer type performance for relatively low levels of regularization/high x-axis values (Figure <a href="#fig:cancer_type_holdout">4</a>B).
@@ -305,7 +309,8 @@ For each hidden layer size, we then visualized the distribution of ranks above a
 We saw that small hidden layer sizes tended to generalize poorly (&lt;5, but most pronounced for 1 and 2), and intermediate hidden layer sizes tended to generalize well (10-100, and sometimes 500/1000).
 This suggests that some degree of parsimony/simplicity could be useful, but very simple models do not tend to generalize well.
 We also performed the same “best”/“smallest good” analysis as with the linear models, using hidden layer size as the regularization axis instead of LASSO regularization strength.
-We observed a distribution centered around 0, suggesting that the “best” and “smallest good” models tend to generalize similarly (Figure <a href="#fig:tcga_ccle_nn">5</a>D).</p>
+We observed a distribution centered around 0, suggesting that the “best” and “smallest good” models tend to generalize similarly (Figure <a href="#fig:tcga_ccle_nn">5</a>D).
+28/71 genes (45.2%) had better generalization performance with the “best” model, compared to 21/71 (28.6%) for the “smallest good” model and 22 with the same “best” and “smallest good” model.</p>
 <div id="fig:tcga_ccle_nn" class="fignos">
 <figure>
 <img src="images/figure_5.png" style="width:90.0%" alt="Figure 5: A. EGFR mutation status prediction performance on training samples from TCGA (blue), held-out TCGA samples (orange), and CCLE samples (green), across varying neural network hidden layer sizes. B. Mutation status prediction performance summarized across all genes from Vogelstein et al. on training samples from TCGA (blue), held-out TCGA samples (orange), and CCLE samples (green), across varying neural network hidden layer sizes. C. Distribution of ranked performance values above/below the median rank for each gene, for each of the hidden layer sizes evaluated. Lower ranks indicate better performance and higher ranks indicate worse performance, relative to other hidden layer sizes. D. Distribution of performance comparisons between “best” and “smallest good” model selection strategies, for TCGA -&gt; CCLE generalization with neural network hidden layer size as the regularization axis. Positive x-axis values indicate better performance for the “best” model, negative values indicate better performance for the “smallest good” model." />
@@ -334,6 +339,15 @@ In addition, the CCLE data is collected and processed uniformly, as described in
 It has been pointed out in other biological data types that holding out entire contexts or domains is necesssary for a full picture of performance <span class="citation" data-cites="Inb9g7Za 13prIHiSM">[<a href="#ref-Inb9g7Za" role="doc-biblioref">42</a>,<a href="#ref-13prIHiSM" role="doc-biblioref">43</a>]</span>, which our results corroborate.
 This highlights a potential weakness of using TCGA’s carcinoma-dominant pan-cancer data as a training set for a broad range of tasks, for instance in foundation models which are becoming feasible for some genomics applications <span class="citation" data-cites="NMsylj71 r5y0HbhJ Uetau8wh">[<a href="#ref-NMsylj71" role="doc-biblioref">44</a>,<a href="#ref-r5y0HbhJ" role="doc-biblioref">45</a>,<a href="#ref-Uetau8wh" role="doc-biblioref">46</a>]</span>.
 One caveat of our analysis is that each cancer type is included in the training data or held out for a different subset of genes, so it is difficult to detangle gene-specific effects (some mutations have less distinguishable functional effects on gene expression than others) from cancer type-specific effects (some cancer types are less similar to each other than others) on prediction performance using our experimental design.</p>
+<h2 id="data-and-code-availability">Data and code availability</h2>
+<p>The data from TCGA analyzed during this study were previously published as part of the TCGA Pan-Cancer Atlas project <span class="citation" data-cites="AK17eOgD">[<a href="#ref-AK17eOgD" role="doc-biblioref">17</a>]</span>, and are available from the NIH NCI Genomic Data Commons (GDC).
+The data from CCLE analyzed during this study were previously published <span class="citation" data-cites="kcdvZmNN">[<a href="#ref-kcdvZmNN" role="doc-biblioref">18</a>]</span>, and are available from the Broad Institute’s DepMap Portal.
+The scripts used to download and preprocess the datasets for this study are available at <a href="https://github.com/greenelab/pancancer-evaluation/tree/master/00_process_data" class="uri">https://github.com/greenelab/pancancer-evaluation/tree/master/00_process_data</a>.
+Scripts for TCGA &lt;-&gt; CCLE comparisons (Figures 2 and 3) and neural network experiments (Figure 5) are available in the <a href="https://github.com/greenelab/pancancer-evaluation/tree/master/08_cell_line_prediction" class="uri">https://github.com/greenelab/pancancer-evaluation/tree/master/08_cell_line_prediction</a> directory.
+Scripts for TCGA cancer type comparisons (Figure 4) are available in the <a href="https://github.com/greenelab/pancancer-evaluation/tree/master/02_cancer_type_classification" class="uri">https://github.com/greenelab/pancancer-evaluation/tree/master/02_cancer_type_classification</a> directory.
+All scripts are available under the open-source BSD 3-clause license.</p>
+<p>This manuscript was written using Manubot <span class="citation" data-cites="YuJbg3zO">[<a href="#ref-YuJbg3zO" role="doc-biblioref">47</a>]</span> and is available on GitHub at <a href="https://github.com/greenelab/generalization-manuscript" class="uri">https://github.com/greenelab/generalization-manuscript</a> under the CC0-1.0 license.
+This research was supported in part by the University of Pittsburgh Center for Research Computing through the resources provided. Specifically, this work used the HTC cluster, which is supported by NIH award number S10OD028483.</p>
 <h2 class="page_break_before" id="references">References</h2>
 <!-- Explicitly insert bibliography here -->
 <div id="refs" class="references csl-bib-body" role="doc-bibliography">
@@ -475,6 +489,9 @@ using gene expression data</strong> <div class="csl-block">A Antoniadis, S Lambe
 </div>
 <div id="ref-Uetau8wh" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">46. </div><div class="csl-right-inline"><strong>Large Scale Foundation Model on Single-cell Transcriptomics</strong> <div class="csl-block">Minsheng Hao, Jing Gong, Xin Zeng, Chiming Liu, Yucheng Guo, Xingyi Cheng, Taifeng Wang, Jianzhu Ma, Le Song, Xuegong Zhang</div> <em>Cold Spring Harbor Laboratory</em> (2023-05-31) <a href="https://doi.org/gshk6q">https://doi.org/gshk6q</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1101/2023.05.29.542705">10.1101/2023.05.29.542705</a></div></div>
+</div>
+<div id="ref-YuJbg3zO" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">47. </div><div class="csl-right-inline"><strong>Open collaborative writing with Manubot</strong> <div class="csl-block">Daniel S Himmelstein, Vincent Rubinetti, David R Slochower, Dongbo Hu, Venkat S Malladi, Casey S Greene, Anthony Gitter</div> <em>PLOS Computational Biology</em> (2019-06-24) <a href="https://doi.org/c7np">https://doi.org/c7np</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi.1007128</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31233491">31233491</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6611653">PMC6611653</a></div></div>
 </div>
 </div>
 <!-- default theme -->
