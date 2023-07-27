@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2023-07-24'
+date-meta: '2023-07-27'
 author-meta:
 - Jake Crawford
 - Casey S. Greene
@@ -20,11 +20,11 @@ header-includes: |
   <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance." />
   <meta property="og:title" content="Smaller models do not exhibit superior generalization performance." />
   <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance." />
-  <meta name="dc.date" content="2023-07-24" />
-  <meta name="citation_publication_date" content="2023-07-24" />
-  <meta property="article:published_time" content="2023-07-24" />
-  <meta name="dc.modified" content="2023-07-24T15:28:50+00:00" />
-  <meta property="article:modified_time" content="2023-07-24T15:28:50+00:00" />
+  <meta name="dc.date" content="2023-07-27" />
+  <meta name="citation_publication_date" content="2023-07-27" />
+  <meta property="article:published_time" content="2023-07-27" />
+  <meta name="dc.modified" content="2023-07-27T13:47:26+00:00" />
+  <meta property="article:modified_time" content="2023-07-27T13:47:26+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -46,9 +46,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/2b637cda98624f901483c4a813bf526b66457396/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/2b637cda98624f901483c4a813bf526b66457396/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/2b637cda98624f901483c4a813bf526b66457396/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -70,10 +70,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/2b637cda98624f901483c4a813bf526b66457396/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/))
 was automatically generated
-from [greenelab/generalization-manuscript@2b637cd](https://github.com/greenelab/generalization-manuscript/tree/2b637cda98624f901483c4a813bf526b66457396)
-on July 24, 2023.
+from [greenelab/generalization-manuscript@f3f8850](https://github.com/greenelab/generalization-manuscript/tree/f3f8850977aa482b68e4c107cfe829a3379c0cbe)
+on July 27, 2023.
 </em></small>
 
 
@@ -245,6 +245,7 @@ All neural network analyses were performed on a Ubuntu 18.04 machine with a NVID
 
 We collected data from the TCGA Pan-Cancer Atlas and the Cancer Cell Line Encyclopedia to predict the presence or absence of mutations in cancer genes, as a benchmark of cancer-related information content across cancer types and contexts.
 We trained mutation status classifiers across approximately 70 genes involved in cancer development and progression from Vogelstein et al. 2013 [@doi:10.1126/science.1235122], using LASSO logistic regression with gene expression (RNA-seq) values as predictive features.
+We fit each classifier across a variety of regularization parameters, resulting in models with a variety of different sparsity levels between the extremes of 0 nonzero features and all features included (Supplementary Figure {@fig:average_sparsity}).
 Inspired by the generalization experiments across tissues and model systems in [@doi:10.1038/s43018-020-00169-2], we designed experiments to evaluate the generalization of mutation status classifiers across datasets (TCGA to CCLE and CCLE to TCGA) and across biological contexts (cancer types) within TCGA, relative to a within-dataset baseline (Figure {@fig:overview}).
 
 ![
@@ -312,10 +313,14 @@ We looked in more detail at two examples of gene/cancer type combinations, one o
 For prediction of _SETD2_ mutation status in papillary renal cell carcinoma, we observed the best cross-cancer type performance for relatively low levels of regularization/high x-axis values (Figure {@fig:cancer_type_holdout}B).
 For prediction of _CDKN2A_ mutation status in low grade glioma, on the other hand, we observed the best cross-cancer generalization for a high level of regularization ($\alpha = 0.01$), and generalization capability for the best parameter on the stratified holdout set ($\alpha = 0.0316$) was lower (Figure {@fig:cancer_type_holdout}C).
 
-We also aggregated results across genes for each cancer type, looking at performance in the held-out cancer type compared to performance on the stratified holdout set (Figure {@fig:cancer_type_holdout}D).
+We aggregated results across genes for each cancer type, looking at performance in the held-out cancer type compared to performance on the stratified holdout set (Figure {@fig:cancer_type_holdout}D).
 Cancer types that were particularly difficult to generalize to (better performance on stratified data than cancer type holdout, or positive y-axis values) include testicular cancer (TGCT) and soft tissue sarcoma (SARC), which are notable because they are not carcinomas like the majority of cancer types included in TCGA, potentially making generalization harder.
-Thyroid carcinoma (THCA) also had poor performance when held out, however.
-In our experiments, the only genes in which THCA is included as a held-out cancer type are _BRAF_ and _NRAS_; previous work suggests that _BRAF_ mutation tends to have a different functional signature in THCA than other cancer types, and withholding THCA from the training set improved classifier performance [@doi:10.1016/j.celrep.2018.03.046].
+We also aggregated results across cancer types for each gene, identifying a distinct set of genes where classifiers tend to generalize poorly no matter what cancer type is held out (Supplementary Figure {@fig:average_perf_by_gene}).
+Included in this set of genes with poor generalization performance are _HRAS_, _NRAS_, and _BRAF_, suggesting that a classifier that combines mutations in Ras pathway genes into a single "pathway mutation status" label (as described in [@doi:10.1016/j.celrep.2018.03.046]) could be a better approach than separate classifiers for each gene.
+
+In the cancer type aggregation plot (Figure {@fig:cancer_type_holdout}D), thyroid carcinoma (THCA) stood out as a carcinoma that had poor performance when held out.
+In our experiments, the only genes in which THCA is included as a held-out cancer type are _BRAF_ and _NRAS_; generalization performance for both genes is below cross-validation performance, but slightly worse for _NRAS_ than _BRAF_ (Supplementary Figure {@fig:thca_by_gene}).
+Previous work suggests that _BRAF_ mutation tends to have a different functional signature in THCA than other cancer types, and withholding THCA from the training set improved classifier performance, which could at least in part explain the difficulty of generalizing to THCA we observe [@doi:10.1016/j.celrep.2018.03.046].
 
 ![
 **A.** Distribution of performance comparisons between "best" and "smallest good" model selection strategies, for generalization across TCGA cancer types. Each point is a gene/cancer type combination; positive x-axis values indicate better performance for the "best" model and negative values indicate better performance for the "smallest good" model.
@@ -329,8 +334,9 @@ In our experiments, the only genes in which THCA is included as a held-out cance
 To test whether or not findings generalize to non-linear models, we trained a 3-layer neural network to predict mutation status from gene expression for generalization from TCGA to CCLE, and we varied the size of the first hidden layer to control regularization/model complexity.
 We fixed the size of the second hidden layer to be half the size of the first layer, rounded up to the nearest integer; further details in Methods.
 For _EGFR_ mutation status prediction, we saw that performance for small hidden layer sizes was noisy, but generally lower than for higher hidden layer sizes (Figure {@fig:tcga_ccle_nn}A).
-We also tried varying additional regularization parameters such as dropout and weight decay while holding the hidden layer size constant, and results followed a similar trend (Supplementary Figure TODO).
 On average, over all 71 genes from Vogelstein et al., performance on both held-out TCGA data and CCLE data tends to increase until a hidden layer size of 10-50, then flatten (Figure {@fig:tcga_ccle_nn}B).
+To explore additional approaches to neural network regularization, we also tried varying dropout and weight decay for _EGFR_ and _KRAS_ mutation status classification while holding the hidden layer size constant.
+Results followed a similar trend, with generalization performance generally tracking performance on holdout data (Supplementary Figure {@fig:nn_dropout_wd}).
 
 In order to measure which hidden layer sizes tended to perform relatively well or poorly, across different mutated cancer genes with different effect sizes, we ranked the range of hidden layer sizes by their generalization performance on CCLE (with low ranks representing good performance, and high ranks representing poor performance; Figure {@fig:tcga_ccle_nn}C).
 For each hidden layer size, we then visualized the distribution of ranks above and below the median rank of 5.5/10; a high proportion of ranks above the median (True, or blue bar) signifies poor overall performance for that hidden layer size, and a high proportion of ranks below the median (False, or orange bar) signifies good performance.
@@ -389,4 +395,15 @@ This research was supported in part by the University of Pittsburgh Center for R
 
 <!-- Explicitly insert bibliography here -->
 <div id="refs"></div>
+
+
+## Supplementary Material {.page_break_before}
+
+![Number of nonzero coefficients (model sparsity) across varying regularization parameters, for 71 genes (TCGA to CCLE prediction, top) and 70 genes (CCLE to TCGA prediction, bottom) in the Vogelstein et al. dataset.](images/supp_figure_1.png){#fig:average_sparsity tag="S1" width="100%"}
+
+![Distributions of performance difference between cross-validation data (same cancer types as training data) and holdout data (cancer types not represented in data), grouped by held-out gene. Each point shows performance for a single train/validation split for one cancer type that was held out, using a classifier trained to predict mutations in the given gene.](images/supp_figure_2.png){#fig:average_perf_by_gene tag="S2" width="100%" .page_break_before}
+
+![Top row: Distribution of performance differences when thyroid cancer (THCA) data is held out from training setacross seeds/folds, grouped by gene. Bottom row: Distributions of performance differences for genes where THCA is included in training/holdout sets, relative to other cancer types that are included.](images/supp_figure_3.png){#fig:thca_by_gene tag="S3" width="100%" .page_break_before}
+
+![Performance vs. dropout parameter (first column) and weight decay strength (second column), for EGFR mutation prediction (first row) and KRAS mutation prediction (second row) using a 3-layer fully connected neural network trained on TCGA (blue/orange) and evaluated on CCLE (green).](images/supp_figure_4.png){#fig:nn_dropout_wd tag="S4" width="100%" .page_break_before}
 
