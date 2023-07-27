@@ -1,4 +1,6 @@
 AUPR
+bhfhgd
+biomarker
 BRAF
 CCLE
 CDKN
@@ -59,7 +61,7 @@ subtypes
 TCGA
 TCGA’s
 TGCT
-thca
+THCA
 thresholded
 tradeoff
 transcriptomics

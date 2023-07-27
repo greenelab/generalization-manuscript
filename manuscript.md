@@ -23,8 +23,8 @@ header-includes: |
   <meta name="dc.date" content="2023-07-27" />
   <meta name="citation_publication_date" content="2023-07-27" />
   <meta property="article:published_time" content="2023-07-27" />
-  <meta name="dc.modified" content="2023-07-27T13:47:26+00:00" />
-  <meta property="article:modified_time" content="2023-07-27T13:47:26+00:00" />
+  <meta name="dc.modified" content="2023-07-27T14:11:55+00:00" />
+  <meta property="article:modified_time" content="2023-07-27T14:11:55+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -46,9 +46,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -70,9 +70,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/))
 was automatically generated
-from [greenelab/generalization-manuscript@f3f8850](https://github.com/greenelab/generalization-manuscript/tree/f3f8850977aa482b68e4c107cfe829a3379c0cbe)
+from [greenelab/generalization-manuscript@b497d29](https://github.com/greenelab/generalization-manuscript/tree/b497d299e5b6ca759e594bf95b947bfcaa73776a)
 on July 27, 2023.
 </em></small>
 
@@ -376,6 +376,17 @@ When we ranked cancer types in order of their generalization difficulty aggregat
 It has been pointed out in other biological data types that holding out entire contexts or domains is necesssary for a full picture of performance [@doi:10.1186/s13059-020-02177-y; @doi:10.1038/s41576-021-00434-9], which our results corroborate.
 This highlights a potential weakness of using TCGA's carcinoma-dominant pan-cancer data as a training set for a broad range of tasks, for instance in foundation models which are becoming feasible for some genomics applications [@arxiv:2306.15794; @doi:10.1101/2023.04.30.538439; @doi:10.1101/2023.05.29.542705].
 One caveat of our analysis is that each cancer type is included in the training data or held out for a different subset of genes, so it is difficult to detangle gene-specific effects (some mutations have less distinguishable functional effects on gene expression than others) from cancer type-specific effects (some cancer types are less similar to each other than others) on prediction performance using our experimental design.
+
+
+## Conclusion
+
+Without directly evaluating model generalization, it is tempting to assume that simpler models will generalize better than more complex ones, and previous studies and sets of guidelines suggest this rule of thumb [@doi:10.1214/088342306000000060; @doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961].
+However, we do not observe strong evidence that simpler models inherently generalize more effectively than more complex ones.
+There may be other reasons to train small models or to look for the best model of a certain size/sparsity, such as biomarker interpretability or assay cost.
+Our results underscore the importance of defining clear goals for each analysis.
+If the goal is to achieve generalization across contexts or datasets, whenever possible we recommend directly evaluating generalization.
+When it is not feasible, we recommend choosing the model that performs the best on unseen data via cross-validation or a holdout dataset.
+
 
 ## Data and code availability
 
