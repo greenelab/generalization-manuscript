@@ -54,8 +54,8 @@
   <meta name="dc.date" content="2023-07-27" />
   <meta name="citation_publication_date" content="2023-07-27" />
   <meta property="article:published_time" content="2023-07-27" />
-  <meta name="dc.modified" content="2023-07-27T13:47:26+00:00" />
-  <meta property="article:modified_time" content="2023-07-27T13:47:26+00:00" />
+  <meta name="dc.modified" content="2023-07-27T14:11:55+00:00" />
+  <meta property="article:modified_time" content="2023-07-27T14:11:55+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -77,9 +77,9 @@
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -96,9 +96,9 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://greenelab.github.io/generalization-manuscript/v/f3f8850977aa482b68e4c107cfe829a3379c0cbe/">permalink</a>)
+(<a href="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/greenelab/generalization-manuscript/tree/f3f8850977aa482b68e4c107cfe829a3379c0cbe">greenelab/generalization-manuscript@f3f8850</a>
+from <a href="https://github.com/greenelab/generalization-manuscript/tree/b497d299e5b6ca759e594bf95b947bfcaa73776a">greenelab/generalization-manuscript@b497d29</a>
 on July 27, 2023.
 </em></small></p>
 <h2 id="authors">Authors</h2>
@@ -344,6 +344,13 @@ In addition, the CCLE data is collected and processed uniformly, as described in
 It has been pointed out in other biological data types that holding out entire contexts or domains is necesssary for a full picture of performance <span class="citation" data-cites="Inb9g7Za 13prIHiSM">[<a href="#ref-Inb9g7Za" role="doc-biblioref">42</a>,<a href="#ref-13prIHiSM" role="doc-biblioref">43</a>]</span>, which our results corroborate.
 This highlights a potential weakness of using TCGA’s carcinoma-dominant pan-cancer data as a training set for a broad range of tasks, for instance in foundation models which are becoming feasible for some genomics applications <span class="citation" data-cites="NMsylj71 r5y0HbhJ Uetau8wh">[<a href="#ref-NMsylj71" role="doc-biblioref">44</a>,<a href="#ref-r5y0HbhJ" role="doc-biblioref">45</a>,<a href="#ref-Uetau8wh" role="doc-biblioref">46</a>]</span>.
 One caveat of our analysis is that each cancer type is included in the training data or held out for a different subset of genes, so it is difficult to detangle gene-specific effects (some mutations have less distinguishable functional effects on gene expression than others) from cancer type-specific effects (some cancer types are less similar to each other than others) on prediction performance using our experimental design.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Without directly evaluating model generalization, it is tempting to assume that simpler models will generalize better than more complex ones, and previous studies and sets of guidelines suggest this rule of thumb <span class="citation" data-cites="cU8r76Rn kAXq3qou wnVDbuuP HmaoBsQm">[<a href="#ref-kAXq3qou" role="doc-biblioref">11</a>,<a href="#ref-wnVDbuuP" role="doc-biblioref">12</a>,<a href="#ref-HmaoBsQm" role="doc-biblioref">13</a>,<a href="#ref-cU8r76Rn" role="doc-biblioref">47</a>]</span>.
+However, we do not observe strong evidence that simpler models inherently generalize more effectively than more complex ones.
+There may be other reasons to train small models or to look for the best model of a certain size/sparsity, such as biomarker interpretability or assay cost.
+Our results underscore the importance of defining clear goals for each analysis.
+If the goal is to achieve generalization across contexts or datasets, whenever possible we recommend directly evaluating generalization.
+When it is not feasible, we recommend choosing the model that performs the best on unseen data via cross-validation or a holdout dataset.</p>
 <h2 id="data-and-code-availability">Data and code availability</h2>
 <p>The data from TCGA analyzed during this study were previously published as part of the TCGA Pan-Cancer Atlas project <span class="citation" data-cites="AK17eOgD">[<a href="#ref-AK17eOgD" role="doc-biblioref">17</a>]</span>, and are available from the NIH NCI Genomic Data Commons (GDC).
 The data from CCLE analyzed during this study were previously published <span class="citation" data-cites="kcdvZmNN">[<a href="#ref-kcdvZmNN" role="doc-biblioref">18</a>]</span>, and are available from the Broad Institute’s DepMap Portal.
@@ -351,7 +358,7 @@ The scripts used to download and preprocess the datasets for this study are avai
 Scripts for TCGA &lt;-&gt; CCLE comparisons (Figures 2 and 3) and neural network experiments (Figure 5) are available in the <a href="https://github.com/greenelab/pancancer-evaluation/tree/master/08_cell_line_prediction" class="uri">https://github.com/greenelab/pancancer-evaluation/tree/master/08_cell_line_prediction</a> directory.
 Scripts for TCGA cancer type comparisons (Figure 4) are available in the <a href="https://github.com/greenelab/pancancer-evaluation/tree/master/02_cancer_type_classification" class="uri">https://github.com/greenelab/pancancer-evaluation/tree/master/02_cancer_type_classification</a> directory.
 All scripts are available under the open-source BSD 3-clause license.</p>
-<p>This manuscript was written using Manubot <span class="citation" data-cites="YuJbg3zO">[<a href="#ref-YuJbg3zO" role="doc-biblioref">47</a>]</span> and is available on GitHub at <a href="https://github.com/greenelab/generalization-manuscript" class="uri">https://github.com/greenelab/generalization-manuscript</a> under the CC0-1.0 license.
+<p>This manuscript was written using Manubot <span class="citation" data-cites="YuJbg3zO">[<a href="#ref-YuJbg3zO" role="doc-biblioref">48</a>]</span> and is available on GitHub at <a href="https://github.com/greenelab/generalization-manuscript" class="uri">https://github.com/greenelab/generalization-manuscript</a> under the CC0-1.0 license.
 This research was supported in part by the University of Pittsburgh Center for Research Computing through the resources provided. Specifically, this work used the HTC cluster, which is supported by NIH award number S10OD028483.</p>
 <h2 class="page_break_before" id="references">References</h2>
 <!-- Explicitly insert bibliography here -->
@@ -495,8 +502,11 @@ using gene expression data</strong> <div class="csl-block">A Antoniadis, S Lambe
 <div id="ref-Uetau8wh" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">46. </div><div class="csl-right-inline"><strong>Large Scale Foundation Model on Single-cell Transcriptomics</strong> <div class="csl-block">Minsheng Hao, Jing Gong, Xin Zeng, Chiming Liu, Yucheng Guo, Xingyi Cheng, Taifeng Wang, Jianzhu Ma, Le Song, Xuegong Zhang</div> <em>Cold Spring Harbor Laboratory</em> (2023-05-31) <a href="https://doi.org/gshk6q">https://doi.org/gshk6q</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1101/2023.05.29.542705">10.1101/2023.05.29.542705</a></div></div>
 </div>
+<div id="ref-cU8r76Rn" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">47. </div><div class="csl-right-inline"><strong>Classifier Technology and the Illusion of Progress</strong> <div class="csl-block">David J Hand</div> <em>Statistical Science</em> (2006-02-01) <a href="https://doi.org/fkwx3j">https://doi.org/fkwx3j</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1214/088342306000000060">10.1214/088342306000000060</a></div></div>
+</div>
 <div id="ref-YuJbg3zO" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">47. </div><div class="csl-right-inline"><strong>Open collaborative writing with Manubot</strong> <div class="csl-block">Daniel S Himmelstein, Vincent Rubinetti, David R Slochower, Dongbo Hu, Venkat S Malladi, Casey S Greene, Anthony Gitter</div> <em>PLOS Computational Biology</em> (2019-06-24) <a href="https://doi.org/c7np">https://doi.org/c7np</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi.1007128</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31233491">31233491</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6611653">PMC6611653</a></div></div>
+<div class="csl-left-margin">48. </div><div class="csl-right-inline"><strong>Open collaborative writing with Manubot</strong> <div class="csl-block">Daniel S Himmelstein, Vincent Rubinetti, David R Slochower, Dongbo Hu, Venkat S Malladi, Casey S Greene, Anthony Gitter</div> <em>PLOS Computational Biology</em> (2019-06-24) <a href="https://doi.org/c7np">https://doi.org/c7np</a> <div class="csl-block">DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi.1007128</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31233491">31233491</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6611653">PMC6611653</a></div></div>
 </div>
 </div>
 <h2 class="page_break_before" id="supplementary-material">Supplementary Material</h2>
