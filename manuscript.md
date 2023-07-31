@@ -1,11 +1,11 @@
 ---
-title: Smaller models do not exhibit superior generalization performance.
+title: Smaller models do not exhibit superior generalization performance
 keywords:
 - markdown
 - publishing
 - manubot
 lang: en-US
-date-meta: '2023-07-27'
+date-meta: '2023-07-31'
 author-meta:
 - Jake Crawford
 - Casey S. Greene
@@ -16,15 +16,15 @@ header-includes: |
   -->
   <meta name="dc.format" content="text/html" />
   <meta property="og:type" content="article" />
-  <meta name="dc.title" content="Smaller models do not exhibit superior generalization performance." />
-  <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance." />
-  <meta property="og:title" content="Smaller models do not exhibit superior generalization performance." />
-  <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance." />
-  <meta name="dc.date" content="2023-07-27" />
-  <meta name="citation_publication_date" content="2023-07-27" />
-  <meta property="article:published_time" content="2023-07-27" />
-  <meta name="dc.modified" content="2023-07-27T14:11:55+00:00" />
-  <meta property="article:modified_time" content="2023-07-27T14:11:55+00:00" />
+  <meta name="dc.title" content="Smaller models do not exhibit superior generalization performance" />
+  <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance" />
+  <meta property="og:title" content="Smaller models do not exhibit superior generalization performance" />
+  <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance" />
+  <meta name="dc.date" content="2023-07-31" />
+  <meta name="citation_publication_date" content="2023-07-31" />
+  <meta property="article:published_time" content="2023-07-31" />
+  <meta name="dc.modified" content="2023-07-31T15:52:45+00:00" />
+  <meta property="article:modified_time" content="2023-07-31T15:52:45+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -46,9 +46,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/bf5f30a17609f1eadb8326440aeb815c7bfe8905/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/bf5f30a17609f1eadb8326440aeb815c7bfe8905/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/bf5f30a17609f1eadb8326440aeb815c7bfe8905/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -70,10 +70,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/b497d299e5b6ca759e594bf95b947bfcaa73776a/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/bf5f30a17609f1eadb8326440aeb815c7bfe8905/))
 was automatically generated
-from [greenelab/generalization-manuscript@b497d29](https://github.com/greenelab/generalization-manuscript/tree/b497d299e5b6ca759e594bf95b947bfcaa73776a)
-on July 27, 2023.
+from [greenelab/generalization-manuscript@bf5f30a](https://github.com/greenelab/generalization-manuscript/tree/bf5f30a17609f1eadb8326440aeb815c7bfe8905)
+on July 31, 2023.
 </em></small>
 
 
@@ -120,6 +120,14 @@ Casey S. Greene \<casey.s.greene@cuanschutz.edu\>.
 
 ## Abstract {.page_break_before}
 
+Existing guidelines in statistical modeling for genomics hold that simpler models have advantages over more complex ones.
+Potential advantages include cost, interpretability, and improved generalization across datasets or biological contexts.
+In cancer transcriptomics, this manifests as a preference for small "gene signatures", or groups of genes whose expression is used to define cancer subtypes or suggest therapeutic interventions.
+To test the assumption that small gene signatures generalize better, we examined the generalization of mutation status prediction models across datasets (from cell lines to human tumors and vice-versa) and contexts (holding out entire cancer types from pan-cancer data).
+We compared two simple procedures for model selection, one that exclusively relies on cross-validation performance and one that combines cross-validation performance with regularization strength.
+We did not observe that more regularized signatures generalized better.
+This result held across multiple problems and both linear models (LASSO logistic regression) and non-linear ones (neural networks).
+When the goal of an analysis is to produce generalizable predictive models, we recommend choosing the ones that perform best on held-out data or in cross-validation, instead of those that are smaller or more regularized.
 
 
 
