@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2023-07-31'
+date-meta: '2023-08-03'
 author-meta:
 - Jake Crawford
 - Casey S. Greene
@@ -20,11 +20,11 @@ header-includes: |
   <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="og:title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance" />
-  <meta name="dc.date" content="2023-07-31" />
-  <meta name="citation_publication_date" content="2023-07-31" />
-  <meta property="article:published_time" content="2023-07-31" />
-  <meta name="dc.modified" content="2023-07-31T15:52:45+00:00" />
-  <meta property="article:modified_time" content="2023-07-31T15:52:45+00:00" />
+  <meta name="dc.date" content="2023-08-03" />
+  <meta name="citation_publication_date" content="2023-08-03" />
+  <meta property="article:published_time" content="2023-08-03" />
+  <meta name="dc.modified" content="2023-08-03T19:12:42+00:00" />
+  <meta property="article:modified_time" content="2023-08-03T19:12:42+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -46,9 +46,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/bf5f30a17609f1eadb8326440aeb815c7bfe8905/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/bf5f30a17609f1eadb8326440aeb815c7bfe8905/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/bf5f30a17609f1eadb8326440aeb815c7bfe8905/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/15e43423a20c9000238b33bf3946b8eb10848e9a/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/15e43423a20c9000238b33bf3946b8eb10848e9a/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/15e43423a20c9000238b33bf3946b8eb10848e9a/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -70,10 +70,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/bf5f30a17609f1eadb8326440aeb815c7bfe8905/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/15e43423a20c9000238b33bf3946b8eb10848e9a/))
 was automatically generated
-from [greenelab/generalization-manuscript@bf5f30a](https://github.com/greenelab/generalization-manuscript/tree/bf5f30a17609f1eadb8326440aeb815c7bfe8905)
-on July 31, 2023.
+from [greenelab/generalization-manuscript@15e4342](https://github.com/greenelab/generalization-manuscript/tree/15e43423a20c9000238b33bf3946b8eb10848e9a)
+on August 3, 2023.
 </em></small>
 
 
@@ -143,7 +143,7 @@ These are groups of genes whose expression levels are used to define cancer subt
 Many studies specify the size of the signature in the paper's title or abstract, suggesting that the fewer genes in a gene signature, the better, e.g. [@doi:10.1056/NEJMoa060096; @doi:10.1158/0008-5472.CAN-08-0436; @doi:10.1056/NEJMoa1602253].
 Clinically, there are many reasons why a smaller gene signature may be preferable, including cost (fewer genes may be less expensive to profile or validate, whereas a large signature likely requires a targeted array or NGS analysis [@doi:10.1586/erm.09.32]) and interpretability (it is easier to reason about the function and biological role of a smaller gene set than a large one since even disjoint gene signatures tend to converge on common biological pathways [@doi:10.1056/NEJMe068292; @doi:10.1038/nrclinonc.2011.125]).
 There is also an underlying assumption that smaller gene signatures tend to be more robust: that for a new patient or in a new biological context, a smaller gene set or more parsimonious model will be more likely to maintain its predictive performance than a larger one.
-This assumption has rarely been explicitly tested in genomics applications, but is often included in guidelines or rules of thumb for statistical modeling or machine learning in biology, e.g. [@doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961].
+This assumption has rarely been explicitly tested in genomics applications, but it is often included in guidelines or rules of thumb for statistical modeling or machine learning in biology, e.g. [@doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961], and it is related in spirit to information-theoretic model selection approaches such as the Akaike information criterion (AIC) and the Bayesian information criterion (BIC) [@doi:10.1109/TAC.1974.1100705; @doi:10.1214/aos/1176344136].
 
 In this study, we sought to test the robustness assumption directly by evaluating model generalization across biological contexts, inspired by previous work on domain adaptation and transfer learning in cancer transcriptomics [@doi:10.1038/s43018-020-00169-2; @doi:10.1038/s42256-021-00408-w; @doi:10.1073/pnas.2106682118].
 We used two large, heterogeneous public cancer datasets: The Cancer Genome Atlas (TCGA) for human tumor sample data [@doi:10.1038/ng.2764], and the Cancer Cell Line Encyclopedia (CCLE) for human cell line data [@doi:10.1038/s41586-019-1186-3].
@@ -236,7 +236,7 @@ For the distributions of differences shown in the Results, we took the differenc
 
 ### Neural network setup and parameter selection
 
-Inspired by the intermediate-complexity model in [@doi:10.1371/journal.pcbi.1010984], as a tradeoff between computational cost and ability to represent non-linear decision boundaries, we trained a three-layer fully connected neural network with ReLU nonlinearities [@https://dl.acm.org/doi/10.5555/3104322.3104425] to predict mutation status.
+As a tradeoff between computational cost and ability to represent non-linear decision boundaries, inspired by the architecture of the intermediate-complexity model described in [@doi:10.1371/journal.pcbi.1010984], we trained a three-layer fully connected neural network with ReLU nonlinearities [@https://dl.acm.org/doi/10.5555/3104322.3104425] to predict mutation status.
 For the experiments described in the main paper, we varied the size of the first hidden layer in the range {1, 2, 3, 4, 5, 10, 50, 100, 500, 1000}.
 We fixed the size of the second hidden layer to be half of the size of the first hidden layer, rounded up to the nearest integer, and the size of the third hidden layer was the number of classes, 2 in our case.
 Our models were trained for 100 epochs of mini-batch stochastic gradient descent in PyTorch [@arxiv:1912.01703], using the Adam optimizer [@arxiv:1412.6980] and a fixed batch size of 50.
@@ -324,7 +324,7 @@ For prediction of _CDKN2A_ mutation status in low grade glioma, on the other han
 We aggregated results across genes for each cancer type, looking at performance in the held-out cancer type compared to performance on the stratified holdout set (Figure {@fig:cancer_type_holdout}D).
 Cancer types that were particularly difficult to generalize to (better performance on stratified data than cancer type holdout, or positive y-axis values) include testicular cancer (TGCT) and soft tissue sarcoma (SARC), which are notable because they are not carcinomas like the majority of cancer types included in TCGA, potentially making generalization harder.
 We also aggregated results across cancer types for each gene, identifying a distinct set of genes where classifiers tend to generalize poorly no matter what cancer type is held out (Supplementary Figure {@fig:average_perf_by_gene}).
-Included in this set of genes with poor generalization performance are _HRAS_, _NRAS_, and _BRAF_, suggesting that a classifier that combines mutations in Ras pathway genes into a single "pathway mutation status" label (as described in [@doi:10.1016/j.celrep.2018.03.046]) could be a better approach than separate classifiers for each gene.
+Included in this set of genes with poor generalization performance are _HRAS_, _NRAS_, and _BRAF_, suggesting that a classifier that combines mutations in Ras pathway genes into a single "pathway mutation status" label (as described in [@doi:10.1016/j.celrep.2018.03.046], or using more general computational approaches such as [@doi:10.1142/9789811215636_0031; @doi:10.1038/s41525-022-00328-7]) could be a better approach than separate classifiers for each gene.
 
 In the cancer type aggregation plot (Figure {@fig:cancer_type_holdout}D), thyroid carcinoma (THCA) stood out as a carcinoma that had poor performance when held out.
 In our experiments, the only genes in which THCA is included as a held-out cancer type are _BRAF_ and _NRAS_; generalization performance for both genes is below cross-validation performance, but slightly worse for _NRAS_ than _BRAF_ (Supplementary Figure {@fig:thca_by_gene}).
@@ -381,7 +381,7 @@ This result could reflect the imperfect and limited nature of cancer cell lines 
 In addition, the CCLE data is collected and processed uniformly, as described in [@doi:10.1038/s41586-019-1186-3], while the TCGA data is processed by a uniform pipeline but collected from a wide variety of different cancer centers around the US [@doi:10.1038/ng.2764].
 
 When we ranked cancer types in order of their generalization difficulty aggregated across genes, we noticed a slight tendency toward non-carcinoma cancer types (TGCT, SARC, SKCM) being difficult to generalize to.
-It has been pointed out in other biological data types that holding out entire contexts or domains is necesssary for a full picture of performance [@doi:10.1186/s13059-020-02177-y; @doi:10.1038/s41576-021-00434-9], which our results corroborate.
+It has been pointed out in other biological data types that holding out entire contexts or domains is necesssary for a full picture of generalization performance [@doi:10.1186/s13059-020-02177-y; @doi:10.1038/s41576-021-00434-9], which our results corroborate.
 This highlights a potential weakness of using TCGA's carcinoma-dominant pan-cancer data as a training set for a broad range of tasks, for instance in foundation models which are becoming feasible for some genomics applications [@arxiv:2306.15794; @doi:10.1101/2023.04.30.538439; @doi:10.1101/2023.05.29.542705].
 One caveat of our analysis is that each cancer type is included in the training data or held out for a different subset of genes, so it is difficult to detangle gene-specific effects (some mutations have less distinguishable functional effects on gene expression than others) from cancer type-specific effects (some cancer types are less similar to each other than others) on prediction performance using our experimental design.
 
@@ -400,6 +400,7 @@ When it is not feasible, we recommend choosing the model that performs the best 
 
 The data from TCGA analyzed during this study were previously published as part of the TCGA Pan-Cancer Atlas project [@doi:10.1038/ng.2764], and are available from the NIH NCI Genomic Data Commons (GDC).
 The data from CCLE analyzed during this study were previously published [@doi:10.1038/s41586-019-1186-3], and are available from the Broad Institute's DepMap Portal.
+Raw classification results, performance figures for all genes in the Vogelstein et al. 2013 dataset, and parameter selection results and performance comparisons for each individual gene in the "best vs. smallest good" analyses are available on Figshare at <https://doi.org/10.6084/m9.figshare.23826450>, under a CC0 license.
 The scripts used to download and preprocess the datasets for this study are available at <https://github.com/greenelab/pancancer-evaluation/tree/master/00_process_data>.
 Scripts for TCGA <-> CCLE comparisons (Figures 2 and 3) and neural network experiments (Figure 5) are available in the <https://github.com/greenelab/pancancer-evaluation/tree/master/08_cell_line_prediction> directory.
 Scripts for TCGA cancer type comparisons (Figure 4) are available in the <https://github.com/greenelab/pancancer-evaluation/tree/master/02_cancer_type_classification> directory.

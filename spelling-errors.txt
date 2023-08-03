@@ -1,3 +1,5 @@
+AIC
+Akaike
 AUPR
 bhfhgd
 biomarker
@@ -13,6 +15,7 @@ datasets
 DepMap
 detangle
 EGFR
+Figshare
 GDC
 generalizable
 Genomic
@@ -62,7 +65,7 @@ subtypes
 TCGA
 TCGA’s
 TGCT
-THCA
+thca
 Thresholded
 tradeoff
 transcriptomics
