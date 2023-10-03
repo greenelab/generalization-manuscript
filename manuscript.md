@@ -23,8 +23,8 @@ header-includes: |
   <meta name="dc.date" content="2023-10-03" />
   <meta name="citation_publication_date" content="2023-10-03" />
   <meta property="article:published_time" content="2023-10-03" />
-  <meta name="dc.modified" content="2023-10-03T14:31:27+00:00" />
-  <meta property="article:modified_time" content="2023-10-03T14:31:27+00:00" />
+  <meta name="dc.modified" content="2023-10-03T15:50:06+00:00" />
+  <meta property="article:modified_time" content="2023-10-03T15:50:06+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -46,9 +46,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/89ee23576b3adaedffdadf20f91f9cad26d94730/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/89ee23576b3adaedffdadf20f91f9cad26d94730/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/89ee23576b3adaedffdadf20f91f9cad26d94730/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/02cb69c8827191445bfacae8084def61444b3c92/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/02cb69c8827191445bfacae8084def61444b3c92/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/02cb69c8827191445bfacae8084def61444b3c92/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -70,9 +70,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/89ee23576b3adaedffdadf20f91f9cad26d94730/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/02cb69c8827191445bfacae8084def61444b3c92/))
 was automatically generated
-from [greenelab/generalization-manuscript@89ee235](https://github.com/greenelab/generalization-manuscript/tree/89ee23576b3adaedffdadf20f91f9cad26d94730)
+from [greenelab/generalization-manuscript@02cb69c](https://github.com/greenelab/generalization-manuscript/tree/02cb69c8827191445bfacae8084def61444b3c92)
 on October 3, 2023.
 </em></small>
 
@@ -169,10 +169,10 @@ We removed hypermutated samples, defined as two or more standard deviations abov
 Any sample with either a non-silent somatic variant or a copy number variation (copy number gain in the target gene for oncogenes and copy number loss in the target gene for tumor suppressor genes) was included in the positive set; all remaining samples were considered negative for mutation in the target gene.
 
 We followed a similar procedure to generate binary labels for cell lines from CCLE, using the data available on the DepMap download portal at <https://depmap.org/portal/download/all/>.
-Mutation information was retrieved from the `OmicsSomaticMutations.csv` data file, and copy number inforamtion was retrieved from the `OmicsCNGene.csv` data file.
+Mutation information was retrieved from the `OmicsSomaticMutations.csv` data file, and copy number information was retrieved from the `OmicsCNGene.csv` data file.
 We thresholded the CNV log-ratios provided by CCLE into binary gain/loss calls using a lower threshold of log~2~(3/2) (i.e. cell lines with a log-ratio below this threshold were considered to have a full copy loss in the corresponding gene), and an upper threshold of log~2~(5/2) (i.e. cell lines with a log-ratio above this threshold were considered to have a full copy gain in the corresponding gene).
 After applying the same hypermutation criteria that we used for TCGA, no cell lines in CCLE were identified as hypermutated.
-After preprocesing, 1402 cell lines with mutation and copy number data remained.
+After preprocessing, 1402 cell lines with mutation and copy number data remained.
 We then combined non-silent point mutations and copy number gain/loss information into binary labels using the same criteria as for TCGA.
 
 ### Gene expression data download and preprocessing
@@ -203,7 +203,7 @@ To control for varying mutation burden per sample and to adjust for potential ca
 Since gene expression datasets tend to have many dimensions and comparatively few samples, we used a LASSO penalty to perform feature selection [@doi:10.1111/j.2517-6161.1996.tb02080.x].
 LASSO logistic regression has the ability to generate sparse models (some or most coefficients are 0), as well as having a single tunable hyperparameter which can be easily interpreted as an indicator of regularization strength/model simplicity.
 
-LASSO ($\l_1$-penalized) logistic regression finds the feature weights $\hat{w} \in \mathbb{R}^{p}$ solving the following optimization problem:
+LASSO ($L_{1}$-penalized) logistic regression finds the feature weights $\hat{w} \in \mathbb{R}^{p}$ solving the following optimization problem:
 
 $$\hat{w} = \text{argmin}_{w} \ (C \cdot l(X, y; w)) + ||w||_1$$
 
@@ -323,7 +323,7 @@ The other 26 gene/cancer type combinations had the same "best" and "smallest goo
 This is consistent with our cross-dataset experiments, with slightly more instances where the "best" model on the stratified holdout data also generalizes the best, but no pronounced distributional shift in either direction.
 
 We looked in more detail at two examples of gene/cancer type combinations, one on either side of the 0 point for cross-cancer type generalization.
-For prediction of _PIK3CA_ mutation status in rectal adenocarcinoma (READ), we observed the best cross-cancer type performance for relatively low levels of regularization/high x-axis values, at $\alpha = 0.027 (Figure {@fig:cancer_type_holdout}B).
+For prediction of _PIK3CA_ mutation status in rectal adenocarcinoma (READ), we observed the best cross-cancer type performance for relatively low levels of regularization/high x-axis values, at $\alpha = 0.027$ (Figure {@fig:cancer_type_holdout}B).
 For prediction of _NF1_ mutation status in uterine corpus endometrial carcinoma (UCEC), on the other hand, we observed the best cross-cancer generalization for a high level of regularization ($\alpha = 0.0027$), and generalization capability for the best parameter on the stratified holdout set ($\alpha = 0.01$) was lower (Figure {@fig:cancer_type_holdout}C).
 It is also interesting to note that in the previous experiments generalizing from TCGA to CCLE, we used _PIK3CA_ as an example of a gene where the "smallest good" model performs best and _NF1_ as an example where the "best" model was selected, and this tendency was reversed for these two cancer types.
 This highlights the importance of considering generalization to the cancer type or sample cohort of interest independently of general trends for a particular classifier, whenever possible.
@@ -388,7 +388,7 @@ This result could reflect the imperfect and limited nature of cancer cell lines 
 In addition, the CCLE data is collected and processed uniformly, as described in [@doi:10.1038/s41586-019-1186-3], while the TCGA data is processed by a uniform pipeline but collected from a wide variety of different cancer centers around the US [@doi:10.1038/ng.2764].
 
 When we ranked cancer types in order of their generalization difficulty aggregated across genes, we noticed a slight tendency toward non-carcinoma cancer types (TGCT, SARC, SKCM) being difficult to generalize to.
-It has been pointed out in other biological data types that holding out entire contexts or domains is necesssary for a full picture of generalization performance [@doi:10.1186/s13059-020-02177-y; @doi:10.1038/s41576-021-00434-9], which our results corroborate.
+It has been pointed out in other biological data types that holding out entire contexts or domains is necessary for a full picture of generalization performance [@doi:10.1186/s13059-020-02177-y; @doi:10.1038/s41576-021-00434-9], which our results corroborate.
 This highlights a potential weakness of using TCGA's carcinoma-dominant pan-cancer data as a training set for a broad range of tasks, for instance in foundation models which are becoming feasible for some genomics applications [@arxiv:2306.15794; @doi:10.1101/2023.04.30.538439; @doi:10.1101/2023.05.29.542705].
 One caveat of our analysis is that each cancer type is included in the training data or held out for a different subset of genes, so it is difficult to detangle gene-specific effects (some mutations have less distinguishable functional effects on gene expression than others) from cancer type-specific effects (some cancer types are less similar to each other than others) on prediction performance using our experimental design.
 
@@ -432,7 +432,7 @@ This research was supported in part by the University of Pittsburgh Center for R
 
 ![Distributions of performance difference between cross-validation data (same cancer types as training data) and holdout data (cancer types not represented in data), grouped by held-out gene. Each point shows performance for a single train/validation split for one cancer type that was held out, using a classifier trained to predict mutations in the given gene.](images/supp_figure_3.png){#fig:average_perf_by_gene tag="S3" width="100%" .page_break_before}
 
-![Top row: Distribution of performance differences when thyroid cancer (THCA) data is held out from training setacross seeds/folds, grouped by gene. Bottom row: Distributions of performance differences for genes where THCA is included in training/holdout sets, relative to other cancer types that are included.](images/supp_figure_4.png){#fig:thca_by_gene tag="S4" width="100%" .page_break_before}
+![Top row: Distribution of performance differences when thyroid cancer (THCA) data is held out from training set across seeds/folds, grouped by gene. Bottom row: Distributions of performance differences for genes where THCA is included in training/holdout sets, relative to other cancer types that are included.](images/supp_figure_4.png){#fig:thca_by_gene tag="S4" width="100%" .page_break_before}
 
 ![Performance vs. dropout parameter (first column) and weight decay strength (second column), for EGFR mutation prediction (first row) and KRAS mutation prediction (second row) using a 3-layer fully connected neural network trained on TCGA (blue/orange) and evaluated on CCLE (green).](images/supp_figure_5.png){#fig:nn_dropout_wd tag="S5" width="100%" .page_break_before}
 

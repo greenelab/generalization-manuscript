@@ -36,7 +36,6 @@ content/02.main-text.md:35:hypermutated
 content/02.main-text.md:38:CCLE
 content/02.main-text.md:38:depmap
 content/02.main-text.md:38:DepMap
-content/02.main-text.md:39:inforamtion
 content/02.main-text.md:40:CCLE
 content/02.main-text.md:40:CNV
 content/02.main-text.md:40:thresholded
@@ -44,7 +43,7 @@ content/02.main-text.md:41:CCLE
 content/02.main-text.md:41:hypermutated
 content/02.main-text.md:41:hypermutation
 content/02.main-text.md:41:TCGA
-content/02.main-text.md:42:preprocesing
+content/02.main-text.md:42:preprocessing
 content/02.main-text.md:43:TCGA
 content/02.main-text.md:45:preprocessing
 content/02.main-text.md:47:GDC
@@ -242,7 +241,6 @@ content/02.main-text.md:255:TCGA
 content/02.main-text.md:257:SARC
 content/02.main-text.md:257:SKCM
 content/02.main-text.md:257:TGCT
-content/02.main-text.md:258:necesssary
 content/02.main-text.md:259:TCGA
 content/02.main-text.md:259:TCGA's
 content/02.main-text.md:260:detangle
@@ -278,7 +276,6 @@ content/91.supp-info.md:5:CCLE
 content/91.supp-info.md:5:EGFR
 content/91.supp-info.md:5:quantiles
 content/91.supp-info.md:5:TCGA
-content/91.supp-info.md:9:setacross
 content/91.supp-info.md:9:THCA
 content/91.supp-info.md:9:THCA
 content/91.supp-info.md:11:CCLE

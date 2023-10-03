@@ -4,7 +4,7 @@ AUPR
 bhfhgd
 biomarker
 BRAF
-ccle
+CCLE
 cgreene
 CNV
 colorectal
@@ -29,13 +29,11 @@ hypermutation
 hyperparameter
 hyperparameters
 IDH
-inforamtion
 interpretability
 jjc
 KRAS
 multicollinearity
 NCI
-necesssary
 NGS
 nn
 nonlinearities
@@ -47,7 +45,6 @@ overfit
 overfitting
 perf
 PIK
-preprocesing
 preprocess
 preprocessing
 quantiles
@@ -56,13 +53,12 @@ regressor
 ReLU
 RTX
 SARC
-setacross
 SKCM
 subtypes
 TCGA
 TCGA’s
 TGCT
-THCA
+thca
 thresholded
 tradeoff
 transcriptomics
