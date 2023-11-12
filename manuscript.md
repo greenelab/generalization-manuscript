@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2023-10-03'
+date-meta: '2023-11-12'
 author-meta:
 - Jake Crawford
 - Casey S. Greene
@@ -20,11 +20,11 @@ header-includes: |
   <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="og:title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance" />
-  <meta name="dc.date" content="2023-10-03" />
-  <meta name="citation_publication_date" content="2023-10-03" />
-  <meta property="article:published_time" content="2023-10-03" />
-  <meta name="dc.modified" content="2023-10-03T15:50:06+00:00" />
-  <meta property="article:modified_time" content="2023-10-03T15:50:06+00:00" />
+  <meta name="dc.date" content="2023-11-12" />
+  <meta name="citation_publication_date" content="2023-11-12" />
+  <meta property="article:published_time" content="2023-11-12" />
+  <meta name="dc.modified" content="2023-11-12T18:55:21+00:00" />
+  <meta property="article:modified_time" content="2023-11-12T18:55:21+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -46,9 +46,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/02cb69c8827191445bfacae8084def61444b3c92/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/02cb69c8827191445bfacae8084def61444b3c92/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/02cb69c8827191445bfacae8084def61444b3c92/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/35947cd35e6e2684c8e6182e3f9557fa701477a6/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/35947cd35e6e2684c8e6182e3f9557fa701477a6/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/35947cd35e6e2684c8e6182e3f9557fa701477a6/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -70,10 +70,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/02cb69c8827191445bfacae8084def61444b3c92/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/35947cd35e6e2684c8e6182e3f9557fa701477a6/))
 was automatically generated
-from [greenelab/generalization-manuscript@02cb69c](https://github.com/greenelab/generalization-manuscript/tree/02cb69c8827191445bfacae8084def61444b3c92)
-on October 3, 2023.
+from [greenelab/generalization-manuscript@35947cd](https://github.com/greenelab/generalization-manuscript/tree/35947cd35e6e2684c8e6182e3f9557fa701477a6)
+on November 12, 2023.
 </em></small>
 
 
@@ -303,7 +303,7 @@ We examined genes that fell into either category for TCGA to CCLE generalization
 For _NF1_, the "best" model outperforms the "smallest good" model (Figure {@fig:tcga_ccle_smallest_best}D).
 Comparing holdout (orange) and cross-dataset (green) performance, both generally follow a similar trend, with the cross-dataset performance near its peak when the holdout performance peaks at a regularization parameter of $\alpha = 0.01$.
 _PIK3CA_ is an example of the opposite, a gene where the "smallest good" model tends to outperform the "best" model (Figure {@fig:tcga_ccle_smallest_best}E).
-In this case, better cross-dataset performance occurs at a higher level of regularization (further left on the x-axis), at $\alpha = 0.0072$, than the peak for the holdout performance, at $\alpha = 0.027$.
+In this case, better cross-dataset performance occurs at a higher level of regularization (further left on the x-axis), at $\alpha = 0.019$, than the peak for the holdout performance, at $\alpha = 0.027$.
 This suggests that a _PIK3CA_ mutation status classifier that is more parsimonious, but that has slightly worse performance, does tend to generalize more effectively across datasets from TCGA to CCLE.
 
 ![
@@ -324,7 +324,7 @@ This is consistent with our cross-dataset experiments, with slightly more instan
 
 We looked in more detail at two examples of gene/cancer type combinations, one on either side of the 0 point for cross-cancer type generalization.
 For prediction of _PIK3CA_ mutation status in rectal adenocarcinoma (READ), we observed the best cross-cancer type performance for relatively low levels of regularization/high x-axis values, at $\alpha = 0.027$ (Figure {@fig:cancer_type_holdout}B).
-For prediction of _NF1_ mutation status in uterine corpus endometrial carcinoma (UCEC), on the other hand, we observed the best cross-cancer generalization for a high level of regularization ($\alpha = 0.0027$), and generalization capability for the best parameter on the stratified holdout set ($\alpha = 0.01$) was lower (Figure {@fig:cancer_type_holdout}C).
+For prediction of _NF1_ mutation status in uterine corpus endometrial carcinoma (UCEC), on the other hand, we observed the best cross-cancer generalization for a high level of regularization ($\alpha = 0.0072$), and generalization capability for the best parameter on the stratified holdout set ($\alpha = 0.01$) was lower (Figure {@fig:cancer_type_holdout}C).
 It is also interesting to note that in the previous experiments generalizing from TCGA to CCLE, we used _PIK3CA_ as an example of a gene where the "smallest good" model performs best and _NF1_ as an example where the "best" model was selected, and this tendency was reversed for these two cancer types.
 This highlights the importance of considering generalization to the cancer type or sample cohort of interest independently of general trends for a particular classifier, whenever possible.
 

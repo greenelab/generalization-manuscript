@@ -8447,7 +8447,7 @@
   {
     "publisher": "Springer Science and Business Media LLC",
     "issue": "1",
-    "abstract": "<jats:title>Abstract</jats:title><jats:sec>\n                <jats:title>Background</jats:title>\n                <jats:p>Deep learning has emerged as a versatile approach for predicting complex biological phenomena. However, its utility for biological discovery has so far been limited, given that generic deep neural networks provide little insight into the biological mechanisms that underlie a successful prediction. Here we demonstrate deep learning on biological networks, where every node has a molecular equivalent, such as a protein or gene, and every edge has a mechanistic interpretation, such as a regulatory interaction along a signaling pathway.</jats:p>\n              </jats:sec><jats:sec>\n                <jats:title>Results</jats:title>\n                <jats:p>With knowledge-primed neural networks (KPNNs), we exploit the ability of deep learning algorithms to assign meaningful weights in multi-layered networks, resulting in a widely applicable approach for interpretable deep learning. We present a learning method that enhances the interpretability of trained KPNNs by stabilizing node weights in the presence of redundancy, enhancing the quantitative interpretability of node weights, and controlling for uneven connectivity in biological networks. We validate KPNNs on simulated data with known ground truth and demonstrate their practical use and utility in five biological applications with single-cell RNA-seq data for cancer and immune cells.</jats:p>\n              </jats:sec><jats:sec>\n                <jats:title>Conclusions</jats:title>\n                <jats:p>We introduce KPNNs as a method that combines the predictive power of deep learning with the interpretability of biological networks. While demonstrated here on single-cell sequencing data, this method is broadly relevant to other research areas where prior domain knowledge can be represented as networks.</jats:p>\n              </jats:sec>",
+    "abstract": "<jats:title>Abstract</jats:title><jats:sec><jats:title>Background</jats:title><jats:p>Deep learning has emerged as a versatile approach for predicting complex biological phenomena. However, its utility for biological discovery has so far been limited, given that generic deep neural networks provide little insight into the biological mechanisms that underlie a successful prediction. Here we demonstrate deep learning on biological networks, where every node has a molecular equivalent, such as a protein or gene, and every edge has a mechanistic interpretation, such as a regulatory interaction along a signaling pathway.</jats:p></jats:sec><jats:sec><jats:title>Results</jats:title><jats:p>With knowledge-primed neural networks (KPNNs), we exploit the ability of deep learning algorithms to assign meaningful weights in multi-layered networks, resulting in a widely applicable approach for interpretable deep learning. We present a learning method that enhances the interpretability of trained KPNNs by stabilizing node weights in the presence of redundancy, enhancing the quantitative interpretability of node weights, and controlling for uneven connectivity in biological networks. We validate KPNNs on simulated data with known ground truth and demonstrate their practical use and utility in five biological applications with single-cell RNA-seq data for cancer and immune cells.</jats:p></jats:sec><jats:sec><jats:title>Conclusions</jats:title><jats:p>We introduce KPNNs as a method that combines the predictive power of deep learning with the interpretability of biological networks. While demonstrated here on single-cell sequencing data, this method is broadly relevant to other research areas where prior domain knowledge can be represented as networks.</jats:p></jats:sec>",
     "DOI": "10.1186/s13059-020-02100-5",
     "type": "article-journal",
     "source": "Crossref",
@@ -8895,8 +8895,8 @@
       "date-parts": [
         [
           "2023",
-          10,
-          3
+          11,
+          12
         ]
       ]
     },
@@ -8995,8 +8995,8 @@
       "date-parts": [
         [
           "2023",
-          10,
-          3
+          11,
+          12
         ]
       ]
     },
@@ -9048,8 +9048,8 @@
       "date-parts": [
         [
           "2023",
-          10,
-          3
+          11,
+          12
         ]
       ]
     },

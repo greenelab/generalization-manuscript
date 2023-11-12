@@ -59,7 +59,7 @@ TCGA
 TCGA’s
 TGCT
 thca
-thresholded
+Thresholded
 tradeoff
 transcriptomics
 tunable
