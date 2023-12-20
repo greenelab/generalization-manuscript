@@ -5,9 +5,10 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2023-11-12'
+date-meta: '2023-12-20'
 author-meta:
 - Jake Crawford
+- Maria Chikina
 - Casey S. Greene
 header-includes: |
   <!--
@@ -20,11 +21,11 @@ header-includes: |
   <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="og:title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance" />
-  <meta name="dc.date" content="2023-11-12" />
-  <meta name="citation_publication_date" content="2023-11-12" />
-  <meta property="article:published_time" content="2023-11-12" />
-  <meta name="dc.modified" content="2023-11-12T18:55:21+00:00" />
-  <meta property="article:modified_time" content="2023-11-12T18:55:21+00:00" />
+  <meta name="dc.date" content="2023-12-20" />
+  <meta name="citation_publication_date" content="2023-12-20" />
+  <meta property="article:published_time" content="2023-12-20" />
+  <meta name="dc.modified" content="2023-12-20T02:42:56+00:00" />
+  <meta property="article:modified_time" content="2023-12-20T02:42:56+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -35,6 +36,9 @@ header-includes: |
   <meta name="citation_author_institution" content="Genomics and Computational Biology Graduate Group, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA" />
   <meta name="citation_author_orcid" content="0000-0001-6207-0782" />
   <meta name="twitter:creator" content="@jjc2718" />
+  <meta name="citation_author" content="Maria Chikina" />
+  <meta name="citation_author_institution" content="Department of Computational and Systems Biology, School of Medicine, University of Pittsburgh, Pittsburgh, PA, USA" />
+  <meta name="citation_author_orcid" content="0000-0003-2550-5403" />
   <meta name="citation_author" content="Casey S. Greene" />
   <meta name="citation_author_institution" content="Department of Biomedical Informatics, University of Colorado School of Medicine, Aurora, CO, USA" />
   <meta name="citation_author_institution" content="Center for Health AI, University of Colorado School of Medicine, Aurora, CO, USA" />
@@ -46,9 +50,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/35947cd35e6e2684c8e6182e3f9557fa701477a6/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/35947cd35e6e2684c8e6182e3f9557fa701477a6/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/35947cd35e6e2684c8e6182e3f9557fa701477a6/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/9e7f053f512b5e8fd9db959bff625fb6ce927f23/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/9e7f053f512b5e8fd9db959bff625fb6ce927f23/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/9e7f053f512b5e8fd9db959bff625fb6ce927f23/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -70,10 +74,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/35947cd35e6e2684c8e6182e3f9557fa701477a6/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/9e7f053f512b5e8fd9db959bff625fb6ce927f23/))
 was automatically generated
-from [greenelab/generalization-manuscript@35947cd](https://github.com/greenelab/generalization-manuscript/tree/35947cd35e6e2684c8e6182e3f9557fa701477a6)
-on November 12, 2023.
+from [greenelab/generalization-manuscript@9e7f053](https://github.com/greenelab/generalization-manuscript/tree/9e7f053f512b5e8fd9db959bff625fb6ce927f23)
+on December 20, 2023.
 </em></small>
 
 
@@ -93,6 +97,17 @@ on November 12, 2023.
     <br>
   <small>
      Genomics and Computational Biology Graduate Group, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA
+  </small>
+
++ **Maria Chikina**
+  <br>
+    ![ORCID icon](images/orcid.svg){.inline_icon width=16 height=16}
+    [0000-0003-2550-5403](https://orcid.org/0000-0003-2550-5403)
+    · ![GitHub icon](images/github.svg){.inline_icon width=16 height=16}
+    [mchikina](https://github.com/mchikina)
+    <br>
+  <small>
+     Department of Computational and Systems Biology, School of Medicine, University of Pittsburgh, Pittsburgh, PA, USA
   </small>
 
 + **Casey S. Greene**

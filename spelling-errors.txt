@@ -4,8 +4,9 @@ AUPR
 bhfhgd
 biomarker
 BRAF
-CCLE
+ccle
 cgreene
+Chikina
 CNV
 colorectal
 covariates
@@ -32,6 +33,7 @@ IDH
 interpretability
 jjc
 KRAS
+mchikina
 multicollinearity
 NCI
 NGS
@@ -58,8 +60,8 @@ subtypes
 TCGA
 TCGA’s
 TGCT
-thca
-Thresholded
+THCA
+thresholded
 tradeoff
 transcriptomics
 tunable
