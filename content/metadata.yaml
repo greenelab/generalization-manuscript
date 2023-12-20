@@ -15,6 +15,12 @@ authors:
     email: jcra@pennmedicine.upenn.edu
     affiliations:
       - Genomics and Computational Biology Graduate Group, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA
+  - github: mchikina
+    name: Maria Chikina
+    initials: MC
+    orcid: 0000-0003-2550-5403
+    affiliations:
+      - Department of Computational and Systems Biology, School of Medicine, University of Pittsburgh, Pittsburgh, PA, USA
   - github: cgreene
     name: Casey S. Greene
     initials: CSG
