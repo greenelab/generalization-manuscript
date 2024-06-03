@@ -7,13 +7,13 @@
       "manubot"
     ],
     "lang": "en-US",
-    "date-meta": "2023-12-20",
+    "date-meta": "2024-06-03",
     "author-meta": [
       "Jake Crawford",
       "Maria Chikina",
       "Casey S. Greene"
     ],
-    "header-includes": "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta name=\"dc.title\" content=\"Smaller models do not exhibit superior generalization performance\" />\n<meta name=\"citation_title\" content=\"Smaller models do not exhibit superior generalization performance\" />\n<meta property=\"og:title\" content=\"Smaller models do not exhibit superior generalization performance\" />\n<meta property=\"twitter:title\" content=\"Smaller models do not exhibit superior generalization performance\" />\n<meta name=\"dc.date\" content=\"2023-12-20\" />\n<meta name=\"citation_publication_date\" content=\"2023-12-20\" />\n<meta property=\"article:published_time\" content=\"2023-12-20\" />\n<meta name=\"dc.modified\" content=\"2023-12-20T02:42:56+00:00\" />\n<meta property=\"article:modified_time\" content=\"2023-12-20T02:42:56+00:00\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"Jake Crawford\" />\n<meta name=\"citation_author_institution\" content=\"Genomics and Computational Biology Graduate Group, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0001-6207-0782\" />\n<meta name=\"twitter:creator\" content=\"@jjc2718\" />\n<meta name=\"citation_author\" content=\"Maria Chikina\" />\n<meta name=\"citation_author_institution\" content=\"Department of Computational and Systems Biology, School of Medicine, University of Pittsburgh, Pittsburgh, PA, USA\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0003-2550-5403\" />\n<meta name=\"citation_author\" content=\"Casey S. Greene\" />\n<meta name=\"citation_author_institution\" content=\"Department of Biomedical Informatics, University of Colorado School of Medicine, Aurora, CO, USA\" />\n<meta name=\"citation_author_institution\" content=\"Center for Health AI, University of Colorado School of Medicine, Aurora, CO, USA\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0001-8713-9213\" />\n<meta name=\"twitter:creator\" content=\"@GreeneScientist\" />\n<link rel=\"canonical\" href=\"https://greenelab.github.io/generalization-manuscript/\" />\n<meta property=\"og:url\" content=\"https://greenelab.github.io/generalization-manuscript/\" />\n<meta property=\"twitter:url\" content=\"https://greenelab.github.io/generalization-manuscript/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://greenelab.github.io/generalization-manuscript/\" />\n<meta name=\"citation_pdf_url\" content=\"https://greenelab.github.io/generalization-manuscript/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://greenelab.github.io/generalization-manuscript/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://greenelab.github.io/generalization-manuscript/v/9e7f053f512b5e8fd9db959bff625fb6ce927f23/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://greenelab.github.io/generalization-manuscript/v/9e7f053f512b5e8fd9db959bff625fb6ce927f23/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://greenelab.github.io/generalization-manuscript/v/9e7f053f512b5e8fd9db959bff625fb6ce927f23/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->\n",
+    "header-includes": "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta name=\"dc.title\" content=\"Smaller models do not exhibit superior generalization performance\" />\n<meta name=\"citation_title\" content=\"Smaller models do not exhibit superior generalization performance\" />\n<meta property=\"og:title\" content=\"Smaller models do not exhibit superior generalization performance\" />\n<meta property=\"twitter:title\" content=\"Smaller models do not exhibit superior generalization performance\" />\n<meta name=\"dc.date\" content=\"2024-06-03\" />\n<meta name=\"citation_publication_date\" content=\"2024-06-03\" />\n<meta property=\"article:published_time\" content=\"2024-06-03\" />\n<meta name=\"dc.modified\" content=\"2024-06-03T22:57:34+00:00\" />\n<meta property=\"article:modified_time\" content=\"2024-06-03T22:57:34+00:00\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"Jake Crawford\" />\n<meta name=\"citation_author_institution\" content=\"Genomics and Computational Biology Graduate Group, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0001-6207-0782\" />\n<meta name=\"twitter:creator\" content=\"@jjc2718\" />\n<meta name=\"citation_author\" content=\"Maria Chikina\" />\n<meta name=\"citation_author_institution\" content=\"Department of Computational and Systems Biology, School of Medicine, University of Pittsburgh, Pittsburgh, PA, USA\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0003-2550-5403\" />\n<meta name=\"citation_author\" content=\"Casey S. Greene\" />\n<meta name=\"citation_author_institution\" content=\"Department of Biomedical Informatics, University of Colorado School of Medicine, Aurora, CO, USA\" />\n<meta name=\"citation_author_institution\" content=\"Center for Health AI, University of Colorado School of Medicine, Aurora, CO, USA\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0001-8713-9213\" />\n<meta name=\"twitter:creator\" content=\"@GreeneScientist\" />\n<link rel=\"canonical\" href=\"https://greenelab.github.io/generalization-manuscript/\" />\n<meta property=\"og:url\" content=\"https://greenelab.github.io/generalization-manuscript/\" />\n<meta property=\"twitter:url\" content=\"https://greenelab.github.io/generalization-manuscript/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://greenelab.github.io/generalization-manuscript/\" />\n<meta name=\"citation_pdf_url\" content=\"https://greenelab.github.io/generalization-manuscript/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://greenelab.github.io/generalization-manuscript/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://greenelab.github.io/generalization-manuscript/v/012eed1112f332b033f9ffc4ec5587b714d4d80f/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://greenelab.github.io/generalization-manuscript/v/012eed1112f332b033f9ffc4ec5587b714d4d80f/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://greenelab.github.io/generalization-manuscript/v/012eed1112f332b033f9ffc4ec5587b714d4d80f/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->\n",
     "bibliography": [
       "content/manual-references.json"
     ],
@@ -23,10 +23,10 @@
     "manubot-clear-requests-cache": false
   },
   "manubot": {
-    "date": "2023-12-20",
-    "date_long": "December 20, 2023",
-    "generated": "2023-12-20T02:42:56+00:00",
-    "generated_date_long": "December 20, 2023",
+    "date": "2024-06-03",
+    "date_long": "June 3, 2024",
+    "generated": "2024-06-03T22:57:34+00:00",
+    "generated_date_long": "June 3, 2024",
     "randomize_author_order": false,
     "authors": [
       {
@@ -96,19 +96,19 @@
       "repo_slug": "greenelab/generalization-manuscript",
       "repo_owner": "greenelab",
       "repo_name": "generalization-manuscript",
-      "commit": "9e7f053f512b5e8fd9db959bff625fb6ce927f23",
-      "triggering_commit": "9e7f053f512b5e8fd9db959bff625fb6ce927f23",
-      "build_url": "https://github.com/greenelab/generalization-manuscript/commit/9e7f053f512b5e8fd9db959bff625fb6ce927f23/checks",
-      "job_url": "https://github.com/greenelab/generalization-manuscript/actions/runs/7270320222"
+      "commit": "012eed1112f332b033f9ffc4ec5587b714d4d80f",
+      "triggering_commit": "012eed1112f332b033f9ffc4ec5587b714d4d80f",
+      "build_url": "https://github.com/greenelab/generalization-manuscript/commit/012eed1112f332b033f9ffc4ec5587b714d4d80f/checks",
+      "job_url": "https://github.com/greenelab/generalization-manuscript/actions/runs/9358357854"
     },
     "html_url": "https://greenelab.github.io/generalization-manuscript/",
     "pdf_url": "https://greenelab.github.io/generalization-manuscript/manuscript.pdf",
-    "html_url_versioned": "https://greenelab.github.io/generalization-manuscript/v/9e7f053f512b5e8fd9db959bff625fb6ce927f23/",
-    "pdf_url_versioned": "https://greenelab.github.io/generalization-manuscript/v/9e7f053f512b5e8fd9db959bff625fb6ce927f23/manuscript.pdf",
+    "html_url_versioned": "https://greenelab.github.io/generalization-manuscript/v/012eed1112f332b033f9ffc4ec5587b714d4d80f/",
+    "pdf_url_versioned": "https://greenelab.github.io/generalization-manuscript/v/012eed1112f332b033f9ffc4ec5587b714d4d80f/manuscript.pdf",
     "manubot_version": "0.5.5",
     "rootstock_commit": "f3e0520060162f71f0950ea88d44de526d241ad1",
     "manuscript_stats": {
-      "word_count": 6983
+      "word_count": 7646
     }
   }
 }
