@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2024-06-03'
+date-meta: '2024-06-04'
 author-meta:
 - Jake Crawford
 - Maria Chikina
@@ -21,11 +21,11 @@ header-includes: |
   <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="og:title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance" />
-  <meta name="dc.date" content="2024-06-03" />
-  <meta name="citation_publication_date" content="2024-06-03" />
-  <meta property="article:published_time" content="2024-06-03" />
-  <meta name="dc.modified" content="2024-06-03T22:57:34+00:00" />
-  <meta property="article:modified_time" content="2024-06-03T22:57:34+00:00" />
+  <meta name="dc.date" content="2024-06-04" />
+  <meta name="citation_publication_date" content="2024-06-04" />
+  <meta property="article:published_time" content="2024-06-04" />
+  <meta name="dc.modified" content="2024-06-04T16:35:52+00:00" />
+  <meta property="article:modified_time" content="2024-06-04T16:35:52+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -50,9 +50,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/012eed1112f332b033f9ffc4ec5587b714d4d80f/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/012eed1112f332b033f9ffc4ec5587b714d4d80f/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/012eed1112f332b033f9ffc4ec5587b714d4d80f/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/456ec9605d274bc4e70b9b0202933079a258b496/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/456ec9605d274bc4e70b9b0202933079a258b496/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/456ec9605d274bc4e70b9b0202933079a258b496/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -74,10 +74,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/012eed1112f332b033f9ffc4ec5587b714d4d80f/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/456ec9605d274bc4e70b9b0202933079a258b496/))
 was automatically generated
-from [greenelab/generalization-manuscript@012eed1](https://github.com/greenelab/generalization-manuscript/tree/012eed1112f332b033f9ffc4ec5587b714d4d80f)
-on June 3, 2024.
+from [greenelab/generalization-manuscript@456ec96](https://github.com/greenelab/generalization-manuscript/tree/456ec9605d274bc4e70b9b0202933079a258b496)
+on June 4, 2024.
 </em></small>
 
 
@@ -157,8 +157,10 @@ In cancer transcriptomics, this preference for small, parsimonious sets of genes
 These are groups of genes whose expression levels are used to define cancer subtypes or to predict prognosis or therapeutic response [@doi:10.1038/nrg.2017.96; @doi:10.1016/j.ejca.2013.02.021].
 Many studies specify the size of the signature in the paper's title or abstract, suggesting that the fewer genes in a gene signature, the better, e.g. [@doi:10.1056/NEJMoa060096; @doi:10.1158/0008-5472.CAN-08-0436; @doi:10.1056/NEJMoa1602253].
 Clinically, there are many reasons why a smaller gene signature may be preferable, including cost (fewer genes may be less expensive to profile or validate, whereas a large signature likely requires a targeted array or NGS analysis [@doi:10.1586/erm.09.32]) and interpretability (it is easier to reason about the function and biological role of a smaller gene set than a large one since even disjoint gene signatures tend to converge on common biological pathways [@doi:10.1056/NEJMe068292; @doi:10.1038/nrclinonc.2011.125]).
-There is also an underlying assumption that smaller gene signatures tend to be more robust: that for a new patient or in a new biological context, a smaller gene set or more parsimonious model will be more likely to maintain its predictive performance than a larger one.
-This assumption has rarely been explicitly tested in genomics applications, but it is often included in guidelines or rules of thumb for statistical modeling or machine learning in biology, e.g. [@doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961].
+
+Behind much of this work, there is an underlying assumption that smaller gene signatures tend to be more robust: that for a new patient or in a new biological context, a smaller gene set or more parsimonious model will be more likely to maintain its predictive performance than a larger one.
+Similar ideas are described in the statistics literature, suggesting that simpler models with performance that is comparable to the best model are more likely to perform robustly across datasets or resist overfitting [@pmc:PMC2929880; @pmc:PMC3994246].
+This assumption has rarely been explicitly tested in genomics applications, but it has often been included in guidelines or rules of thumb for applied statistical modeling or machine learning in biology, e.g. [@doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961].
 
 In this study, we sought to test the robustness assumption directly by evaluating model generalization across biological contexts, inspired by previous work on domain adaptation and transfer learning in cancer transcriptomics [@doi:10.1038/s43018-020-00169-2; @doi:10.1038/s42256-021-00408-w; @doi:10.1073/pnas.2106682118].
 We used two large, heterogeneous public cancer datasets: The Cancer Genome Atlas (TCGA) for human tumor sample data [@doi:10.1038/ng.2764], and the Cancer Cell Line Encyclopedia (CCLE) for human cell line data [@doi:10.1038/s41586-019-1186-3].
@@ -306,7 +308,7 @@ For generalization from CCLE to TCGA, we observed a more pronounced upward shift
 To address the question of whether sparser or more parsimonious models tend to generalize better or not, we implemented two model selection schemes and compared them for the TCGA to CCLE and CCLE to TCGA mutation prediction problems (Figure {@fig:tcga_ccle_smallest_best}A).
 The "best" model selection scheme chooses the top-performing model (LASSO parameter) on the holdout dataset from the same source as the training data and applies it to the test data from the other data source.
 The intention of the "smallest good" model selection scheme is to balance parsimony with reasonable performance on the holdout data, since simply selecting the smallest possible model (generally, the dummy regressor/mean predictor) is not likely to generalize well.
-To accomplish this, we rely on a heuristic used by the `glmnet` R package for generalized linear models [@doi:10.18637/jss.v033.i01].
+To accomplish this, we rely on the "`lambda.1se" heuristic used in the `glmnet` R package for generalized linear models, as one of the default methods for parameter choice and model selection [@doi:10.18637/jss.v033.i01].
 We first identify models with performance within one standard error of the top-performing model on the holdout dataset.
 Then, from this subset of relatively well-performing models, we choose the smallest (i.e., strongest LASSO penalty) to apply to the test data.
 In both cases, we exclusively use the holdout data to select a model and only apply the model to out-of-dataset samples to evaluate generalization performance _after_ model selection.
@@ -399,6 +401,7 @@ For the 5-layer neural networks, the generalization results were similar to the 
 Using public cancer genomics and transcriptomics data from TCGA and CCLE, we studied generalization of mutation status classifiers for a wide variety of cancer driver genes.
 We designed experiments to evaluate generalization across biological contexts by holding out cancer types in TCGA, and to evaluate generalization across datasets by training models on TCGA and evaluating them on CCLE, and vice-versa.
 We found that, in general, smaller or more parsimonious models do not tend to generalize more effectively across cancer types or across datasets, and in the absence of prior knowledge about a prediction problem, simply choosing the model that performs the best on a holdout dataset is at least as effective for selecting models that generalize.
+Given that similar "smallest good" heuristics are used broadly across genomics studies (see, e.g. [@doi:10.1007/s00405-021-06717-5; @doi:10.1089/dna.2020.6193; @doi:10.1186/s12859-021-04503-y]), we expect these results to have implications on current practices.
 
 Our results were similar in both linear models (LASSO logistic regression) and non-linear deep neural networks when using hidden layer size as the regularization parameter of interest.
 In our non-linear model experiments, we did not observe better generalization across datasets for fully connected neural networks with fewer hidden layer nodes, and our preliminary results indicated a similar trend for dropout and weight decay.

@@ -21,6 +21,7 @@ Genomic
 GISTIC
 glioblastoma
 glioma
+glmnet
 GreeneScientist
 HRAS
 HTC
@@ -63,7 +64,7 @@ TCGA
 TCGA’s
 TGCT
 THCA
-Thresholded
+thresholded
 tradeoff
 transcriptomics
 tunable
