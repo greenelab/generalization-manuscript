@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2024-06-04'
+date-meta: '2024-07-23'
 author-meta:
 - Jake Crawford
 - Maria Chikina
@@ -21,11 +21,11 @@ header-includes: |
   <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="og:title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance" />
-  <meta name="dc.date" content="2024-06-04" />
-  <meta name="citation_publication_date" content="2024-06-04" />
-  <meta property="article:published_time" content="2024-06-04" />
-  <meta name="dc.modified" content="2024-06-04T16:35:52+00:00" />
-  <meta property="article:modified_time" content="2024-06-04T16:35:52+00:00" />
+  <meta name="dc.date" content="2024-07-23" />
+  <meta name="citation_publication_date" content="2024-07-23" />
+  <meta property="article:published_time" content="2024-07-23" />
+  <meta name="dc.modified" content="2024-07-23T14:05:17+00:00" />
+  <meta property="article:modified_time" content="2024-07-23T14:05:17+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -50,9 +50,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/456ec9605d274bc4e70b9b0202933079a258b496/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/456ec9605d274bc4e70b9b0202933079a258b496/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/456ec9605d274bc4e70b9b0202933079a258b496/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/ff622b0371d6892b91b482f810b38eca27ed8751/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/ff622b0371d6892b91b482f810b38eca27ed8751/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/ff622b0371d6892b91b482f810b38eca27ed8751/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -74,10 +74,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/456ec9605d274bc4e70b9b0202933079a258b496/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/ff622b0371d6892b91b482f810b38eca27ed8751/))
 was automatically generated
-from [greenelab/generalization-manuscript@456ec96](https://github.com/greenelab/generalization-manuscript/tree/456ec9605d274bc4e70b9b0202933079a258b496)
-on June 4, 2024.
+from [greenelab/generalization-manuscript@ff622b0](https://github.com/greenelab/generalization-manuscript/tree/ff622b0371d6892b91b482f810b38eca27ed8751)
+on July 23, 2024.
 </em></small>
 
 
@@ -262,6 +262,10 @@ We fixed the size of the second hidden layer to be half of the size of the first
 Our models were trained for 100 epochs of mini-batch stochastic gradient descent in PyTorch [@arxiv:1912.01703], using the Adam optimizer [@arxiv:1412.6980] and a fixed batch size of 50.
 To select the remaining hyperparameters for each hidden layer size, we performed a random search over 10 combinations, with a single train/test split stratified by cancer type, using the following hyperparameter ranges: learning rate {0.1, 0.01, 0.001, 5e-4, 1e-4}, dropout proportion {0.1, 0.5, 0.75}, weight decay (L2 penalty) {0, 0.1, 1, 10, 100}.
 We used the same train/cross-validation split strategy described above for one random seed and 4 cross-validation splits, generating 4 different performance measurements for each gene and hidden layer size.
+
+Although L1 regularization can be used to more directly induce model sparsity in convex settings, we note that using L1 regularization to control model complexity in neural networks is considerably more complex.
+Simply adding an additional loss term is not enough to achieve convergence to a sparse solution; the problem requires special optimizers and is the subject of ongoing research (see, e.g., [@url:https://dl.acm.org/doi/abs/10.5555/3540261.3542126]).
+For this reason, we focused on controlling NN model complexity via the size and number of hidden layers, as well as the other approaches described above.
 
 For the _EGFR_ gene, we also ran experiments where we varied the dropout proportion and the weight decay hyperparameter as the regularization axis, and selected the remaining hyperparameters (including the hidden layer size) using a random search.
 In these cases, we used a fixed range for dropout of {0.0, 0.05, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 0.95}, and a fixed range for weight decay of {0.0, 0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 10.0}.

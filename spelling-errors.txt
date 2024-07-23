@@ -37,12 +37,13 @@ mchikina
 multicollinearity
 NCI
 NGS
-nn
+NN
 nonlinearities
 NRAS
 omics
 oncogenic
 ontologies
+optimizers
 overfit
 overfitting
 PCA
@@ -75,4 +76,4 @@ underfitting
 Vogelstein
 wd
 Wilcoxon
-XGBoost
+xgboost
