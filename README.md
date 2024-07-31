@@ -1,4 +1,4 @@
-# Automated scholarly manuscripts on GitHub
+# Smaller models do not exhibit superior generalization performance
 
 <!-- usage note: edit the H1 title above to personalize the manuscript -->
 
@@ -10,8 +10,7 @@
 
 <!-- usage note: edit this section. -->
 
-This repository is a template manuscript (a.k.a. rootstock).
-Actual manuscript instances will clone this repository (see [`SETUP.md`](SETUP.md)) and replace this paragraph with a description of their manuscript.
+Existing guidelines in statistical modeling for genomics hold that simpler models have advantages over more complex ones. Potential advantages include cost, interpretability, and improved generalization across datasets or biological contexts. In cancer transcriptomics, this manifests as a preference for small “gene signatures”, or groups of genes whose expression is used to define cancer subtypes or suggest therapeutic interventions. To test the assumption that small gene signatures generalize better, we examined the generalization of mutation status prediction models across datasets (from cell lines to human tumors and vice-versa) and contexts (holding out entire cancer types from pan-cancer data). We compared two simple procedures for model selection, one that exclusively relies on cross-validation performance and one that combines cross-validation performance with regularization strength. We did not observe that more regularized signatures generalized better. This result held across multiple problems and both linear models (LASSO logistic regression) and non-linear ones (neural networks). When the goal of an analysis is to produce generalizable predictive models, we recommend choosing the ones that perform best on held-out data or in cross-validation, instead of those that are smaller or more regularized.
 
 ## Manubot
 
