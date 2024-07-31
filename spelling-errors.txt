@@ -2,7 +2,7 @@ AUPR
 bhfhgd
 biomarker
 BRAF
-CCLE
+ccle
 cgreene
 Chikina
 CNV
@@ -37,7 +37,7 @@ mchikina
 multicollinearity
 NCI
 NGS
-NN
+nn
 nonlinearities
 NRAS
 omics
@@ -61,7 +61,7 @@ RTX
 SARC
 SKCM
 subtypes
-TCGA
+tcga
 TCGA’s
 TGCT
 THCA
@@ -76,4 +76,4 @@ underfitting
 Vogelstein
 wd
 Wilcoxon
-xgboost
+XGBoost

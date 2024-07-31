@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2024-07-23'
+date-meta: '2024-07-31'
 author-meta:
 - Jake Crawford
 - Maria Chikina
@@ -21,11 +21,11 @@ header-includes: |
   <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="og:title" content="Smaller models do not exhibit superior generalization performance" />
   <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance" />
-  <meta name="dc.date" content="2024-07-23" />
-  <meta name="citation_publication_date" content="2024-07-23" />
-  <meta property="article:published_time" content="2024-07-23" />
-  <meta name="dc.modified" content="2024-07-23T14:05:17+00:00" />
-  <meta property="article:modified_time" content="2024-07-23T14:05:17+00:00" />
+  <meta name="dc.date" content="2024-07-31" />
+  <meta name="citation_publication_date" content="2024-07-31" />
+  <meta property="article:published_time" content="2024-07-31" />
+  <meta name="dc.modified" content="2024-07-31T14:24:08+00:00" />
+  <meta property="article:modified_time" content="2024-07-31T14:24:08+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -77,7 +77,7 @@ This manuscript
 ([permalink](https://greenelab.github.io/generalization-manuscript/v/ff622b0371d6892b91b482f810b38eca27ed8751/))
 was automatically generated
 from [greenelab/generalization-manuscript@ff622b0](https://github.com/greenelab/generalization-manuscript/tree/ff622b0371d6892b91b482f810b38eca27ed8751)
-on July 23, 2024.
+on July 31, 2024.
 </em></small>
 
 
