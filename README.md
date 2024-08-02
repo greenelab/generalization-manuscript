@@ -1,4 +1,4 @@
-# Smaller models do not exhibit superior generalization performance
+# Smaller transcriptomic models do not exhibit superior generalization performance
 
 <!-- usage note: edit the H1 title above to personalize the manuscript -->
 
