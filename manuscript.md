@@ -1,5 +1,5 @@
 ---
-title: Smaller models do not exhibit superior generalization performance
+title: Smaller transcriptomic models do not exhibit superior generalization performance
 keywords:
 - markdown
 - publishing
@@ -17,15 +17,15 @@ header-includes: |
   -->
   <meta name="dc.format" content="text/html" />
   <meta property="og:type" content="article" />
-  <meta name="dc.title" content="Smaller models do not exhibit superior generalization performance" />
-  <meta name="citation_title" content="Smaller models do not exhibit superior generalization performance" />
-  <meta property="og:title" content="Smaller models do not exhibit superior generalization performance" />
-  <meta property="twitter:title" content="Smaller models do not exhibit superior generalization performance" />
+  <meta name="dc.title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
+  <meta name="citation_title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
+  <meta property="og:title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
+  <meta property="twitter:title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
   <meta name="dc.date" content="2024-08-02" />
   <meta name="citation_publication_date" content="2024-08-02" />
   <meta property="article:published_time" content="2024-08-02" />
-  <meta name="dc.modified" content="2024-08-02T17:26:26+00:00" />
-  <meta property="article:modified_time" content="2024-08-02T17:26:26+00:00" />
+  <meta name="dc.modified" content="2024-08-02T17:36:09+00:00" />
+  <meta property="article:modified_time" content="2024-08-02T17:36:09+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -50,9 +50,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/918142f5bc420231c5864db45c493e80f63e4910/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/918142f5bc420231c5864db45c493e80f63e4910/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/918142f5bc420231c5864db45c493e80f63e4910/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/3b665ed76354b600636ccf4b8cac30e6873dcf34/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/3b665ed76354b600636ccf4b8cac30e6873dcf34/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/3b665ed76354b600636ccf4b8cac30e6873dcf34/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -74,9 +74,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/918142f5bc420231c5864db45c493e80f63e4910/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/3b665ed76354b600636ccf4b8cac30e6873dcf34/))
 was automatically generated
-from [greenelab/generalization-manuscript@918142f](https://github.com/greenelab/generalization-manuscript/tree/918142f5bc420231c5864db45c493e80f63e4910)
+from [greenelab/generalization-manuscript@3b665ed](https://github.com/greenelab/generalization-manuscript/tree/3b665ed76354b600636ccf4b8cac30e6873dcf34)
 on August 2, 2024.
 </em></small>
 
