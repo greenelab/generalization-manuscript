@@ -2,7 +2,7 @@ AUPR
 bhfhgd
 biomarker
 BRAF
-ccle
+CCLE
 cgreene
 Chikina
 CNV
@@ -37,7 +37,7 @@ mchikina
 multicollinearity
 NCI
 NGS
-nn
+NN
 nonlinearities
 NRAS
 omics
@@ -61,11 +61,11 @@ RTX
 SARC
 SKCM
 subtypes
-tcga
+TCGA
 TCGA’s
 TGCT
-THCA
-Thresholded
+thca
+thresholded
 tradeoff
 transcriptomics
 tunable

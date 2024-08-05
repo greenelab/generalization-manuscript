@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2024-08-02'
+date-meta: '2024-08-05'
 author-meta:
 - Jake Crawford
 - Maria Chikina
@@ -21,11 +21,11 @@ header-includes: |
   <meta name="citation_title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
   <meta property="og:title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
   <meta property="twitter:title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
-  <meta name="dc.date" content="2024-08-02" />
-  <meta name="citation_publication_date" content="2024-08-02" />
-  <meta property="article:published_time" content="2024-08-02" />
-  <meta name="dc.modified" content="2024-08-02T17:36:09+00:00" />
-  <meta property="article:modified_time" content="2024-08-02T17:36:09+00:00" />
+  <meta name="dc.date" content="2024-08-05" />
+  <meta name="citation_publication_date" content="2024-08-05" />
+  <meta property="article:published_time" content="2024-08-05" />
+  <meta name="dc.modified" content="2024-08-05T14:56:34+00:00" />
+  <meta property="article:modified_time" content="2024-08-05T14:56:34+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -77,7 +77,7 @@ This manuscript
 ([permalink](https://greenelab.github.io/generalization-manuscript/v/3b665ed76354b600636ccf4b8cac30e6873dcf34/))
 was automatically generated
 from [greenelab/generalization-manuscript@3b665ed](https://github.com/greenelab/generalization-manuscript/tree/3b665ed76354b600636ccf4b8cac30e6873dcf34)
-on August 2, 2024.
+on August 5, 2024.
 </em></small>
 
 
