@@ -1,11 +1,11 @@
 ---
-title: Smaller transcriptomic models do not exhibit superior generalization performance
+title: Best holdout assessment is sufficient for cancer transcriptomic model selection
 keywords:
 - markdown
 - publishing
 - manubot
 lang: en-US
-date-meta: '2024-08-05'
+date-meta: '2024-09-09'
 author-meta:
 - Jake Crawford
 - Maria Chikina
@@ -17,15 +17,15 @@ header-includes: |
   -->
   <meta name="dc.format" content="text/html" />
   <meta property="og:type" content="article" />
-  <meta name="dc.title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
-  <meta name="citation_title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
-  <meta property="og:title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
-  <meta property="twitter:title" content="Smaller transcriptomic models do not exhibit superior generalization performance" />
-  <meta name="dc.date" content="2024-08-05" />
-  <meta name="citation_publication_date" content="2024-08-05" />
-  <meta property="article:published_time" content="2024-08-05" />
-  <meta name="dc.modified" content="2024-08-05T14:56:34+00:00" />
-  <meta property="article:modified_time" content="2024-08-05T14:56:34+00:00" />
+  <meta name="dc.title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
+  <meta name="citation_title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
+  <meta property="og:title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
+  <meta property="twitter:title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
+  <meta name="dc.date" content="2024-09-09" />
+  <meta name="citation_publication_date" content="2024-09-09" />
+  <meta property="article:published_time" content="2024-09-09" />
+  <meta name="dc.modified" content="2024-09-09T23:08:37+00:00" />
+  <meta property="article:modified_time" content="2024-09-09T23:08:37+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -50,9 +50,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/3b665ed76354b600636ccf4b8cac30e6873dcf34/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/3b665ed76354b600636ccf4b8cac30e6873dcf34/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/3b665ed76354b600636ccf4b8cac30e6873dcf34/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/a8303ac4ae8d758f49be984d62e9a51a02f2a31e/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/a8303ac4ae8d758f49be984d62e9a51a02f2a31e/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/a8303ac4ae8d758f49be984d62e9a51a02f2a31e/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -74,10 +74,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/3b665ed76354b600636ccf4b8cac30e6873dcf34/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/a8303ac4ae8d758f49be984d62e9a51a02f2a31e/))
 was automatically generated
-from [greenelab/generalization-manuscript@3b665ed](https://github.com/greenelab/generalization-manuscript/tree/3b665ed76354b600636ccf4b8cac30e6873dcf34)
-on August 5, 2024.
+from [greenelab/generalization-manuscript@a8303ac](https://github.com/greenelab/generalization-manuscript/tree/a8303ac4ae8d758f49be984d62e9a51a02f2a31e)
+on September 9, 2024.
 </em></small>
 
 
@@ -160,7 +160,7 @@ Clinically, there are many reasons why a smaller gene signature may be preferabl
 
 Behind much of this work, there is an underlying assumption that smaller gene signatures tend to be more robust: that for a new patient or in a new biological context, a smaller gene set or more parsimonious model will be more likely to maintain its predictive performance than a larger one.
 Similar ideas are described in the statistics literature, suggesting that simpler models with performance that is comparable to the best model are more likely to perform robustly across datasets or resist overfitting [@pmc:PMC2929880; @pmc:PMC3994246].
-This assumption has rarely been explicitly tested in genomics applications, but it has often been included in guidelines or rules of thumb for applied statistical modeling or machine learning in biology, e.g. [@doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961].
+Although these assumptions have rarely been formally stated or systematically tested in genomics applications, they are often included in guidelines or rules of thumb for applied statistical modeling or machine learning in biology, e.g. [@doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961].
 
 In this study, we sought to test the robustness assumption directly by evaluating model generalization across biological contexts, inspired by previous work on domain adaptation and transfer learning in cancer transcriptomics [@doi:10.1038/s43018-020-00169-2; @doi:10.1038/s42256-021-00408-w; @doi:10.1073/pnas.2106682118].
 We used two large, heterogeneous public cancer datasets: The Cancer Genome Atlas (TCGA) for human tumor sample data [@doi:10.1038/ng.2764], and the Cancer Cell Line Encyclopedia (CCLE) for human cell line data [@doi:10.1038/s41586-019-1186-3].
@@ -276,7 +276,7 @@ All neural network analyses were performed on a Ubuntu 18.04 machine with a NVID
 ### Evaluating model generalization using public cancer data
 
 We collected data from the TCGA Pan-Cancer Atlas and the Cancer Cell Line Encyclopedia to predict the presence or absence of mutations in cancer genes, as a benchmark of cancer-related information content across cancer types and contexts.
-We trained mutation status classifiers across approximately 70 genes involved in cancer development and progression from Vogelstein et al. 2013 [@doi:10.1126/science.1235122], using LASSO logistic regression with gene expression (RNA-seq) values as predictive features.
+We trained mutation status classifiers across approximately 70 genes involved in cancer development and progression from Vogelstein et al. 2013 [@doi:10.1126/science.1235122], using LASSO logistic regression with gene expression (RNA-seq) values as predictive features, and integrating point mutation and copy number data to label each sample as mutated or not mutated in the target gene (Supplementary Note [S1](#supplementary-note-s1)).
 We fit each classifier across a variety of regularization parameters, resulting in models with a variety of different sparsity levels between the extremes of 0 nonzero features and all features included (Supplementary Figure {@fig:average_sparsity}).
 Inspired by the generalization experiments across tissues and model systems in [@doi:10.1038/s43018-020-00169-2], we designed experiments to evaluate the generalization of mutation status classifiers across datasets (TCGA to CCLE and CCLE to TCGA) and across biological contexts (cancer types) within TCGA, relative to a within-dataset baseline (Figure {@fig:overview}).
 
@@ -312,10 +312,13 @@ For generalization from CCLE to TCGA, we observed a more pronounced upward shift
 To address the question of whether sparser or more parsimonious models tend to generalize better or not, we implemented two model selection schemes and compared them for the TCGA to CCLE and CCLE to TCGA mutation prediction problems (Figure {@fig:tcga_ccle_smallest_best}A).
 The "best" model selection scheme chooses the top-performing model (LASSO parameter) on the holdout dataset from the same source as the training data and applies it to the test data from the other data source.
 The intention of the "smallest good" model selection scheme is to balance parsimony with reasonable performance on the holdout data, since simply selecting the smallest possible model (generally, the dummy regressor/mean predictor) is not likely to generalize well.
-To accomplish this, we rely on the "`lambda.1se" heuristic used in the `glmnet` R package for generalized linear models, as one of the default methods for parameter choice and model selection [@doi:10.18637/jss.v033.i01].
+
+To accomplish this, we rely on the "`lambda.1se`" heuristic used in the `glmnet` R package for generalized linear models, which is one of the default methods for parameter choice and model selection [@doi:10.18637/jss.v033.i01].
 We first identify models with performance within one standard error of the top-performing model on the holdout dataset.
 Then, from this subset of relatively well-performing models, we choose the smallest (i.e., strongest LASSO penalty) to apply to the test data.
 In both cases, we exclusively use the holdout data to select a model and only apply the model to out-of-dataset samples to evaluate generalization performance _after_ model selection.
+Applying these criteria to both the TCGA to CCLE and CCLE to TCGA prediction problems, we saw that model sizes (number of nonzero gene expression features) tended to differ by approximately an order of magnitude between model selection approaches, with medians on the order of 100 nonzero features for the "best" models and on the order of 10 nonzero features for the "smallest good" models (Supplementary Figure {@fig:best_smallest_features}).
+Still, there was considerable variation between target genes, and some best-performing models included substantially more features than the median, including classifiers we have previously observed to perform well such as _TP53_, _PTEN_, and _SETD2_.
 
 For TCGA to CCLE generalization, 37/71 genes (52.1%) had better performance for the "best" model, and 24/71 genes (33.8%) had better generalization performance with the "smallest good" model.
 The other 10 genes had the same "best" and "smallest good" model: in other words, the "smallest good" model was also the best-performing overall, so the performance difference between the two was exactly 0 (Figure {@fig:tcga_ccle_smallest_best}B).
@@ -376,7 +379,7 @@ For _EGFR_ mutation status prediction, we saw that performance for small hidden 
 On average, over all 71 genes from Vogelstein et al., performance on both held-out TCGA data and CCLE data tends to increase until a hidden layer size of 10-50, then flatten (Figure {@fig:tcga_ccle_nn}B).
 To explore additional approaches to neural network regularization, we also tried varying dropout and weight decay for _EGFR_ and _KRAS_ mutation status classification while holding the hidden layer size constant.
 Results followed a similar trend, with generalization performance generally tracking performance on holdout data (Supplementary Figure {@fig:nn_dropout_wd}).
-We also preprocessed the input gene expression features using PCA, and varied the number of PCA features retained as input to the neural network; for _EGFR_ the best generalization performance and holdout performance both occurred at 1000 PCs, but for _KRAS_ the model generalized better to cell line data for fewer PCs than its peak holdout performance (Supplementary Figure {@fig:nn_dropout_wd}).
+We also preprocessed the input gene expression features using PCA, and varied the number of PCA features retained as input to the neural network; for _EGFR_ the best generalization performance and holdout performance both occurred at 1000 PCs, but for _KRAS_ the model generalized better to cell line data for fewer PCs than its peak holdout performance (Supplementary Figure {@fig:nn_pca}).
 
 It can be challenging to measure which hidden layer sizes tended to perform relatively well or poorly across classifiers, since different genes may have different baseline performance AUPR values and overall classifier effect sizes.
 In order to summarize across genes, for each gene, we ranked the range of hidden layer sizes by the corresponding models' generalization performance on CCLE (Figure {@fig:tcga_ccle_nn}C).
@@ -433,7 +436,8 @@ Overall, however, we believe the size and tissue representation of TCGA and CCLE
 ## Conclusion
 
 Without directly evaluating model generalization, it is tempting to assume that simpler models will generalize better than more complex models.
-Previous studies and sets of guidelines suggest this rule of thumb [@doi:10.1214/088342306000000060; @doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961], and existing model selection approaches sometimes incorporate information-theoretic or other explicit criteria to encourage simpler models that do not fit the data as closely.
+Studies in the statistics and machine learning literature suggest this rule of thumb [@doi:10.1214/088342306000000060; @doi:10/bhfhgd; @doi:10.4137/CIN.S408; @doi:10.1371/journal.pcbi.1004961], and model selection approaches sometimes incorporate criteria to encourage simpler models that do not fit the data as closely.
+These ideas have taken root in genomics, although they are less commonly stated formally or studied systematically [@doi:10.1007/s00405-021-06717-5; @doi:10.1089/dna.2020.6193; @doi:10.1186/s12859-021-04503-y].
 However, we do not observe strong evidence that simpler models inherently generalize more effectively than more complex ones.
 There may be other reasons to train small models or to look for the best model of a certain size/sparsity, such as biomarker interpretability or assay cost.
 Our results underscore the importance of defining clear goals for each analysis.
@@ -467,19 +471,71 @@ During manuscript revision, J.C. was employed at Repare Therapeutics.
 
 ## Supplementary Material {.page_break_before}
 
-![Number of nonzero coefficients (model sparsity) across varying regularization parameters, for 71 genes (TCGA to CCLE prediction, top) and 70 genes (CCLE to TCGA prediction, bottom) in the Vogelstein et al. dataset.](images/supp_figure_1.png){#fig:average_sparsity tag="S1" width="100%"}
+### Supplementary Note S1
 
-![Value of norm of coefficient vector vs. performance, for EGFR mutation status prediction from TCGA to CCLE. The _x_-axis shows the value of each norm for each model, binned into quantiles in order to plot results on the same axis since each norm has a different scale.](images/supp_figure_2.png){#fig:norms_vs_perf tag="S2" width="100%"}
+We were interested in exploring the extent to which excluding the target gene’s expression profile from the input features affects performance, if at all.
+Additionally, since our labels include both point mutations and copy number changes, we sought to determine whether the answer to this question depends on the inclusion of copy number changes in the label set for a particular gene.
+To test this across driver genes, we calculated the contribution of single nucleotide variant (SNV) and copy number variant (CNV) changes to each gene’s positively labeled sample set, and picked ten genes where CNV changes make up a relatively large proportion of positive labels, and ten genes where CNV changes make up a small proportion of positive labels.
+Genes where positive labels commonly result from CNV changes are as follows:
 
-![Distributions of performance difference between cross-validation data (same cancer types as training data) and holdout data (cancer types not represented in data), grouped by held-out gene. Each point shows performance for a single train/validation split for one cancer type that was held out, using a classifier trained to predict mutations in the given gene.](images/supp_figure_3.png){#fig:average_perf_by_gene tag="S3" width="100%" .page_break_before}
+| *Gene* | *SNV sample count* | *SNV + CNV count* | *SNV / (SNV + CNV) ratio*|
+|:-------|:-------------------|:------------------|:-------------------------|
+| BAP1 | 105 | 146 | 0.719 |
+| CDKN2A | 288 | 1308 | 0.220 |
+| EGFR | 192 | 444 | 0.432 |
+| ERBB2 | 129 | 440 | 0.293 |
+| GNAS | 99 | 266 | 0.372 |
+| KDM6A | 163 | 295 | 0.553 |
+| PDGFRA | 131 | 235 | 0.557 |
+| PTEN | 584 | 985 | 0.593 |
+| RB1 | 259 | 522 | 0.496 |
+| SMAD4 | 131 | 289 | 0.453 |
 
-![Top row: Distribution of performance differences when thyroid cancer (THCA) data is held out from training set across seeds/folds, grouped by gene. Bottom row: Distributions of performance differences for genes where THCA is included in training/holdout sets, relative to other cancer types that are included.](images/supp_figure_4.png){#fig:thca_by_gene tag="S4" width="100%" .page_break_before}
+And genes where samples are rarely positively labeled based on CNV changes:
 
-![Performance vs. dropout parameter (first column) and weight decay strength (second column), for EGFR mutation prediction (first row) and KRAS mutation prediction (second row) using a 3-layer fully connected neural network trained on TCGA (blue/orange) and evaluated on CCLE (green).](images/supp_figure_5.png){#fig:nn_dropout_wd tag="S5" width="100%" .page_break_before}
+| *Gene* | *SNV sample count* | *SNV + CNV count* | *SNV / (SNV + CNV) ratio*|
+|:-------|:-------------------|:------------------|:-------------------------|
+| ARID1A | 588 | 629 | 0.934 |
+| ATRX | 455 | 508 | 0.896 |
+| BRAF | 569 | 605 | 0.940 |
+| CTNNB1 | 297 | 304 | 0.977 |
+| EP300 | 256 | 265 | 0.966 |
+| IDH1 | 414 | 415 | 0.997 |
+| NRAS | 169 | 170 | 0.994 |
+| RNF43 | 152 | 157 | 0.968 |
+| SETD2 | 252 | 279 | 0.903 |
+| TP53 | 3305 | 3372 | 0.980 |
 
-![Performance vs. number of gene expression principal components, used as input to a 3-layer fully connected neural network trained on TCGA (blue/orange) and evaluated on CCLE (green), for EGFR and KRAS mutation status prediction.](images/supp_figure_6.png){#fig:nn_pca tag="S6" width="100%" .page_break_before}
+We also considered baseline model performance in the choice of these gene sets.
+If a gene has a very low or very high SNV / (SNV + CNV) ratio but the associated classifier generally performs poorly, we wouldn’t expect to observe a performance change, regardless of the input features.
+For this experiment, the 20 genes we selected all had a reasonably high performance baseline, to maximize our ability to observe changes if they occur.
 
-![Performance across regularization parameter values for XGBoost mutation status classification, for generalization from TCGA to CCLE. Top row shows performance for EGFR across varying values of `num_estimators` and `max_depth` (Panel A), and for `max_depth=8` across a range of `num_estimators` (Panel B). Panel C summarizes the distribution of performance comparisons between "best" vs. "smallest good" `num_estimators` (33/71 genes best > smallest good, 17/71 smallest good > best, 20/71 best = smallest good).](images/supp_figure_7.png){#fig:xgboost_perf tag="S7" width="100%" .page_break_before}
+We visualized the mean difference in performance for the best-performing and "smallest good" models (LASSO parameters) with the “control” set of features, as compared to the best-performing and "smallest good" models with the “drop target” set of features (all of the gene expression features except the target gene), shown in Figure {@fig:supp_note}.
+In general, we do observe that performance tends to be better for the “control” models, although there are some exceptions (EGFR, ERBB2, PDGFRA, PTEN, EP300) where the “drop target” model actually performs slightly better. We do observe that there are some genes (BAP1, CDKN2A, KDM6A, RB1, ARID1A, ATRX) where performance decreases considerably when the target gene is not present in the feature set.
+For both the "best" and "smallest good" model selection approaches, this effect is slightly more consistent in the “frequent CNV” gene set than in the “rare CNV” gene set (mean control - drop target difference of 0.021/0.019 in the “frequent CNV” genes as compared to 0.009/0.004 in the “rare CNV” genes), but in both cases there is considerable variance between genes.
 
-![Summary of performance for TCGA to CCLE generalization using 5-layer fully connected neural network, similar to results shown in Figure 5 for 3-layer network. All experiments used expression of top 8000 genes by mean absolute deviation, for computational reasons. In the "best" vs. "smallest good" analysis, 27/71 genes had better performance for the best model, and 17/71 had better performance for the smallest good model, with 26/71 genes where the best and smallest good models were equal.](images/supp_figure_8.png){#fig:deep_nn_perf tag="S8" width="100%" .page_break_before}
+Based on these results, given the observation that the mean difference in model performance is fairly small in both "frequent CNV" and "rare CNV" cases, and for both model selection approaches, we conclude that combining point mutation and CNV data and including the target gene in the feature set are reasonable general rules for our pan-cancer and pan-gene study.
+In general, our focus is less on individual prediction performance and more on model complexity, which is another degree removed from the individual prediction performance.
+In addition, including the target gene would seem most likely to increase the benefit of smaller models, as the single-gene could be considered particularly information rich.
+While these results don't seem to heavily influence our experiment examining generality, the exceptions we noted above emphasize the importance of considering the biological context in applications to specific driver genes or prediction problems.
+
+![Bar plot showing difference in performance (AUPR) between models including and excluding the target gene, for genes where CNV changes are (top) and are not (bottom) frequently included in the label set, colored by model selection approach. Positive values represent better performance for the “control” model, and negative values better performance for the “drop target” model.](images/supp_figure_1.png){#fig:supp_note tag="S1" width="100%"}
+
+![Number of nonzero coefficients (model sparsity) across varying regularization parameters, for 71 genes (TCGA to CCLE prediction, top) and 70 genes (CCLE to TCGA prediction, bottom) in the Vogelstein et al. dataset.](images/supp_figure_2.png){#fig:average_sparsity tag="S2" width="100%" .page_break_before}
+
+![Value of norm of coefficient vector vs. performance, for EGFR mutation status prediction from TCGA to CCLE. The _x_-axis shows the value of each norm for each model, binned into quantiles in order to plot results on the same axis since each norm has a different scale.](images/supp_figure_3.png){#fig:norms_vs_perf tag="S3" width="100%"}
+
+![Distributions of number of features selected by the "best" and "smallest good" models, across seeds and folds, for TCGA to CCLE (top) and CCLE to TCGA (bottom) mutation prediction. Dotted lines show the median number of features for the best (blue) and smallest good (orange) numbers across genes: TCGA to CCLE - median of 144 features for the “best” approach and 17 features for the “smallest good” approach; CCLE to TCGA - median of 80 features for the “best” approach and 26 features for the “smallest good” approach.](images/supp_figure_4.png){#fig:best_smallest_features tag="S4" width="100%" .page_break_before}
+
+![Distributions of performance difference between cross-validation data (same cancer types as training data) and holdout data (cancer types not represented in data), grouped by held-out gene. Each point shows performance for a single train/validation split for one cancer type that was held out, using a classifier trained to predict mutations in the given gene.](images/supp_figure_5.png){#fig:average_perf_by_gene tag="S5" width="100%" .page_break_before}
+
+![Top row: Distribution of performance differences when thyroid cancer (THCA) data is held out from training set across seeds/folds, grouped by gene. Bottom row: Distributions of performance differences for genes where THCA is included in training/holdout sets, relative to other cancer types that are included.](images/supp_figure_6.png){#fig:thca_by_gene tag="S6" width="100%" .page_break_before}
+
+![Performance vs. dropout parameter (first column) and weight decay strength (second column), for EGFR mutation prediction (first row) and KRAS mutation prediction (second row) using a 3-layer fully connected neural network trained on TCGA (blue/orange) and evaluated on CCLE (green).](images/supp_figure_7.png){#fig:nn_dropout_wd tag="S7" width="100%" .page_break_before}
+
+![Performance vs. number of gene expression principal components, used as input to a 3-layer fully connected neural network trained on TCGA (blue/orange) and evaluated on CCLE (green), for EGFR and KRAS mutation status prediction.](images/supp_figure_8.png){#fig:nn_pca tag="S8" width="100%" .page_break_before}
+
+![Performance across regularization parameter values for XGBoost mutation status classification, for generalization from TCGA to CCLE. Top row shows performance for EGFR across varying values of `num_estimators` and `max_depth` (Panel A), and for `max_depth=8` across a range of `num_estimators` (Panel B). Panel C summarizes the distribution of performance comparisons between "best" vs. "smallest good" `num_estimators` (33/71 genes best > smallest good, 17/71 smallest good > best, 20/71 best = smallest good).](images/supp_figure_9.png){#fig:xgboost_perf tag="S9" width="100%" .page_break_before}
+
+![Summary of performance for TCGA to CCLE generalization using 5-layer fully connected neural network, analogous to results shown in Figure 5 for 3-layer network. All experiments used expression of top 8000 genes by mean absolute deviation, for computational reasons. In the "best" vs. "smallest good" analysis, 27/71 genes had better performance for the best model, and 17/71 had better performance for the smallest good model, with 26/71 genes where the best and smallest good models were equal.](images/supp_figure_10.png){#fig:deep_nn_perf tag="S10" width="100%" .page_break_before}
 

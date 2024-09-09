@@ -6682,11 +6682,11 @@
     "title": "The Cancer Genome Atlas Pan-Cancer analysis project",
     "volume": "45",
     "author": [
+      {},
       {
         "given": "John N",
         "family": "Weinstein"
       },
-      {},
       {
         "given": "Eric A",
         "family": "Collisson"
@@ -8189,6 +8189,7 @@
     "publisher": "WORLD SCIENTIFIC",
     "DOI": "10.1142/9789811215636_0031",
     "type": "paper-conference",
+    "page": "343-354",
     "source": "Crossref",
     "title": "Using Transcriptional Signatures to Find Cancer Drivers with LURE",
     "author": [
@@ -8958,8 +8959,8 @@
       "date-parts": [
         [
           2024,
-          7,
-          31
+          9,
+          9
         ]
       ]
     },
@@ -9005,8 +9006,8 @@
       "date-parts": [
         [
           2024,
-          7,
-          31
+          9,
+          9
         ]
       ]
     },
@@ -9080,8 +9081,8 @@
       "date-parts": [
         [
           "2024",
-          8,
-          5
+          9,
+          9
         ]
       ]
     },
@@ -9128,8 +9129,8 @@
       "date-parts": [
         [
           "2024",
-          8,
-          5
+          9,
+          9
         ]
       ]
     },
@@ -9228,8 +9229,8 @@
       "date-parts": [
         [
           "2024",
-          8,
-          5
+          9,
+          9
         ]
       ]
     },
@@ -9281,8 +9282,8 @@
       "date-parts": [
         [
           "2024",
-          8,
-          5
+          9,
+          9
         ]
       ]
     },
