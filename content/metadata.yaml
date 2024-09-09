@@ -1,5 +1,5 @@
 ---
-title: "Smaller transcriptomic models do not exhibit superior generalization performance"
+title: "Best holdout assessment is sufficient for cancer transcriptomic model selection"
 date: null
 keywords:
   - markdown
