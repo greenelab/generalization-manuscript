@@ -18,5 +18,36 @@
       "family": "Himmelstein"
     }
   ]
+},
+{
+    "publisher": "Proceedings of the 35th International Conference on Neural Information Processing Systems",
+    "type": "article-journal",
+    "URL": "https://dl.acm.org/doi/abs/10.5555/3540261.3542126",
+    "page": "24365-24378",
+    "id": "adaptive-gradient",
+    "title": "Adaptive proximal gradient methods for structured neural networks",
+    "author": [
+      {
+        "given": "Jihun",
+        "family": "Yun"
+      },
+      {
+        "given": "Aurelie C.",
+        "family": "Lozano"
+      },
+      {
+        "given": "Eunho",
+        "family": "Yang"
+      }
+    ],
+    "language": "en",
+    "issued": {
+      "date-parts": [
+        [
+          2021,
+          12
+        ]
+      ]
+    }
 }
 ]
