@@ -1,7 +1,7 @@
 ATRX
 AUPR
 BRAF
-CCLE
+ccle
 CDKN
 cgreene
 Chikina
@@ -52,7 +52,7 @@ ontologies
 optimizers
 overfit
 overfitting
-pca
+PCA
 PDGFRA
 perf
 PIK
@@ -73,7 +73,7 @@ SKCM
 SMAD
 SNV
 subtypes
-TCGA
+tcga
 TCGA’s
 TGCT
 THCA
@@ -90,5 +90,5 @@ underfitting
 Vogelstein
 wd
 Wilcoxon
-xgboost
+XGBoost
 Zenodo
