@@ -1,15 +1,14 @@
 ATRX
 AUPR
-bhfhgd
-biomarker
 BRAF
-ccle
+CCLE
 CDKN
 cgreene
 Chikina
 CNV
 colorectal
 covariate
+CSG
 CTNNB
 dataset
 datasets
@@ -36,6 +35,7 @@ hyperparameter
 hyperparameters
 IDH
 interpretability
+JC
 jjc
 KDM
 KRAS
@@ -77,9 +77,10 @@ TCGA
 TCGA’s
 TGCT
 THCA
-thresholded
+Thresholded
 TP
 tradeoff
+transcriptomic
 transcriptomics
 tunable
 tyrosine
@@ -90,3 +91,4 @@ Vogelstein
 wd
 Wilcoxon
 xgboost
+Zenodo
