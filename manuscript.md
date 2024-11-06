@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2024-11-04'
+date-meta: '2024-11-06'
 author-meta:
 - Jake Crawford
 - Maria Chikina
@@ -21,11 +21,11 @@ header-includes: |
   <meta name="citation_title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
   <meta property="og:title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
   <meta property="twitter:title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
-  <meta name="dc.date" content="2024-11-04" />
-  <meta name="citation_publication_date" content="2024-11-04" />
-  <meta property="article:published_time" content="2024-11-04" />
-  <meta name="dc.modified" content="2024-11-04T16:56:48+00:00" />
-  <meta property="article:modified_time" content="2024-11-04T16:56:48+00:00" />
+  <meta name="dc.date" content="2024-11-06" />
+  <meta name="citation_publication_date" content="2024-11-06" />
+  <meta property="article:published_time" content="2024-11-06" />
+  <meta name="dc.modified" content="2024-11-06T21:53:54+00:00" />
+  <meta property="article:modified_time" content="2024-11-06T21:53:54+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -50,9 +50,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/99a154a1897a117561fabea8de1f9479dcd3c5de/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/99a154a1897a117561fabea8de1f9479dcd3c5de/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/99a154a1897a117561fabea8de1f9479dcd3c5de/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -74,10 +74,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/99a154a1897a117561fabea8de1f9479dcd3c5de/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854/))
 was automatically generated
-from [greenelab/generalization-manuscript@99a154a](https://github.com/greenelab/generalization-manuscript/tree/99a154a1897a117561fabea8de1f9479dcd3c5de)
-on November 4, 2024.
+from [greenelab/generalization-manuscript@c0ebf01](https://github.com/greenelab/generalization-manuscript/tree/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854)
+on November 6, 2024.
 </em></small>
 
 
@@ -153,12 +153,11 @@ If the goal is to achieve robust performance across contexts or datasets, whenev
 
 Guidelines in statistical modeling for genomics hold that simpler models have advantages over more complex ones.
 Potential advantages include cost, interpretability, and improved generalization across datasets or biological contexts.
-Gene signatures in cancer transcriptomics tend to include small subsets of genes for these reasons, and algorithms for defining signatures are often designed with these ideas in mind.
-To directly test the latter assumption, that small gene signatures generalize better, we examined the generalization of mutation status prediction models across datasets (from cell lines to human tumors and vice-versa) and biological contexts (holding out entire cancer types from pan-cancer data).
-We compared two simple procedures for model selection, one that exclusively relies on cross-validation performance and one that combines cross-validation performance with regularization strength.
+We directly tested the assumption that small gene signatures generalize better by examining the generalization of mutation status prediction models across datasets (from cell lines to human tumors and vice-versa) and biological contexts (holding out entire cancer types from pan-cancer data).
+We compared model selection between solely cross-validation performance and combining cross-validation performance with regularization strength.
 We did not observe that more regularized signatures generalized better.
 This result held across both generalization problems and for both linear models (LASSO logistic regression) and non-linear ones (neural networks).
-When the goal of an analysis is to produce generalizable predictive models, we recommend choosing the ones that perform best on held-out data or in cross-validation, instead of those that are smaller or more regularized.
+When the goal of an analysis is to produce generalizable predictive models, we recommend choosing the ones that perform best on held-out data or in cross-validation instead of those that are smaller or more regularized.
 
 
 

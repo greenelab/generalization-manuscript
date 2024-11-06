@@ -73,10 +73,10 @@ SKCM
 SMAD
 SNV
 subtypes
-tcga
+TCGA
 TCGA’s
 TGCT
-THCA
+thca
 Thresholded
 TP
 tradeoff

@@ -7,9 +7,8 @@ content/01.abstract.md:8:datasets
 content/01.abstract.md:13:transcriptomics
 content/01.abstract.md:20:datasets
 content/01.abstract.md:20:interpretability
-content/01.abstract.md:21:transcriptomics
-content/01.abstract.md:22:datasets
-content/01.abstract.md:26:generalizable
+content/01.abstract.md:21:datasets
+content/01.abstract.md:25:generalizable
 content/02.main-text.md:3:datasets
 content/02.main-text.md:4:datasets
 content/02.main-text.md:4:multicollinearity
