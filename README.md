@@ -1,7 +1,7 @@
 # Output directory containing the formatted manuscript
 
 The [`gh-pages`](https://github.com/greenelab/generalization-manuscript/tree/gh-pages) branch hosts the contents of this directory at <https://greenelab.github.io/generalization-manuscript/>.
-The permalink for this webpage version is <https://greenelab.github.io/generalization-manuscript/v/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854/>.
+The permalink for this webpage version is <https://greenelab.github.io/generalization-manuscript/v/fda2f2c905d91da32ea8a5399cfec26c0802d756/>.
 To redirect to the permalink for the latest manuscript version at anytime, use the link <https://greenelab.github.io/generalization-manuscript/v/freeze/>.
 
 ## Files
@@ -35,4 +35,4 @@ Verifying timestamps with the `ots verify` command requires running a local bitc
 ## Source
 
 The manuscripts in this directory were built from
-[`c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854`](https://github.com/greenelab/generalization-manuscript/commit/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854).
+[`fda2f2c905d91da32ea8a5399cfec26c0802d756`](https://github.com/greenelab/generalization-manuscript/commit/fda2f2c905d91da32ea8a5399cfec26c0802d756).
