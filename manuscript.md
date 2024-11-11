@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2024-11-06'
+date-meta: '2024-11-11'
 author-meta:
 - Jake Crawford
 - Maria Chikina
@@ -21,11 +21,11 @@ header-includes: |
   <meta name="citation_title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
   <meta property="og:title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
   <meta property="twitter:title" content="Best holdout assessment is sufficient for cancer transcriptomic model selection" />
-  <meta name="dc.date" content="2024-11-06" />
-  <meta name="citation_publication_date" content="2024-11-06" />
-  <meta property="article:published_time" content="2024-11-06" />
-  <meta name="dc.modified" content="2024-11-06T21:53:54+00:00" />
-  <meta property="article:modified_time" content="2024-11-06T21:53:54+00:00" />
+  <meta name="dc.date" content="2024-11-11" />
+  <meta name="citation_publication_date" content="2024-11-11" />
+  <meta property="article:published_time" content="2024-11-11" />
+  <meta name="dc.modified" content="2024-11-11T20:10:02+00:00" />
+  <meta property="article:modified_time" content="2024-11-11T20:10:02+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -50,9 +50,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://greenelab.github.io/generalization-manuscript/" />
   <meta name="citation_pdf_url" content="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://greenelab.github.io/generalization-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854/" />
-  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854/" />
-  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://greenelab.github.io/generalization-manuscript/v/fda2f2c905d91da32ea8a5399cfec26c0802d756/" />
+  <meta name="manubot_html_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/fda2f2c905d91da32ea8a5399cfec26c0802d756/" />
+  <meta name="manubot_pdf_url_versioned" content="https://greenelab.github.io/generalization-manuscript/v/fda2f2c905d91da32ea8a5399cfec26c0802d756/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -74,10 +74,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/generalization-manuscript/v/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854/))
+([permalink](https://greenelab.github.io/generalization-manuscript/v/fda2f2c905d91da32ea8a5399cfec26c0802d756/))
 was automatically generated
-from [greenelab/generalization-manuscript@c0ebf01](https://github.com/greenelab/generalization-manuscript/tree/c0ebf01db0fb66f8c98c5bc5b1c2a61efaf03854)
-on November 6, 2024.
+from [greenelab/generalization-manuscript@fda2f2c](https://github.com/greenelab/generalization-manuscript/tree/fda2f2c905d91da32ea8a5399cfec26c0802d756)
+on November 11, 2024.
 </em></small>
 
 
@@ -443,7 +443,7 @@ This manuscript was written using Manubot [@doi:10.1371/journal.pcbi.1007128] an
 
 ## Acknowledgments
 
-This research was supported in part by grants from the National Institutes of Health (R01 CA237170 and R01 HG010067).
+This research was supported in part by grants from the National Institutes of Health (R01 CA237170, R01 HD109765, and R01 HG010067).
 This research was supported in part by the University of Pittsburgh Center for Research Computing through the resources provided. Specifically, this work used the HTC cluster, which is supported by NIH award number S10OD028483.
 
 ## Author Contributions

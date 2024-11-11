@@ -27,6 +27,7 @@ glioblastoma
 glioma
 GNAS
 GreeneScientist
+HD
 HRAS
 HTC
 hypermutated
@@ -43,7 +44,7 @@ mchikina
 multicollinearity
 NCI
 NGS
-nn
+NN
 nonlinearities
 NRAS
 omics
@@ -73,10 +74,10 @@ SKCM
 SMAD
 SNV
 subtypes
-TCGA
+tcga
 TCGA’s
 TGCT
-thca
+THCA
 Thresholded
 TP
 tradeoff
